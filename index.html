@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ZOOQE — Premium Taste. Distinctly ZOOQE. | Kerala Pickles & Spices</title>
+  <meta name="description" content="ZOOQE is a premium Kerala food brand specializing exclusively in authentic handcrafted Pickles (Mango, Lemon, Fish, Beef, Garlic) and single-origin Malabar Spices (Black Pepper, Cardamom)." />
+  <meta name="keywords" content="ZOOQE, Kerala pickles, Kerala achar, Mango pickle, Fish pickle, Beef pickle, Lemon pickle, Garlic pickle, Tellicherry black pepper, Green cardamom, Malabar spices" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="ZOOQE — Premium Kerala Pickles & Spices" />
+  <meta property="og:description" content="Authentic Kerala pickles (achar) and single-origin Malabar spices in luxury Black & Silver packaging." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <!-- 0. Page Splash Loading Screen -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="assets/logo.png" alt="ZOOQE Monogram" class="loader-logo-img" />
+    </div>
+    <div class="loader-brand-title">ZOOQE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Global Backdrop for Drawers -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- 1. Sticky Luxury Navigation Header -->
+  <header id="site-header" class="site-header">
+    <div class="navbar-inner">
+      <!-- Left: Logo & Wordmark -->
+      <a href="#hero" class="nav-brand" aria-label="ZOOQE Home">
+        <img src="assets/logo.png" alt="ZOOQE Logo" class="nav-brand-logo-img" />
+        <span class="nav-brand-text">ZOOQE</span>
+      </a>
+
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#collections" class="nav-link">Collections</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Action Buttons -->
+      <div class="nav-actions">
+        <!-- Search Trigger -->
+        <button id="nav-search-btn" class="nav-action-btn" aria-label="Search Catalog" title="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Wishlist Trigger -->
+        <button id="nav-wishlist-btn" class="nav-action-btn" aria-label="View Wishlist" title="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span id="nav-wishlist-badge" class="nav-badge">0</span>
+        </button>
+
+        <!-- Shopping Cart Trigger -->
+        <button id="nav-cart-btn" class="nav-action-btn" aria-label="View Shopping Cart" title="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span id="nav-cart-badge" class="nav-badge">0</span>
+        </button>
+
+        <!-- WhatsApp Button -->
+        <button id="nav-whatsapp-btn" class="nav-whatsapp-btn" title="Contact on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+          </svg>
+          <span>WHATSAPP</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="nav-hamburger" class="nav-hamburger" aria-label="Open Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide Drawer -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="nav-brand">
+        <img src="assets/logo.png" alt="ZOOQE Logo" class="nav-brand-logo-img" />
+        <span class="nav-brand-text">ZOOQE</span>
+      </div>
+      <button id="mobile-drawer-close" class="nav-action-btn" aria-label="Close Menu">✕</button>
+    </div>
+
+    <nav class="mobile-drawer-links">
+      <a href="#hero" class="mobile-drawer-link">Home <span>→</span></a>
+      <a href="#shop" class="mobile-drawer-link">Pickles & Spices <span>→</span></a>
+      <a href="#collections" class="mobile-drawer-link">Collections <span>→</span></a>
+      <a href="#about" class="mobile-drawer-link">The ZOOQE Standard <span>→</span></a>
+      <a href="#contact" class="mobile-drawer-link">Contact <span>→</span></a>
+      <button type="button" id="mobile-wishlist-btn" class="mobile-drawer-link">Wishlist <span>→</span></button>
+      <button type="button" id="mobile-cart-btn" class="mobile-drawer-link">
+        Cart <span id="mobile-cart-badge" style="font-size:0.85rem; color:#ffffff;">0</span>
+      </button>
+      <button type="button" id="mobile-search-btn" class="mobile-drawer-link">Search <span>→</span></button>
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <button id="mobile-whatsapp-btn" class="btn-luxury-primary" style="width: 100%; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+        </svg>
+        WHATSAPP ENQUIRY
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <main class="site-main">
+
+    <!-- 2. Cinematic Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-backdrop"></div>
+      <div class="hero-glow-orb"></div>
+      
+      <div class="hero-container">
+        <div class="hero-emblem-wrap">
+          <img src="assets/logo.png" alt="ZOOQE Monogram" class="hero-emblem-img" />
+        </div>
+
+        <h1 class="hero-title">ZOOQE</h1>
+        <div class="hero-subtitle">PREMIUM TASTE. DISTINCTLY ZOOQE.</div>
+        
+        <p class="hero-description">
+          Discover authentic Kerala pickles and single-origin Malabar spices, crafted with heritage recipes, quality ingredients, and attention to detail.
+        </p>
+
+        <div class="hero-cta-group">
+          <button id="hero-shop-btn" class="btn-luxury-primary">SHOP NOW</button>
+          <button id="hero-explore-btn" class="btn-luxury-secondary">EXPLORE COLLECTION</button>
+        </div>
+
+        <!-- Hallmarks Banner -->
+        <div class="hero-hallmarks">
+          <div class="hero-hallmark-item">
+            <div class="hero-hallmark-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+            </div>
+            <span>AUTHENTIC KERALA RECIPES</span>
+          </div>
+
+          <div class="hero-hallmark-item">
+            <div class="hero-hallmark-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+            <span>COLD-PRESSED GINGELLY OIL</span>
+          </div>
+
+          <div class="hero-hallmark-item">
+            <div class="hero-hallmark-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <span>AIRTIGHT LUXURY JARS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Product Shop / Catalog Section -->
+    <section id="shop" class="shop-section">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="eyebrow">Kerala Heritage Selection</div>
+          <h2 class="section-title text-metallic-silver">Pickles & Spices</h2>
+          <p class="section-subtitle">
+            Handcrafted traditional Kerala achars and single-origin Malabar spices in airtight luxury vessels.
+          </p>
+        </div>
+
+        <!-- Catalog Filter & Sorting Controls -->
+        <div class="catalog-controls-bar">
+          <div id="category-pills-wrap" class="category-pills-wrap">
+            <!-- Injected by filter.js -->
+          </div>
+
+          <div class="catalog-actions-right">
+            <button id="filter-drawer-trigger" class="btn-filter-trigger" title="Open Filter Options">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              <span>FILTERS</span>
+            </button>
+
+            <div class="sort-select-wrap">
+              <select id="catalog-sort-select" class="sort-select" aria-label="Sort products">
+                <option value="featured">Featured</option>
+                <option value="bestselling">Best Selling</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div id="product-grid" class="product-grid">
+          <!-- Injected dynamically by productCard.js / app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Collections Showcase -->
+    <section id="collections" class="collections-section">
+      <div class="section-container">
+        <div class="section-header-center">
+          <div class="eyebrow">Product Collections</div>
+          <h2 class="section-title text-metallic-silver">The ZOOQE Collections</h2>
+          <p class="section-subtitle" style="margin: 0.5rem auto 0;">
+            Browse our range of authentic Kerala pickles and single-origin Malabar spices.
+          </p>
+        </div>
+
+        <div class="collections-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="collection-card" data-category="pickles">
+            <img src="assets/images/collections/collection-pickles.svg" alt="Premium Kerala Pickles" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          </div>
+          <div class="collection-card" data-category="spices">
+            <img src="assets/images/collections/collection-spices.svg" alt="Signature Malabar Spices" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          </div>
+          <div class="collection-card" data-category="gifts">
+            <img src="assets/images/collections/collection-hampers.svg" alt="Heritage Gift Boxes" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Brand Story — "THE ZOOQE STANDARD" -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-story-grid">
+          <div class="about-story-media">
+            <img src="assets/images/products/mango-pickle-1.svg" alt="The ZOOQE Standard" class="about-story-img" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          </div>
+          <div class="about-story-content">
+            <div class="eyebrow">Heritage & Excellence</div>
+            <h2 class="about-headline text-metallic-silver">The ZOOQE Standard</h2>
+            <p class="about-paragraph">
+              At <strong>ZOOQE</strong>, we celebrate the rich culinary heritage of Kerala through uncompromising quality, authentic traditional recipes, and modern luxury presentation. We craft small-batch traditional pickles (achar) and source the finest single-origin Malabar spices.
+            </p>
+            <p class="about-paragraph">
+              Each jar is prepared with hand-selected ingredients, roasted Malabar spices, and cold-pressed gingelly oil, sealed in airtight glass jars to lock in the true essence and freshness of Kerala.
+            </p>
+            <div style="margin-top: 1rem;">
+              <a href="#shop" class="btn-luxury-primary">EXPLORE OUR ARCHIVE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Why ZOOQE / 4 Pillars Grid -->
+        <div class="why-zooqe-section">
+          <div class="why-zooqe-grid">
+            <div class="why-pillar-card">
+              <div class="why-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <h3 class="why-pillar-title">Authentic Heritage</h3>
+              <p class="why-pillar-desc">Traditional Kerala recipes prepared with pure cold-pressed sesame oil and slow-roasted spices.</p>
+            </div>
+
+            <div class="why-pillar-card">
+              <div class="why-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                  <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                  <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+              </div>
+              <h3 class="why-pillar-title">Distinctive Taste</h3>
+              <p class="why-pillar-desc">Unmistakable bold, fiery, tangy, and aromatic Malabar flavor profiles.</p>
+            </div>
+
+            <div class="why-pillar-card">
+              <div class="why-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h3 class="why-pillar-title">Quality First</h3>
+              <p class="why-pillar-desc">Fresh raw ingredients, authentic seer fish and beef cuts, jumbo whole spices with zero artificial preservatives.</p>
+            </div>
+
+            <div class="why-pillar-card">
+              <div class="why-pillar-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <h3 class="why-pillar-title">Premium Experience</h3>
+              <p class="why-pillar-desc">Signature black & silver luxury packaging, fast express delivery, and direct WhatsApp ordering.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Customer Reviews / Testimonials -->
+    <section class="reviews-section">
+      <div class="reviews-container">
+        <div class="section-header-center">
+          <div class="eyebrow">Customer Experience</div>
+          <h2 class="section-title text-metallic-silver">Client Impressions</h2>
+          <p class="section-subtitle" style="margin: 0.5rem auto 0;">
+            Feedback from lovers of authentic Kerala pickles and spices.
+          </p>
+        </div>
+
+        <div class="reviews-carousel-wrap">
+          <div id="reviews-track" class="reviews-track">
+            <!-- Injected by reviewSlider.js -->
+          </div>
+        </div>
+
+        <div class="carousel-controls-row">
+          <button id="reviews-prev-btn" class="carousel-arrow-btn" aria-label="Previous Review">←</button>
+          <div id="reviews-dots" class="carousel-dots"></div>
+          <button id="reviews-next-btn" class="carousel-arrow-btn" aria-label="Next Review">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Contact Section -->
+    <section id="contact" class="shop-section" style="background: #060608;">
+      <div class="section-container">
+        <div class="section-header-center">
+          <div class="eyebrow">Direct Enquiries</div>
+          <h2 class="section-title text-metallic-silver">Order on WhatsApp</h2>
+          <p class="section-subtitle" style="margin: 0.5rem auto 0;">
+            Connect directly with our team for bulk orders, custom pickle selections, and delivery enquiries.
+          </p>
+        </div>
+
+        <div style="max-width: 620px; margin: 0 auto; text-align: center;">
+          <button id="contact-whatsapp-btn" class="btn-luxury-primary" style="padding: 1.15rem 2.8rem; font-size: 0.9rem;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+            </svg>
+            ENQUIRE ON WHATSAPP
+          </button>
+          <p style="font-size: 0.8rem; color: var(--silver-500); margin-top: 1rem;">
+            Direct priority response on WhatsApp
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 9. Luxury Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Tagline -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">
+            <img src="assets/logo.png" alt="ZOOQE Logo" class="footer-logo-img" />
+            <div class="brand-wordmark">ZOOQE</div>
+          </div>
+          <div class="footer-brand-tagline">Premium Taste. Distinctly ZOOQE.</div>
+          <p class="footer-brand-desc">
+            Specializing in handcrafted authentic Kerala Pickles (Mango, Lemon, Fish, Beef, Garlic) and single-origin Malabar Spices (Black Pepper, Cardamom).
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <div class="footer-links-list">
+            <a href="#hero" class="footer-link">Home</a>
+            <a href="#shop" class="footer-link">Pickles & Spices</a>
+            <a href="#collections" class="footer-link">Collections</a>
+            <a href="#about" class="footer-link">About ZOOQE</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Policies -->
+        <div>
+          <h4 class="footer-col-title">Customer Care</h4>
+          <div class="footer-links-list">
+            <button type="button" data-policy="privacy" class="footer-link">Privacy Policy</button>
+            <button type="button" data-policy="terms" class="footer-link">Terms & Conditions</button>
+            <button type="button" data-policy="shipping" class="footer-link">Shipping Policy</button>
+            <button type="button" data-policy="returns" class="footer-link">Return Policy</button>
+          </div>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div>
+          <h4 class="footer-col-title">Stay Connected</h4>
+          <p style="font-size: 0.84rem; color: var(--silver-500); line-height: 1.5; margin-bottom: 0.75rem;">
+            Subscribe to receive updates on new seasonal batches and festive gift hampers.
+          </p>
+          <form id="footer-vip-form" class="footer-vip-signup">
+            <input type="email" id="footer-vip-email" class="footer-vip-input" placeholder="Your email address" required />
+            <button type="submit" class="btn-footer-vip-submit">JOIN</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright">© 2026 ZOOQE. All Rights Reserved. Premium Kerala Pickles & Spices.</div>
+        <div class="footer-social-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-link" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social-link" title="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 10. Slide-Over Shopping Cart Drawer Container -->
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <h3 class="cart-title">YOUR CART</h3>
+        <span id="cart-drawer-count" class="cart-item-count-badge">(0 items)</span>
+      </div>
+      <button id="cart-drawer-close" class="cart-close-btn" aria-label="Close Cart">✕</button>
+    </div>
+
+    <div id="cart-shipping-meter" class="free-shipping-meter"></div>
+    <div id="cart-items-container" class="cart-items-list"></div>
+    <div id="cart-footer-container" class="cart-footer"></div>
+  </aside>
+
+  <!-- 11. Wishlist Slide Drawer Container -->
+  <aside id="wishlist-drawer" class="wishlist-drawer" aria-label="Wishlist">
+    <div class="wishlist-header">
+      <h3 class="wishlist-title">SAVED PRODUCTS</h3>
+      <button id="wishlist-drawer-close" class="cart-close-btn" aria-label="Close Wishlist">✕</button>
+    </div>
+    <div id="wishlist-items-container" class="wishlist-items-list"></div>
+  </aside>
+
+  <!-- 12. Filter & Sort Drawer Container -->
+  <aside id="filter-drawer" class="filter-drawer" aria-label="Filter Options">
+    <div class="filter-header">
+      <h3 class="cart-title" style="font-size: 1.15rem;">FILTER PRODUCTS</h3>
+      <button id="filter-drawer-close" class="cart-close-btn" aria-label="Close Filters">✕</button>
+    </div>
+    <div class="filter-body">
+      <div>
+        <div class="filter-group-title">Maximum Price: <span id="filter-price-val" style="color:#ffffff;">$1000</span></div>
+        <input type="range" id="filter-price-slider" class="filter-price-slider" min="10" max="1000" step="5" value="1000" />
+        <div class="filter-price-labels">
+          <span>$10</span>
+          <span>$1000</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="filter-group-title">Filter by Weight / Size</div>
+        <div class="filter-size-options">
+          <button class="filter-size-btn active" data-size="all">All Sizes</button>
+          <button class="filter-size-btn" data-size="100g">100g</button>
+          <button class="filter-size-btn" data-size="250g">250g</button>
+          <button class="filter-size-btn" data-size="500g">500g</button>
+          <button class="filter-size-btn" data-size="1kg">1kg</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter-footer">
+      <button id="filter-reset-btn" class="btn-luxury-secondary" style="padding: 0.75rem;">RESET</button>
+      <button id="filter-apply-close-btn" class="btn-luxury-primary" style="padding: 0.75rem;">SHOW RESULTS</button>
+    </div>
+  </aside>
+
+  <!-- 13. Floating Global WhatsApp Button -->
+  <button id="floating-whatsapp-btn" class="floating-whatsapp-btn" aria-label="Contact on WhatsApp" title="WhatsApp Enquiry">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+    </svg>
+  </button>
+
+  <!-- 14. Policy Modal Backdrop -->
+  <div id="policy-modal-backdrop" class="policy-modal-backdrop">
+    <div class="policy-modal-content">
+      <button id="policy-modal-close" class="checkout-close-btn" style="position:absolute; top:1.25rem; right:1.25rem;">✕</button>
+      <h3 id="policy-modal-title" class="policy-modal-title"></h3>
+      <div id="policy-modal-body" class="policy-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- 15. Application Script Entry Point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

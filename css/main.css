@@ -1,0 +1,181 @@
+/* Master Stylesheet for ZOOQE Luxury E-Commerce */
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+@import './components/navbar.css';
+@import './components/hero.css';
+@import './components/product-card.css';
+@import './components/product-details.css';
+@import './components/cart-drawer.css';
+@import './components/checkout.css';
+@import './components/order-confirmed.css';
+@import './components/search-filter.css';
+@import './components/wishlist.css';
+@import './components/review-section.css';
+@import './components/about-brand.css';
+@import './components/toast.css';
+@import './components/footer.css';
+
+/* Layout Containers & Sections */
+.site-main {
+  min-height: 100vh;
+  position: relative;
+}
+
+.section-container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.shop-section {
+  padding: 6.5rem 0;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.section-header, .section-header-center {
+  margin-bottom: 2.5rem;
+  animation: sectionFadeUp 0.85s var(--ease-luxury) backwards;
+}
+
+@keyframes sectionFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--silver-500);
+  max-width: 540px;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* Luxury Divider */
+.silver-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  margin: 4rem 0;
+}
+
+/* Page Loading Splash Screen */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: var(--z-loader);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.8s var(--ease-luxury), visibility 0.8s var(--ease-luxury);
+}
+
+.page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-logo-wrap {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  animation: loaderPulse 2s ease-in-out infinite alternate;
+}
+
+.loader-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.loader-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  background: var(--grad-silver-chrome);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loader-bar {
+  width: 120px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: #ffffff;
+  animation: loaderLine 1.5s infinite ease-in-out;
+}
+
+@keyframes loaderPulse {
+  0% { transform: scale(0.96); opacity: 0.8; }
+  100% { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes loaderLine {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 1.25rem;
+  }
+  .shop-section {
+    padding: 4.5rem 0;
+  }
+}

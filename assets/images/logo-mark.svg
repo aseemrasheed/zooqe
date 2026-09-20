@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#e1e1e6"/>
+      <stop offset="50%" stop-color="#a2a2a8"/>
+      <stop offset="75%" stop-color="#d4d4d8"/>
+      <stop offset="100%" stop-color="#808085"/>
+    </linearGradient>
+    <filter id="emboss" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+  <!-- Outer circle with gap -->
+  <path d="M 250,55 A 195,195 0 1,1 112,390" fill="none" stroke="url(#silverGrad)" stroke-width="15" stroke-linecap="round" filter="url(#emboss)"/>
+  <!-- Z and Q monogram -->
+  <path d="M 175,130 L 325,130 L 305,152 L 195,152 Z" fill="url(#silverGrad)" filter="url(#emboss)"/>
+  <path d="M 315,142 L 180,360 L 205,360 L 338,142 Z" fill="url(#silverGrad)" filter="url(#emboss)"/>
+  <path d="M 175,348 L 270,348 C 240,368 200,368 175,348 Z" fill="url(#silverGrad)" filter="url(#emboss)"/>
+  <path d="M 230,315 C 265,300 295,315 320,350 C 350,390 395,405 435,385 C 385,415 330,405 295,360 C 275,335 250,325 230,315 Z" fill="url(#silverGrad)" filter="url(#emboss)"/>
+</svg>
