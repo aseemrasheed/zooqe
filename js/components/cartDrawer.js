@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
 
@@ -63,7 +63,7 @@ class CartDrawerManager {
       } else if (calcs.subtotal > 0) {
         meterContainer.innerHTML = `
           <div class="shipping-meter-text">
-            Add <strong>${CONFIG.currency}${calcs.amountToFreeShipping}</strong> more for Complimentary VIP Delivery
+            Add <strong>${formatPrice(calcs.amountToFreeShipping)}</strong> more for Complimentary VIP Delivery
           </div>
           <div class="shipping-progress-track">
             <div class="shipping-progress-bar" style="width: ${calcs.shippingProgressPercent}%;"></div>
@@ -128,7 +128,7 @@ class CartDrawerManager {
                 <span class="cart-stepper-value">${item.quantity}</span>
                 <button class="cart-stepper-btn cart-qty-plus" data-key="${item.itemKey}">+</button>
               </div>
-              <span class="cart-item-price">${CONFIG.currency}${item.price * item.quantity}</span>
+              <span class="cart-item-price">${formatPrice(item.price * item.quantity)}</span>
             </div>
           </div>
           <button class="cart-item-remove-btn" data-key="${item.itemKey}" title="Remove item">
@@ -176,20 +176,20 @@ class CartDrawerManager {
         <div class="cart-summary-rows">
           <div class="summary-row">
             <span>Subtotal</span>
-            <span>${CONFIG.currency}${calcs.subtotal}</span>
+            <span>${formatPrice(calcs.subtotal)}</span>
           </div>
           ${calcs.discountAmount > 0 ? `
           <div class="summary-row" style="color:#ffffff;">
             <span>Privilege Discount (${calcs.appliedPromo.discountPercent}%)</span>
-            <span>-${CONFIG.currency}${calcs.discountAmount}</span>
+            <span>-${formatPrice(calcs.discountAmount)}</span>
           </div>` : ''}
           <div class="summary-row">
             <span>VIP Express Delivery</span>
-            <span>${calcs.deliveryFee === 0 ? 'COMPLIMENTARY' : `${CONFIG.currency}${calcs.deliveryFee}`}</span>
+            <span>${calcs.deliveryFee === 0 ? 'COMPLIMENTARY' : formatPrice(calcs.deliveryFee)}</span>
           </div>
           <div class="summary-row total-row">
             <span>Grand Total</span>
-            <span>${CONFIG.currency}${calcs.grandTotal}</span>
+            <span>${formatPrice(calcs.grandTotal)}</span>
           </div>
         </div>
 

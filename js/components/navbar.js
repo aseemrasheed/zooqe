@@ -1,6 +1,7 @@
 import { cartState } from '../state/cartState.js';
 import { wishlistState } from '../state/wishlistState.js';
 import { WhatsApp } from './whatsapp.js';
+import { toast } from './toast.js';
 
 export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
   const header = document.getElementById('site-header');
@@ -15,6 +16,11 @@ export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
   const mobileWishlistBtn = document.getElementById('mobile-wishlist-btn');
   const searchBtn = document.getElementById('nav-search-btn');
   const mobileSearchBtn = document.getElementById('mobile-search-btn');
+  const navSearchPill = document.getElementById('nav-search-pill');
+
+  const topbarWishlistLink = document.getElementById('topbar-wishlist-link');
+  const topbarWishlistCount = document.getElementById('topbar-wishlist-count');
+  const topbarAuthBtn = document.getElementById('topbar-auth-btn');
 
   const whatsappBtn = document.getElementById('nav-whatsapp-btn');
   const mobileWhatsappBtn = document.getElementById('mobile-whatsapp-btn');
@@ -86,11 +92,20 @@ export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
   }
 
   if (searchBtn) searchBtn.addEventListener('click', onOpenSearch);
+  if (navSearchPill) navSearchPill.addEventListener('click', onOpenSearch);
   if (mobileSearchBtn) {
     mobileSearchBtn.addEventListener('click', (e) => {
       e.preventDefault();
       closeDrawer();
       onOpenSearch();
+    });
+  }
+
+  // Top utility header listeners
+  if (topbarWishlistLink) topbarWishlistLink.addEventListener('click', onOpenWishlist);
+  if (topbarAuthBtn) {
+    topbarAuthBtn.addEventListener('click', () => {
+      toast.show('ZOOQE Member Portal opening soon! Place orders directly or via WhatsApp.');
     });
   }
 
@@ -119,6 +134,9 @@ export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
       wishlistBadge.classList.remove('bump');
       void wishlistBadge.offsetWidth;
       wishlistBadge.classList.add('bump');
+    }
+    if (topbarWishlistCount) {
+      topbarWishlistCount.textContent = count;
     }
   }
 

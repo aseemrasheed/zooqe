@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { WhatsApp } from './whatsapp.js';
 
 class OrderConfirmationManager {
@@ -42,7 +42,7 @@ class OrderConfirmationManager {
     const itemsHtml = o.items.map(item => `
       <div class="receipt-item-row">
         <span class="name">${item.name} (${item.size}) × ${item.quantity}</span>
-        <span>${CONFIG.currency}${item.price * item.quantity}</span>
+        <span>${formatPrice(item.price * item.quantity)}</span>
       </div>
     `).join('');
 
@@ -72,20 +72,20 @@ class OrderConfirmationManager {
         <div class="receipt-totals">
           <div class="receipt-total-row">
             <span>Subtotal</span>
-            <span>${CONFIG.currency}${o.totals.subtotal}</span>
+            <span>${formatPrice(o.totals.subtotal)}</span>
           </div>
           ${o.totals.discountAmount > 0 ? `
           <div class="receipt-total-row">
             <span>Discount</span>
-            <span>-${CONFIG.currency}${o.totals.discountAmount}</span>
+            <span>-${formatPrice(o.totals.discountAmount)}</span>
           </div>` : ''}
           <div class="receipt-total-row">
             <span>Delivery</span>
-            <span>${o.totals.deliveryFee === 0 ? 'FREE' : `${CONFIG.currency}${o.totals.deliveryFee}`}</span>
+            <span>${o.totals.deliveryFee === 0 ? 'FREE' : formatPrice(o.totals.deliveryFee)}</span>
           </div>
           <div class="receipt-total-row grand-total">
             <span>Total</span>
-            <span>${CONFIG.currency}${o.totals.grandTotal}</span>
+            <span>${formatPrice(o.totals.grandTotal)}</span>
           </div>
         </div>
 
@@ -93,6 +93,7 @@ class OrderConfirmationManager {
           <strong>Customer:</strong> ${o.customer.name} (${o.customer.phone})<br/>
           <strong>Address:</strong> ${o.customer.address}<br/>
           <strong>Payment:</strong> ${o.paymentMethod.toUpperCase()}<br/>
+          <strong>Notification:</strong> Direct notification dispatched to store owner<br/>
           <strong>Estimated Delivery:</strong> 2–4 Business Days
         </div>
       </div>

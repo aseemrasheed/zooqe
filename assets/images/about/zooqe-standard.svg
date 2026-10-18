@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="stdGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#2a2216"/>
+      <stop offset="50%" stop-color="#141210"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </radialGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff0cc"/>
+      <stop offset="40%" stop-color="#d4af37"/>
+      <stop offset="70%" stop-color="#997018"/>
+      <stop offset="100%" stop-color="#e6be68"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#000000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#stdGlow)"/>
+
+  <!-- Pedestal Base -->
+  <ellipse cx="400" cy="460" rx="260" ry="32" fill="#000000" opacity="0.8" filter="url(#softShadow)"/>
+  <ellipse cx="400" cy="450" rx="200" ry="16" fill="#181512" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+
+  <!-- Glass Jar Body -->
+  <g filter="url(#softShadow)">
+    <rect x="280" y="170" width="240" height="260" rx="24" fill="#1c1813" stroke="url(#goldBorder)" stroke-width="2"/>
+    <rect x="295" y="185" width="210" height="230" rx="16" fill="#421a0a" opacity="0.75"/>
+    
+    <!-- Label -->
+    <rect x="310" y="230" width="180" height="150" rx="8" fill="#0a0a0d" stroke="url(#goldBorder)" stroke-width="1.5"/>
+    <text x="400" y="270" font-family="'Cinzel', serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="4">ZOOQE</text>
+    <line x1="340" y1="285" x2="460" y2="285" stroke="#d4af37" stroke-width="1"/>
+    <text x="400" y="308" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#d4af37" text-anchor="middle" letter-spacing="3">THE STANDARD</text>
+    <text x="400" y="330" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#a0a0a8" text-anchor="middle" letter-spacing="1">HERITAGE &amp; EXCELLENCE</text>
+    <text x="400" y="350" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#757580" text-anchor="middle" letter-spacing="1">KERALA • ARTISANAL</text>
+
+    <!-- Golden Lid -->
+    <rect x="310" y="130" width="180" height="42" rx="8" fill="url(#goldBorder)"/>
+    <rect x="330" y="122" width="140" height="10" rx="4" fill="#f5df9e"/>
+  </g>
+</svg>

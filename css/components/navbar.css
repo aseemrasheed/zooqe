@@ -1,28 +1,44 @@
-/* Navbar Container */
+/* ========================================================
+   ZOOQE DARK LUXURY FMCG NAVIGATION & UTILITY HEADER
+   ======================================================== */
+
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: var(--z-sticky);
-  background: rgba(5, 5, 7, 0.7);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  transition: height var(--transition-smooth), background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  background: rgba(8, 8, 11, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .site-header.scrolled {
-  height: var(--header-height-compact);
-  background: rgba(4, 4, 6, 0.92);
+  background: rgba(6, 6, 9, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85);
 }
 
-.navbar-inner {
+/* 1. Top Utility Header */
+.top-utility-bar {
+  background: #060609;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.45rem 0;
+  font-size: 0.73rem;
+  letter-spacing: 0.05em;
+  color: var(--silver-400);
+  transition: all var(--transition-smooth);
+}
+
+.site-header.scrolled .top-utility-bar {
+  background: #040407;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.top-utility-inner {
   max-width: var(--max-width-container);
-  height: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -30,121 +46,254 @@
   justify-content: space-between;
 }
 
-/* Brand Logo */
-.nav-brand {
+.topbar-left, .topbar-right {
   display: flex;
   align-items: center;
-  gap: 0.95rem;
+  gap: 0.9rem;
+}
+
+.topbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--silver-400);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.topbar-link:hover {
+  color: #ffffff;
+}
+
+.topbar-link svg {
+  color: var(--silver-500);
+  transition: color var(--transition-fast);
+}
+
+.topbar-link:hover svg {
+  color: #d4af37;
+}
+
+.topbar-sep {
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.72rem;
+  font-weight: 300;
+  margin: 0 0.15rem;
+  user-select: none;
+}
+
+.topbar-region {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--silver-400);
+}
+
+.topbar-btn {
+  cursor: pointer;
+}
+
+.topbar-auth-btn:hover {
+  color: #e6be68;
+}
+
+/* 2. Main Navigation Bar */
+.navbar-inner {
+  max-width: var(--max-width-container);
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Left: Minimalist Elegant "ZOOQE" Branding with Official Square Emblem */
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
   cursor: pointer;
+  padding: 0.2rem 0;
+  flex-shrink: 0;
   transition: transform var(--transition-smooth);
 }
 
 .nav-brand:hover {
-  transform: scale(1.025);
+  transform: translateY(-1px);
 }
 
-.nav-brand-logo-img {
-  height: 50px;
-  width: auto;
-  max-width: 54px;
-  aspect-ratio: 1 / 1;
+.nav-brand-emblem {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
   display: block;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  border: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
-  transition: transform var(--transition-smooth), filter var(--transition-smooth), box-shadow var(--transition-smooth);
-  image-rendering: -webkit-optimize-contrast;
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth), transform var(--transition-smooth);
 }
 
-.nav-brand:hover .nav-brand-logo-img {
+.nav-brand:hover .nav-brand-emblem {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.25);
   transform: scale(1.04);
-  filter: brightness(1.08) drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
-.nav-brand-text {
+.nav-brand-serif {
   font-family: var(--font-display);
-  font-size: 1.48rem;
+  font-size: 1.55rem;
   font-weight: 700;
-  letter-spacing: 0.34em;
-  background: var(--grad-silver-chrome);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 0.18em;
+  color: #ffffff;
   text-transform: uppercase;
-  transition: filter var(--transition-smooth), letter-spacing var(--transition-smooth);
+  line-height: 1;
+  transition: color var(--transition-smooth), letter-spacing var(--transition-smooth), text-shadow var(--transition-smooth);
 }
 
-.nav-brand:hover .nav-brand-text {
-  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
-  letter-spacing: 0.36em;
+.nav-brand:hover .nav-brand-serif {
+  color: #f7eed7;
+  letter-spacing: 0.20em;
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+
+/* Center-Right Section */
+.nav-center-right {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 /* Desktop Navigation Links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.8rem;
 }
 
 .nav-link {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--silver-400);
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   transition: color var(--transition-fast);
+  text-decoration: none;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 50%;
+  bottom: -3px;
+  left: 0;
   width: 0%;
-  height: 1px;
-  background: var(--grad-silver-chrome);
-  transition: width var(--transition-smooth), left var(--transition-smooth);
+  height: 2px;
+  background: #ffffff;
+  border-radius: 1px;
+  transition: width var(--transition-smooth);
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--silver-100);
+  color: #ffffff;
 }
 
 .nav-link:hover::after, .nav-link.active::after {
   width: 100%;
-  left: 0;
+}
+
+/* Integrated Pill-Shaped Search Bar */
+.nav-search-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.48rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--silver-400);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-luxury);
+  min-width: 250px;
+  max-width: 320px;
+  user-select: none;
+}
+
+.nav-search-pill:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.15);
+}
+
+.nav-search-pill svg {
+  color: var(--silver-500);
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.nav-search-pill:hover svg {
+  color: #d4af37;
+}
+
+.nav-search-text {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-search-kbd {
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  color: var(--silver-500);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 /* Right Navigation Action Icons */
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.85rem;
+  flex-shrink: 0;
 }
 
 .nav-action-btn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   color: var(--silver-300);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .nav-action-btn:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(212, 175, 55, 0.4);
   transform: translateY(-1px);
 }
 
@@ -154,32 +303,40 @@
   stroke-width: 1.75;
 }
 
+.nav-search-icon-btn {
+  display: none;
+}
+
 /* WhatsApp Nav Pill */
 .nav-whatsapp-btn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.48rem 1rem;
   border-radius: var(--radius-pill);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--silver-200);
+  color: #f5f5f7;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: pointer;
   transition: all var(--transition-smooth);
 }
 
 .nav-whatsapp-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--silver-300);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  background: rgba(37, 211, 102, 0.15);
+  border-color: #25d366;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(37, 211, 102, 0.25);
+  transform: translateY(-1px);
 }
 
 .nav-whatsapp-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
+  color: #25d366;
 }
 
 /* Badges for Wishlist & Cart */
@@ -340,9 +497,25 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  .nav-search-pill {
+    min-width: 180px;
+    max-width: 220px;
+  }
+  .nav-links {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 1040px) {
   .nav-links {
     display: none;
+  }
+  .nav-search-pill {
+    display: none;
+  }
+  .nav-search-icon-btn {
+    display: flex;
   }
   .nav-whatsapp-btn {
     display: none;
@@ -353,26 +526,33 @@
 }
 
 @media (max-width: 640px) {
+  .topbar-left {
+    display: none;
+  }
+  .top-utility-inner {
+    justify-content: center;
+    padding: 0 1rem;
+  }
   .navbar-inner {
-    padding: 0 1.25rem;
+    padding: 0 1rem;
   }
   .nav-brand {
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
-  .nav-brand-logo-img {
-    height: 44px;
-    width: auto;
-    max-width: 46px;
+  .nav-brand-emblem {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
   }
-  .nav-brand-text {
-    font-size: 1.18rem;
-    letter-spacing: 0.24em;
+  .nav-brand-serif {
+    font-size: 1.35rem;
+    letter-spacing: 0.14em;
   }
   .nav-actions {
-    gap: 0.65rem;
+    gap: 0.45rem;
   }
   .nav-action-btn {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 }

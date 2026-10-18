@@ -1,9 +1,10 @@
 import { PRODUCTS, CATEGORIES } from '../data/products.js';
+import { formatPrice } from '../config.js';
 
 class FilterManager {
   constructor() {
     this.activeCategory = 'all';
-    this.maxPrice = 1000;
+    this.maxPrice = 5000;
     this.selectedSize = 'all';
     this.inStockOnly = false;
     this.activeSort = 'featured';
@@ -64,7 +65,7 @@ class FilterManager {
     if (priceSlider) {
       priceSlider.addEventListener('input', (e) => {
         this.maxPrice = parseInt(e.target.value, 10);
-        if (priceLabel) priceLabel.textContent = `$${this.maxPrice}`;
+        if (priceLabel) priceLabel.textContent = formatPrice(this.maxPrice);
         this.apply();
       });
     }
@@ -111,14 +112,14 @@ class FilterManager {
 
   reset() {
     this.activeCategory = 'all';
-    this.maxPrice = 1000;
+    this.maxPrice = 5000;
     this.selectedSize = 'all';
     this.activeSort = 'featured';
 
     const priceSlider = document.getElementById('filter-price-slider');
     const priceLabel = document.getElementById('filter-price-val');
-    if (priceSlider) priceSlider.value = 1000;
-    if (priceLabel) priceLabel.textContent = '$1000';
+    if (priceSlider) priceSlider.value = 5000;
+    if (priceLabel) priceLabel.textContent = formatPrice(5000);
 
     document.querySelectorAll('.filter-size-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.size === 'all');
@@ -133,7 +134,11 @@ class FilterManager {
 
     // Category Filter
     if (this.activeCategory !== 'all') {
-      filtered = filtered.filter(p => p.categorySlug === this.activeCategory);
+      if (this.activeCategory === 'other' || this.activeCategory === 'gifts') {
+        filtered = filtered.filter(p => p.categorySlug === 'other' || p.categorySlug === 'gifts');
+      } else {
+        filtered = filtered.filter(p => p.categorySlug === this.activeCategory);
+      }
     }
 
     // Price Filter

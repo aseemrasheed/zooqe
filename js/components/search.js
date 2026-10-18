@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { PRODUCTS } from '../data/products.js';
 
 class SearchManager {
@@ -132,7 +132,7 @@ class SearchManager {
             <div class="search-result-meta">${p.category} • SKU: ${p.sku}</div>
           </div>
         </div>
-        <div class="search-result-price">${CONFIG.currency}${p.basePrice}</div>
+        <div class="search-result-price">${formatPrice(p.basePrice)}</div>
       </div>
     `).join('');
 

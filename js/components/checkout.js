@@ -1,6 +1,8 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
+import { Web3Forms } from './web3forms.js';
+import { orderConfirmation } from './orderConfirmation.js';
 
 class CheckoutManager {
   constructor() {
@@ -116,135 +118,197 @@ class CheckoutManager {
       <div class="checkout-mini-item">
         <div class="checkout-mini-item-info">
           <img src="${item.image}" alt="${item.name}" class="checkout-mini-item-img" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
-          <div>
+          <div class="checkout-mini-item-text">
             <div class="checkout-mini-item-title">${item.name}</div>
-            <div class="checkout-mini-item-meta">${item.size} × ${item.quantity}</div>
+            <div class="checkout-mini-item-meta">${item.size} • Qty: ${item.quantity}</div>
           </div>
         </div>
-        <div class="checkout-mini-item-price">${CONFIG.currency}${item.price * item.quantity}</div>
+        <div class="checkout-mini-item-price">${formatPrice(item.price * item.quantity)}</div>
       </div>
     `).join('');
 
     content.innerHTML = `
-      <div class="checkout-layout">
-        <!-- Left: Customer Information & Address Form -->
-        <form id="checkout-form" class="checkout-form-section">
-          <!-- Contact Details -->
-          <div class="checkout-section-title">
-            <span>01</span> Contact Information
-          </div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="co-name">Full Name <span>*</span></label>
-              <input type="text" id="co-name" class="form-input" placeholder="Full Name" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="co-phone">Mobile Number <span>*</span></label>
-              <input type="tel" id="co-phone" class="form-input" placeholder="Mobile Number" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="co-email">Email Address <span>*</span></label>
-            <input type="email" id="co-email" class="form-input" placeholder="Email Address" required />
-          </div>
-
-          <!-- Shipping Destination -->
-          <div class="checkout-section-title" style="margin-top: 1rem;">
-            <span>02</span> Delivery Address
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="co-house">House / Building / Apartment <span>*</span></label>
-            <input type="text" id="co-house" class="form-input" placeholder="House / Building No." required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="co-street">Street Address <span>*</span></label>
-            <input type="text" id="co-street" class="form-input" placeholder="Street / Area" required />
-          </div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="co-city">City <span>*</span></label>
-              <input type="text" id="co-city" class="form-input" placeholder="City" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="co-state">State <span>*</span></label>
-              <input type="text" id="co-state" class="form-input" placeholder="State" required />
-            </div>
-          </div>
-          <div class="form-grid-2">
-            <div class="form-group">
-              <label class="form-label" for="co-pincode">PIN / Postal Code <span>*</span></label>
-              <input type="text" id="co-pincode" class="form-input" placeholder="PIN Code" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="co-instructions">Delivery Instructions</label>
-              <input type="text" id="co-instructions" class="form-input" placeholder="Optional delivery instructions" />
-            </div>
-          </div>
-
-          <!-- Payment Options -->
-          <div class="checkout-section-title" style="margin-top: 1rem;">
-            <span>03</span> Payment Method
-          </div>
-          <div class="payment-methods">
-            <div class="payment-method-card active" data-method="cod">
-              <div class="payment-icon">❖</div>
-              <div class="payment-name">Cash on Delivery</div>
-            </div>
-            <div class="payment-method-card" data-method="upi">
-              <div class="payment-icon">◈</div>
-              <div class="payment-name">UPI / QR Payment</div>
-            </div>
-            <div class="payment-method-card" data-method="card">
-              <div class="payment-icon">✦</div>
-              <div class="payment-name">Credit / Debit Card</div>
-            </div>
-            <div class="payment-method-card" data-method="netbanking">
-              <div class="payment-icon">✧</div>
-              <div class="payment-name">Net Banking</div>
-            </div>
-          </div>
-        </form>
-
-        <!-- Right: Order Summary & Place Order -->
-        <div class="checkout-summary-card">
-          <div class="checkout-section-title">Order Summary</div>
+      <div class="checkout-flow-wrapper">
+        <form id="checkout-form" class="checkout-vertical-form">
           
-          <div class="checkout-items-list">
-            ${itemsSummaryHtml}
-          </div>
-
-          <div class="cart-summary-rows">
-            <div class="summary-row">
-              <span>Subtotal</span>
-              <span>${CONFIG.currency}${totals.subtotal}</span>
+          <!-- STEP 1: Contact & Delivery Address -->
+          <section class="checkout-step-card" aria-labelledby="step-1-heading">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">1</span>
+              <div class="step-header-text">
+                <h3 id="step-1-heading" class="step-title">Contact & Delivery Address</h3>
+                <p class="step-desc">Enter your recipient details and shipping address</p>
+              </div>
             </div>
-            ${totals.discountAmount > 0 ? `
-            <div class="summary-row" style="color:#ffffff;">
-              <span>Discount</span>
-              <span>-${CONFIG.currency}${totals.discountAmount}</span>
-            </div>` : ''}
-            <div class="summary-row">
-              <span>Delivery</span>
-              <span>${totals.deliveryFee === 0 ? 'FREE' : `${CONFIG.currency}${totals.deliveryFee}`}</span>
-            </div>
-            <div class="summary-row total-row">
-              <span>Grand Total</span>
-              <span>${CONFIG.currency}${totals.grandTotal}</span>
-            </div>
-          </div>
 
-          <button class="btn-place-order" id="btn-place-order">
-            PLACE ORDER
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </button>
+            <div class="checkout-step-body">
+              <div class="form-grid-3">
+                <div class="form-group">
+                  <label class="form-label" for="co-name">Full Name <span>*</span></label>
+                  <input type="text" id="co-name" class="form-input" placeholder="Recipient Name" autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="co-phone">Mobile Number <span>*</span></label>
+                  <input type="tel" id="co-phone" class="form-input" placeholder="10-digit mobile" autocomplete="tel" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="co-email">Email Address <span>*</span></label>
+                  <input type="email" id="co-email" class="form-input" placeholder="email@domain.com" autocomplete="email" required />
+                </div>
+              </div>
 
-          <div class="checkout-guarantee-note">
-            ✦ Carefully packaged in signature ZOOQE packaging.<br/>
-            ✦ Prompt delivery and order support.
-          </div>
-        </div>
+              <div class="form-grid-2" style="margin-top: 0.85rem;">
+                <div class="form-group">
+                  <label class="form-label" for="co-house">House / Building / Apartment <span>*</span></label>
+                  <input type="text" id="co-house" class="form-input" placeholder="Flat / House No., Building" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="co-street">Street Address & Landmark <span>*</span></label>
+                  <input type="text" id="co-street" class="form-input" placeholder="Street, Colony, Landmark" required />
+                </div>
+              </div>
+
+              <div class="form-grid-3" style="margin-top: 0.85rem;">
+                <div class="form-group">
+                  <label class="form-label" for="co-city">City / Town <span>*</span></label>
+                  <input type="text" id="co-city" class="form-input" placeholder="City" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="co-state">State <span>*</span></label>
+                  <input type="text" id="co-state" class="form-input" placeholder="State" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="co-pincode">PIN / Postal Code <span>*</span></label>
+                  <input type="text" id="co-pincode" class="form-input" placeholder="6-digit PIN" required />
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 0.85rem;">
+                <label class="form-label" for="co-instructions">Delivery Instructions <span class="optional-tag">(Optional)</span></label>
+                <input type="text" id="co-instructions" class="form-input" placeholder="E.g., Leave package with security guard" />
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 2: Payment Method (Compact pill buttons / simple radio cards) -->
+          <section class="checkout-step-card" aria-labelledby="step-2-heading">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">2</span>
+              <div class="step-header-text">
+                <h3 id="step-2-heading" class="step-title">Payment Method</h3>
+                <p class="step-desc">Select your preferred payment method</p>
+              </div>
+            </div>
+
+            <div class="checkout-step-body">
+              <div class="payment-pills-grid">
+                <div class="payment-method-card active" data-method="cod" role="radio" aria-checked="true" tabindex="0">
+                  <div class="payment-radio-indicator">
+                    <span class="payment-radio-inner"></span>
+                  </div>
+                  <div class="payment-pill-content">
+                    <div class="payment-name">Cash on Delivery (COD)</div>
+                    <div class="payment-desc">Pay cash when your order arrives</div>
+                  </div>
+                  <span class="payment-badge-popular">Popular</span>
+                </div>
+
+                <div class="payment-method-card" data-method="upi" role="radio" aria-checked="false" tabindex="0">
+                  <div class="payment-radio-indicator">
+                    <span class="payment-radio-inner"></span>
+                  </div>
+                  <div class="payment-pill-content">
+                    <div class="payment-name">UPI / QR Payment</div>
+                    <div class="payment-desc">Google Pay, PhonePe, Paytm, BHIM</div>
+                  </div>
+                </div>
+
+                <div class="payment-method-card" data-method="card" role="radio" aria-checked="false" tabindex="0">
+                  <div class="payment-radio-indicator">
+                    <span class="payment-radio-inner"></span>
+                  </div>
+                  <div class="payment-pill-content">
+                    <div class="payment-name">Debit / Credit Card</div>
+                    <div class="payment-desc">Visa, Mastercard, RuPay, Amex</div>
+                  </div>
+                </div>
+
+                <div class="payment-method-card" data-method="netbanking" role="radio" aria-checked="false" tabindex="0">
+                  <div class="payment-radio-indicator">
+                    <span class="payment-radio-inner"></span>
+                  </div>
+                  <div class="payment-pill-content">
+                    <div class="payment-name">Net Banking</div>
+                    <div class="payment-desc">All major verified Indian banks</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- STEP 3: Compact Order Summary -->
+          <section class="checkout-step-card checkout-summary-step" aria-labelledby="step-3-heading">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">3</span>
+              <div class="step-header-text">
+                <h3 id="step-3-heading" class="step-title">Order Summary</h3>
+                <p class="step-desc">Review your items and complete your order</p>
+              </div>
+            </div>
+
+            <div class="checkout-step-body">
+              <div class="checkout-items-list-compact">
+                ${itemsSummaryHtml}
+              </div>
+
+              <div class="checkout-summary-breakdown">
+                <div class="summary-line">
+                  <span>Subtotal (${items.reduce((acc, i) => acc + i.quantity, 0)} items)</span>
+                  <span>${formatPrice(totals.subtotal)}</span>
+                </div>
+                ${totals.discountAmount > 0 ? `
+                <div class="summary-line discount-line">
+                  <span>Promotional Discount</span>
+                  <span>-${formatPrice(totals.discountAmount)}</span>
+                </div>` : ''}
+                <div class="summary-line">
+                  <span>Standard Delivery</span>
+                  <span>${totals.deliveryFee === 0 ? '<span class="free-delivery-tag">FREE</span>' : formatPrice(totals.deliveryFee)}</span>
+                </div>
+                <div class="summary-line total-line">
+                  <span>Total Payable</span>
+                  <span class="grand-total-amount">${formatPrice(totals.grandTotal)}</span>
+                </div>
+              </div>
+
+              <!-- Primary Action Button ("Place Order") - Bold, Clean, Stands out effortlessly -->
+              <button type="submit" class="btn-place-order" id="btn-place-order">
+                <span>PLACE ORDER</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </button>
+
+              <div class="checkout-trust-footer">
+                <div class="trust-item">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                  <span>100% Secure Checkout</span>
+                </div>
+                <span class="trust-sep">•</span>
+                <div class="trust-item">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span>Direct background order notification dispatched</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </form>
       </div>
     `;
 
@@ -257,15 +321,27 @@ class CheckoutManager {
     const paymentCards = document.querySelectorAll('.payment-method-card');
 
     paymentCards.forEach(card => {
-      card.addEventListener('click', () => {
-        paymentCards.forEach(c => c.classList.remove('active'));
+      const selectPayment = () => {
+        paymentCards.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-checked', 'false');
+        });
         card.classList.add('active');
+        card.setAttribute('aria-checked', 'true');
         this.selectedPaymentMethod = card.dataset.method;
+      };
+
+      card.addEventListener('click', selectPayment);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          selectPayment();
+        }
       });
     });
 
-    placeOrderBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    const handlePlaceOrder = async (e) => {
+      if (e) e.preventDefault();
       
       const name = document.getElementById('co-name').value.trim();
       const phone = document.getElementById('co-phone').value.trim();
@@ -288,22 +364,78 @@ class CheckoutManager {
       const orderData = {
         orderId,
         date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
-        customer: { name, phone, email, address: `${house}, ${street}, ${city}, ${state} - ${pincode}`, instructions },
+        customer: {
+          name,
+          phone,
+          email,
+          house,
+          street,
+          city,
+          state,
+          pincode,
+          address: `${house}, ${street}, ${city}, ${state} - ${pincode}`,
+          instructions
+        },
         items: this.checkoutData.items,
         totals,
         paymentMethod: this.selectedPaymentMethod
       };
 
-      if (!this.checkoutData.isDirectBuy) {
-        cartState.clearCart();
-      }
+      // Visual feedback: Show luxury processing spinner
+      const originalBtnHtml = placeOrderBtn.innerHTML;
+      placeOrderBtn.disabled = true;
+      placeOrderBtn.innerHTML = `
+        <span class="btn-place-order-spinner"></span>
+        DISPATCHING ORDER...
+      `;
 
-      this.close();
+      try {
+        // 1. Send background POST request (using fetch API) to https://api.web3forms.com/submit
+        const notifyResult = await Web3Forms.sendOrderNotification(orderData);
 
-      if (this.onOrderPlacedCallback) {
-        this.onOrderPlacedCallback(orderData);
+        if (notifyResult && notifyResult.success === true) {
+          // 2. On successful response (result.success === true):
+          // Clear the cart items
+          cartState.clearCart();
+
+          // Close checkout modal
+          this.close();
+
+          // Restore button state
+          placeOrderBtn.disabled = false;
+          placeOrderBtn.innerHTML = originalBtnHtml;
+
+          // Display the Order Confirmed screen
+          if (this.onOrderPlacedCallback) {
+            this.onOrderPlacedCallback(orderData);
+          } else {
+            orderConfirmation.show(orderData);
+          }
+          toast.show(`Order #${orderData.orderId} Confirmed! Direct notification dispatched to store owner.`);
+        } else {
+          // 3. If an error occurs, show an alert message and do not clear the cart
+          const errorMsg = notifyResult?.message || 'Failed to submit order. Please check your details and try again.';
+          placeOrderBtn.disabled = false;
+          placeOrderBtn.innerHTML = originalBtnHtml;
+          alert(`Order Submission Error: ${errorMsg}\n\nYour cart items are saved. Please try submitting again.`);
+          toast.show(errorMsg);
+        }
+      } catch (err) {
+        console.error('Checkout submission error:', err);
+        const errorMsg = err.message || 'Network error occurred while submitting order.';
+        placeOrderBtn.disabled = false;
+        placeOrderBtn.innerHTML = originalBtnHtml;
+        alert(`Order Submission Error: ${errorMsg}\n\nYour cart items are saved. Please try submitting again.`);
+        toast.show(errorMsg);
       }
-    });
+    };
+
+    if (placeOrderBtn) {
+      placeOrderBtn.addEventListener('click', handlePlaceOrder);
+    }
+    if (form) {
+      form.addEventListener('submit', handlePlaceOrder);
+    }
   }
 }
 

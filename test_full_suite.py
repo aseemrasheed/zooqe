@@ -70,7 +70,8 @@ for src in scanner.srcs:
     # ignore external urls
     if src.startswith("http://") or src.startswith("https://"):
         continue
-    file_path = os.path.join(base_dir, src.replace("/", os.sep))
+    clean_src = src.split('?')[0]
+    file_path = os.path.join(base_dir, clean_src.replace("/", os.sep))
     if not os.path.exists(file_path):
         broken_srcs.append(src)
     else:
@@ -147,6 +148,7 @@ test_endpoints = [
     "/css/components/wishlist.css",
     "/css/components/review-section.css",
     "/css/components/about-brand.css",
+    "/css/components/spices-collection.css",
     "/css/components/toast.css",
     "/css/components/footer.css",
     "/js/config.js",
@@ -166,6 +168,8 @@ test_endpoints = [
     "/js/components/reviewSlider.js",
     "/js/components/toast.js",
     "/js/components/whatsapp.js",
+    "/js/components/web3forms.js",
+    "/js/components/spicesCollection.js",
     "/js/app.js",
     "/assets/logo.png",
     "/assets/images/logo.jpg",
@@ -182,6 +186,18 @@ test_endpoints = [
     "/assets/images/products/beef-pickle-1.svg",
     "/assets/images/products/beef-pickle-2.svg",
     "/assets/images/products/beef-pickle-3.svg",
+    "/assets/images/products/chicken_pickle.jpg",
+    "/assets/images/products/chicken_pickle.svg",
+    "/assets/images/products/carrot_pickle.jpg",
+    "/assets/images/products/carrot_pickle.svg",
+    "/assets/images/products/beef_pickle.jpg",
+    "/assets/images/products/beef_pickle.svg",
+    "/assets/images/products/prawns_pickle.jpg",
+    "/assets/images/products/prawns_pickle.svg",
+    "/assets/images/products/fish_pickle.jpg",
+    "/assets/images/products/fish_pickle.svg",
+    "/assets/images/products/mango_pickle.jpg",
+    "/assets/images/products/mango_pickle.svg",
     "/assets/images/products/garlic-pickle-1.svg",
     "/assets/images/products/garlic-pickle-2.svg",
     "/assets/images/products/garlic-pickle-3.svg",
@@ -191,12 +207,34 @@ test_endpoints = [
     "/assets/images/products/cardamom-1.svg",
     "/assets/images/products/cardamom-2.svg",
     "/assets/images/products/cardamom-3.svg",
+    "/assets/images/products/spices/tellicherry_black_pepper.jpg",
+    "/assets/images/products/spices/tellicherry_black_pepper.svg",
+    "/assets/images/products/spices/idukki_green_cardamom.jpg",
+    "/assets/images/products/spices/idukki_green_cardamom.svg",
+    "/assets/images/products/spices/cloves_grambu.jpg",
+    "/assets/images/products/spices/cloves_grambu.svg",
+    "/assets/images/products/spices/cinnamon_bark.jpg",
+    "/assets/images/products/spices/cinnamon_bark.svg",
+    "/assets/images/products/spices/royal_mixed_masala.jpg",
+    "/assets/images/products/spices/royal_mixed_masala.svg",
+    "/assets/images/products/spices/kerala_curry_masala.jpg",
+    "/assets/images/products/spices/kerala_curry_masala.svg",
+    "/assets/images/products/spices/star_anise.jpg",
+    "/assets/images/products/spices/star_anise.svg",
+    "/assets/images/products/spices/nutmeg_mace.jpg",
+    "/assets/images/products/spices/nutmeg_mace.svg",
+    "/assets/images/products/spices/kashmiri_saffron.jpg",
+    "/assets/images/products/spices/kashmiri_saffron.svg",
     "/assets/images/products/heritage-hamper-1.svg",
     "/assets/images/products/heritage-hamper-2.svg",
     "/assets/images/products/heritage-hamper-3.svg",
     "/assets/images/collections/collection-pickles.svg",
     "/assets/images/collections/collection-spices.svg",
-    "/assets/images/collections/collection-hampers.svg"
+    "/assets/images/collections/collection-hampers.svg",
+    "/assets/images/about/zooqe-standard-showcase.jpg",
+    "/assets/images/about/zooqe-standard-showcase.svg",
+    "/assets/images/about/zooqe-standard.jpg",
+    "/assets/images/about/zooqe-standard.svg"
 ]
 
 server_failures = []
@@ -223,19 +261,23 @@ with open(products_js_path, "r", encoding="utf-8") as f:
 # Verify expected products are present
 expected_products = [
     "Mango Pickle", "Lemon Pickle", "Fish Pickle", "Beef Pickle",
-    "Garlic Pickle", "Black Pepper", "Cardamom", "Heritage Luxury Hamper"
+    "Chicken Pickle", "Carrot Pickle", "Prawns Pickle", "Garlic Pickle",
+    "Tellicherry Black Pepper", "Idukki Green Cardamom", "Cloves (Grambu)",
+    "Cinnamon Bark (Patta)", "Royal Mixed Masala", "Traditional Kerala Curry Masala",
+    "Star Anise (Thakkolam)", "Nutmeg Mace (Jaathipathiri)", "Premium Kashmiri Saffron (Kunkuma Poovu)",
+    "Heritage Luxury Hamper"
 ]
 missing_products = [p for p in expected_products if p not in prod_content]
 
 if not missing_products:
-    print(f"[PASS] All 8 required products are accurately present in products.js:")
+    print(f"[PASS] All {len(expected_products)} required products are accurately present in products.js:")
     for ep in expected_products:
         print(f"       -> {ep}")
 else:
     print(f"[FAIL] Missing products in catalog: {missing_products}")
 
-# Verify 100g, 250g, 500g, 1kg sizes
-expected_sizes = ["100g", "250g", "500g", "1kg"]
+# Verify 100g, 200g, 250g, 500g, 1kg sizes
+expected_sizes = ["100g", "200g", "250g", "500g", "1kg"]
 for sz in expected_sizes:
     count = prod_content.count(f"size: '{sz}'")
     print(f"[PASS] Variant size '{sz}' configured across {count} product definitions.")

@@ -9,8 +9,10 @@ import { filterManager } from './components/filter.js';
 import { checkout } from './components/checkout.js';
 import { orderConfirmation } from './components/orderConfirmation.js';
 import { initReviewSlider } from './components/reviewSlider.js';
+import { initHeroSlider } from './components/heroSlider.js';
 import { toast } from './components/toast.js';
 import { WhatsApp } from './components/whatsapp.js';
+import { initSpicesCollection } from './components/spicesCollection.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Splash Loader Dismissal
@@ -110,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 6. Initialize Testimonial Carousel
+  // 6. Initialize Hero Product Showcase Slider & Testimonial Carousel
+  initHeroSlider();
   initReviewSlider();
 
   // 7. Hero CTA Button Smooth Scrolls
@@ -119,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroShopBtn) {
     heroShopBtn.addEventListener('click', () => {
-      const shop = document.getElementById('shop');
-      if (shop) shop.scrollIntoView({ behavior: 'smooth' });
+      const pickles = document.getElementById('pickles') || document.getElementById('shop');
+      if (pickles) pickles.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
@@ -131,11 +134,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. Collections Click-Throughs
-  document.querySelectorAll('.collection-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const cat = card.dataset.category;
+  // 7b. Countertop Hero Stage Hotspot Clicks (Quick View for highlighted products)
+  document.querySelectorAll('.countertop-hotspot').forEach(hotspot => {
+    hotspot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const prodId = hotspot.dataset.productId;
+      const product = PRODUCTS.find(p => p.id === prodId || p.id === prodId.replace(/^zq-/, '') || ('zq-' + p.id) === prodId);
+      if (product) {
+        productModal.open(product, (prodToBuy, size, qty) => {
+          checkout.open({
+            isDirectBuy: true,
+            directProduct: prodToBuy,
+            directSize: size,
+            directQuantity: qty
+          }, handleOrderSuccess);
+        });
+      }
+    });
+  });
+
+  // 7c. Initialize Spices & Pickles Collection Showcases
+  initSpicesCollection({
+    onQuickView: (prod) => {
+      productModal.open(prod, (prodToBuy, size, qty) => {
+        checkout.open({
+          isDirectBuy: true,
+          directProduct: prodToBuy,
+          directSize: size,
+          directQuantity: qty
+        }, handleOrderSuccess);
+      });
+    },
+    onBuyNow: (prod, size, qty) => {
+      checkout.open({
+        isDirectBuy: true,
+        directProduct: prod,
+        directSize: size,
+        directQuantity: qty
+      }, handleOrderSuccess);
+    }
+  });
+
+  // 8. Collections & Category Click-Throughs
+  document.querySelectorAll('.collection-card, .category-showcase-card, .btn-category-action').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const cat = el.dataset.category || el.closest('[data-category]')?.dataset.category;
       if (cat) {
+        e.stopPropagation();
+        if (cat === 'pickles') {
+          const picklesSec = document.getElementById('pickles');
+          if (picklesSec) {
+            picklesSec.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+        }
+        if (cat === 'spices') {
+          const spicesSec = document.getElementById('spices');
+          if (spicesSec) {
+            spicesSec.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+        }
         filterManager.activeCategory = cat;
         filterManager.renderCategoryPills();
         filterManager.apply();
@@ -183,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     shipping: {
       title: 'Shipping Policy',
-      content: '<p>Orders above $100 receive complimentary delivery. Each glass jar and spice canister is cushioned in secure packaging with airtight seals to ensure peak freshness upon arrival.</p><p>Standard delivery takes 2–4 business days with direct order tracking.</p>'
+      content: '<p>Orders above ₹999 receive complimentary delivery. Each glass jar and spice canister is cushioned in secure packaging with airtight seals to ensure peak freshness upon arrival.</p><p>Standard delivery takes 2–4 business days with direct order tracking.</p>'
     },
     returns: {
       title: 'Return & Quality Policy',

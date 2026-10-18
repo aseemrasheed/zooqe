@@ -1,20 +1,21 @@
 /* Master Stylesheet for ZOOQE Luxury E-Commerce */
-@import './variables.css';
-@import './reset.css';
-@import './typography.css';
-@import './components/navbar.css';
-@import './components/hero.css';
-@import './components/product-card.css';
-@import './components/product-details.css';
-@import './components/cart-drawer.css';
-@import './components/checkout.css';
-@import './components/order-confirmed.css';
-@import './components/search-filter.css';
-@import './components/wishlist.css';
-@import './components/review-section.css';
-@import './components/about-brand.css';
-@import './components/toast.css';
-@import './components/footer.css';
+@import './variables.css?v=2.2';
+@import './reset.css?v=2.2';
+@import './typography.css?v=2.2';
+@import './components/navbar.css?v=2.2';
+@import './components/hero.css?v=2.2';
+@import './components/product-card.css?v=2.2';
+@import './components/product-details.css?v=2.2';
+@import './components/cart-drawer.css?v=2.2';
+@import './components/checkout.css?v=2.2';
+@import './components/order-confirmed.css?v=2.2';
+@import './components/search-filter.css?v=2.2';
+@import './components/wishlist.css?v=2.2';
+@import './components/review-section.css?v=2.2';
+@import './components/about-brand.css?v=2.2';
+@import './components/spices-collection.css?v=2.2';
+@import './components/toast.css?v=2.2';
+@import './components/footer.css?v=2.2';
 
 /* Layout Containers & Sections */
 .site-main {

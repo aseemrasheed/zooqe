@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Typography Scales & Luxury Headings */
+/* Typography Scales & Modern Clean Headings */
 .font-display {
   font-family: var(--font-display);
 }
@@ -9,37 +9,43 @@
   font-family: var(--font-body);
 }
 
+.font-brand {
+  font-family: var(--font-brand);
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--silver-100);
   line-height: 1.25;
-  letter-spacing: 0.05em;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 h3 {
-  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-  letter-spacing: 0.05em;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  letter-spacing: -0.005em;
+  line-height: 1.35;
 }
 
 h4 {
-  font-size: 1.15rem;
-  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-/* Metallic Chrome Gradients on Text */
+/* Metallic Chrome Gradients on Text (Subtle & Refined) */
 .text-metallic-silver {
   background: var(--grad-silver-text);
   -webkit-background-clip: text;
@@ -63,32 +69,23 @@ h4 {
   color: var(--silver-500);
 }
 
+/* Clean Eyebrow: Minimalist, without decorative clutter/lines */
 .eyebrow {
   font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--silver-500);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.eyebrow::before, .eyebrow::after {
-  content: '';
+  letter-spacing: 0.14em;
+  color: var(--silver-400);
   display: inline-block;
-  width: 20px;
-  height: 1px;
-  background: var(--silver-600);
-  opacity: 0.4;
+  margin-bottom: 0.35rem;
 }
 
 .brand-wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-brand);
   font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   background: var(--grad-silver-chrome);
   -webkit-background-clip: text;

@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { wishlistState } from '../state/wishlistState.js';
 import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
@@ -9,7 +9,7 @@ export function createProductCard(product, { onQuickView, onBuyNow }) {
   card.dataset.productId = product.id;
 
   const isWishlisted = wishlistState.isInWishlist(product.id);
-  const primaryImage = product.images && product.images[0] ? product.images[0] : 'assets/images/logo-mark.svg';
+  const primaryImage = (product.images && product.images[0]) || product.image || 'assets/images/logo-mark.svg';
 
   // Badges markup
   let badgeHtml = '';
@@ -17,17 +17,18 @@ export function createProductCard(product, { onQuickView, onBuyNow }) {
     badgeHtml += `<span class="badge-tag">${product.badge}</span>`;
   }
   if (product.discountPercentage) {
-    badgeHtml += `<span class="badge-tag badge-discount">-${product.discountPercentage}%</span>`;
+    badgeHtml += `<span class="badge-tag badge-discount">${product.discountPercentage}% OFF</span>`;
   }
 
   // Sizes pill preview
   const sizesHtml = product.sizes && product.sizes.length > 0
-    ? product.sizes.map(s => `<span class="size-tag">${s.size}</span>`).join('')
+    ? product.sizes.map(s => `<span class="size-tag">${s.size || s.weight}</span>`).join('')
     : '<span class="size-tag">100g</span>';
 
   card.innerHTML = `
     <div class="product-card-media">
       <img src="${primaryImage}" alt="${product.name}" class="product-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+      <div class="product-card-overlay"></div>
       <div class="product-badges">${badgeHtml}</div>
       <button class="product-card-wishlist-btn ${isWishlisted ? 'active' : ''}" title="${isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -38,23 +39,14 @@ export function createProductCard(product, { onQuickView, onBuyNow }) {
     </div>
 
     <div class="product-card-body">
-      <div class="product-card-category">${product.category}</div>
       <h3 class="product-card-title">${product.name}</h3>
-      <p class="product-card-desc">${product.subtitle || product.description}</p>
-      
-      <div class="product-card-rating">
-        <div class="rating-stars">
-          ${renderStars(product.rating || 5)}
-        </div>
-        <span>(${product.reviewsCount || 42})</span>
+
+      <div class="product-card-pricing">
+        <span class="price-current">${formatPrice(product.basePrice || product.startingPrice)}</span>
+        ${(product.previousPrice || product.originalPrice) ? `<span class="price-previous">${formatPrice(product.previousPrice || product.originalPrice)}</span>` : ''}
       </div>
 
       <div class="product-card-sizes">${sizesHtml}</div>
-
-      <div class="product-card-pricing">
-        <span class="price-current">${CONFIG.currency}${product.basePrice}</span>
-        ${product.previousPrice ? `<span class="price-previous">${CONFIG.currency}${product.previousPrice}</span>` : ''}
-      </div>
 
       <div class="product-card-actions">
         <button class="btn-card-add-cart">
@@ -63,9 +55,8 @@ export function createProductCard(product, { onQuickView, onBuyNow }) {
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          ADD
+          ADD TO CART
         </button>
-        <button class="btn-card-buy-now">BUY NOW</button>
       </div>
     </div>
   `;

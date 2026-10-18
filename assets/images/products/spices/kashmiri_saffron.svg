@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow_kashmiri_saffron" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1c1c24"/>
+      <stop offset="50%" stop-color="#0c0c0f"/>
+      <stop offset="100%" stop-color="#050506"/>
+    </radialGradient>
+    <radialGradient id="spiceGlow_kashmiri_saffron" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#6E0D1B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="goldBorder_kashmiri_saffron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff2d6"/>
+      <stop offset="35%" stop-color="#d4af37"/>
+      <stop offset="70%" stop-color="#8c6614"/>
+      <stop offset="100%" stop-color="#e6be68"/>
+    </linearGradient>
+    <linearGradient id="silverPlaque_kashmiri_saffron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#cfcfd4"/>
+      <stop offset="100%" stop-color="#7a7a80"/>
+    </linearGradient>
+    <filter id="shadow_kashmiri_saffron" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="25" stdDeviation="22" flood-color="#000000" flood-opacity="0.92"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Background -->
+  <rect width="600" height="600" fill="url(#bgGlow_kashmiri_saffron)"/>
+
+  <!-- Concentric Luxury Rings -->
+  <circle cx="300" cy="275" r="230" fill="none" stroke="rgba(212,175,55,0.06)" stroke-width="1"/>
+  <circle cx="300" cy="275" r="180" fill="none" stroke="rgba(212,175,55,0.08)" stroke-width="1" stroke-dasharray="6 8"/>
+  <circle cx="300" cy="275" r="130" fill="none" stroke="rgba(212,175,55,0.12)" stroke-width="1"/>
+
+  <!-- Warm Spice Ambient Halo -->
+  <circle cx="300" cy="275" r="170" fill="url(#spiceGlow_kashmiri_saffron)" opacity="0.6"/>
+
+  <!-- Pedestal Base Shadow -->
+  <ellipse cx="300" cy="455" rx="190" ry="26" fill="#000000" opacity="0.95" filter="url(#shadow_kashmiri_saffron)"/>
+  <ellipse cx="300" cy="448" rx="150" ry="14" fill="url(#goldBorder_kashmiri_saffron)" opacity="0.2"/>
+
+  <!-- Centerpiece Vessel / Luxury Matte Black Craft Pouch / Jar -->
+  <g filter="url(#shadow_kashmiri_saffron)">
+    <!-- Pouch / Jar Body -->
+    <rect x="185" y="150" width="230" height="270" rx="18" fill="#101014" stroke="url(#goldBorder_kashmiri_saffron)" stroke-width="1.5"/>
+    
+    <!-- Transparent spice window / inner aura -->
+    <rect x="198" y="162" width="204" height="246" rx="12" fill="#6E0D1B" opacity="0.45"/>
+
+    <!-- Spice Graphics -->
+    <g>
+      
+        <!-- Kashmiri Saffron Filaments -->
+        <g stroke="#C0392B" stroke-width="2.5" fill="none" stroke-linecap="round">
+          <path d="M 270,300 Q 285,260 280,230 Q 285,225 292,232"/>
+          <path d="M 290,305 Q 300,265 305,225 Q 312,220 318,228"/>
+          <path d="M 315,300 Q 318,260 328,235 Q 335,230 340,238"/>
+          <path d="M 280,300 Q 305,270 315,245"/>
+        </g>
+        <circle cx="292" cy="232" r="2.5" fill="#F39C12"/>
+        <circle cx="318" cy="228" r="2.5" fill="#F39C12"/>
+        <circle cx="340" cy="238" r="2.5" fill="#F39C12"/>
+        
+    </g>
+
+    <!-- Luxury Gold & Obsidian Label Plaque -->
+    <rect x="210" y="225" width="180" height="155" rx="8" fill="#09090C" stroke="url(#goldBorder_kashmiri_saffron)" stroke-width="1.2"/>
+    
+    <!-- ZOOQE Crest Monogram -->
+    <circle cx="300" cy="255" r="16" fill="none" stroke="url(#goldBorder_kashmiri_saffron)" stroke-width="1"/>
+    <text x="300" y="260" font-family="'Cinzel', serif" font-size="11" font-weight="bold" fill="#f7df99" text-anchor="middle" letter-spacing="1">ZQ</text>
+
+    <!-- Brand & Spice Name on Label -->
+    <text x="300" y="290" font-family="'Cinzel', serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">ZOOQE</text>
+    <line x1="235" y1="300" x2="365" y2="300" stroke="url(#goldBorder_kashmiri_saffron)" stroke-width="0.8" opacity="0.8"/>
+    <text x="300" y="318" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#f7df99" text-anchor="middle" letter-spacing="1.2">PREMIUM KASHMIRI SAFFR</text>
+    <text x="300" y="334" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="8" font-weight="600" fill="#a1a1a8" text-anchor="middle" letter-spacing="0.8">GRADE A1 MONGRA</text>
+    <text x="300" y="352" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-size="7.5" fill="#d4af37" text-anchor="middle" letter-spacing="1.5">✦ SINGLE ORIGIN MALABAR ✦</text>
+
+    <!-- Metallic Gold Cap / Seal -->
+    <rect x="215" y="115" width="170" height="42" rx="6" fill="url(#goldBorder_kashmiri_saffron)" stroke="#fff2d6" stroke-width="0.6"/>
+    <line x1="220" y1="128" x2="380" y2="128" stroke="#8c6614" stroke-width="1"/>
+    <line x1="220" y1="138" x2="380" y2="138" stroke="#8c6614" stroke-width="1"/>
+    <rect x="255" y="103" width="90" height="15" rx="3" fill="url(#goldBorder_kashmiri_saffron)"/>
+  </g>
+
+  <!-- Bottom Captions -->
+  <text x="300" y="525" font-family="'Cinzel', serif" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">Premium Kashmiri Saffron (Kunkuma Poovu)</text>
+  <text x="300" y="550" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" fill="#d4af37" text-anchor="middle" letter-spacing="1">Pure All-Red Mongra Saffron Filaments from Pampore</text>
+</svg>

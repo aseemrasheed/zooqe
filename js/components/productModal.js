@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
 import { WhatsApp } from './whatsapp.js';
@@ -48,9 +48,9 @@ class ProductModalManager {
   open(product, onBuyNow) {
     this.currentProduct = product;
     this.onBuyNowCallback = onBuyNow;
-    this.selectedSize = (product.sizes && product.sizes[0]) ? product.sizes[0].size : '100g';
-    this.selectedPrice = (product.sizes && product.sizes[0]) ? product.sizes[0].price : product.basePrice;
-    this.selectedPrevPrice = (product.sizes && product.sizes[0]) ? (product.sizes[0].previousPrice || 0) : (product.previousPrice || 0);
+    this.selectedSize = (product.sizes && product.sizes[0]) ? (product.sizes[0].size || product.sizes[0].weight) : '100g';
+    this.selectedPrice = (product.sizes && product.sizes[0]) ? product.sizes[0].price : (product.basePrice || product.startingPrice);
+    this.selectedPrevPrice = (product.sizes && product.sizes[0]) ? (product.sizes[0].previousPrice || product.sizes[0].mrp || 0) : (product.previousPrice || product.originalPrice || 0);
     this.quantity = 1;
 
     this.render();
@@ -64,17 +64,17 @@ class ProductModalManager {
   }
 
   updatePrice() {
-    const variant = this.currentProduct.sizes.find(s => s.size === this.selectedSize);
+    const variant = this.currentProduct.sizes.find(s => (s.size || s.weight) === this.selectedSize);
     if (variant) {
       this.selectedPrice = variant.price;
-      this.selectedPrevPrice = variant.previousPrice || 0;
+      this.selectedPrevPrice = variant.previousPrice || variant.mrp || 0;
     }
     const priceEl = document.getElementById('modal-product-price');
     const prevPriceEl = document.getElementById('modal-product-prev-price');
-    if (priceEl) priceEl.textContent = `${CONFIG.currency}${this.selectedPrice}`;
+    if (priceEl) priceEl.textContent = formatPrice(this.selectedPrice);
     if (prevPriceEl) {
       if (this.selectedPrevPrice) {
-        prevPriceEl.textContent = `${CONFIG.currency}${this.selectedPrevPrice}`;
+        prevPriceEl.textContent = formatPrice(this.selectedPrevPrice);
         prevPriceEl.style.display = 'inline';
       } else {
         prevPriceEl.style.display = 'none';
@@ -88,7 +88,7 @@ class ProductModalManager {
     if (!content) return;
 
     // Gallery thumbnails
-    const images = p.images && p.images.length > 0 ? p.images : ['assets/images/logo-mark.svg'];
+    const images = (p.images && p.images.length > 0) ? p.images : (p.image ? [p.image] : ['assets/images/logo-mark.svg']);
     const thumbsHtml = images.map((img, idx) => `
       <div class="gallery-thumb ${idx === 0 ? 'active' : ''}" data-index="${idx}">
         <img src="${img}" alt="${p.name} view ${idx + 1}" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
@@ -96,12 +96,15 @@ class ProductModalManager {
     `).join('');
 
     // Variant pills
-    const sizes = p.sizes || [{ size: '100g', price: p.basePrice }];
-    const variantsHtml = sizes.map(s => `
-      <button class="variant-btn ${s.size === this.selectedSize ? 'active' : ''}" data-size="${s.size}">
-        ${s.size} • ${CONFIG.currency}${s.price}
+    const sizes = p.sizes || [{ size: '100g', price: p.basePrice || p.startingPrice }];
+    const variantsHtml = sizes.map(s => {
+      const szLabel = s.size || s.weight;
+      return `
+      <button class="variant-btn ${szLabel === this.selectedSize ? 'active' : ''}" data-size="${szLabel}">
+        ${szLabel} • ${formatPrice(s.price)}
       </button>
-    `).join('');
+    `;
+    }).join('');
 
     content.innerHTML = `
       <div class="product-detail-layout">
@@ -130,9 +133,9 @@ class ProductModalManager {
           </div>
 
           <div class="product-detail-price-wrap">
-            <span class="product-detail-price" id="modal-product-price">${CONFIG.currency}${this.selectedPrice}</span>
+            <span class="product-detail-price" id="modal-product-price">${formatPrice(this.selectedPrice)}</span>
             <span class="product-detail-prev-price" id="modal-product-prev-price" style="${this.selectedPrevPrice ? '' : 'display:none;'}">
-              ${CONFIG.currency}${this.selectedPrevPrice}
+              ${formatPrice(this.selectedPrevPrice)}
             </span>
             ${p.discountPercentage ? `<span class="product-detail-save-badge">SAVE ${p.discountPercentage}%</span>` : ''}
           </div>

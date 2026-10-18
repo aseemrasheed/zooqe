@@ -1,4 +1,4 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, formatPrice } from '../config.js';
 import { wishlistState } from '../state/wishlistState.js';
 import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
@@ -64,7 +64,7 @@ class WishlistManager {
         <img src="${item.image}" alt="${item.name}" class="wishlist-item-img" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
         <div class="wishlist-item-info">
           <h4 class="wishlist-item-title">${item.name}</h4>
-          <div class="wishlist-item-price">${CONFIG.currency}${item.basePrice}</div>
+          <div class="wishlist-item-price">${formatPrice(item.basePrice)}</div>
           <div class="wishlist-item-actions">
             <button class="btn-wishlist-add-cart" data-id="${item.id}">ADD TO CART</button>
             <button class="btn-wishlist-remove" data-id="${item.id}">Remove</button>

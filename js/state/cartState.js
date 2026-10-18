@@ -56,14 +56,15 @@ class CartState {
    * Add product variant to cart
    */
   addItem(product, size = '100g', quantity = 1) {
-    const variant = (product.sizes && product.sizes.find(s => s.size === size)) || {
+    const variant = (product.sizes && product.sizes.find(s => (s.size || s.weight) === size)) || {
       size: size,
-      price: product.basePrice,
-      previousPrice: product.previousPrice,
+      price: product.basePrice || product.startingPrice,
+      previousPrice: product.previousPrice || product.originalPrice || 0,
       sku: product.sku
     };
 
-    const itemKey = `${product.id}__${variant.size}`;
+    const chosenSize = variant.size || variant.weight || size;
+    const itemKey = `${product.id}__${chosenSize}`;
     const existingIndex = this.items.findIndex(item => item.itemKey === itemKey);
 
     if (existingIndex > -1) {
@@ -75,10 +76,10 @@ class CartState {
         name: product.name,
         subtitle: product.subtitle,
         category: product.category,
-        image: product.images && product.images[0] ? product.images[0] : 'assets/images/logo-mark.svg',
-        size: variant.size,
+        image: (product.images && product.images[0]) || product.image || 'assets/images/logo-mark.svg',
+        size: chosenSize,
         price: variant.price,
-        previousPrice: variant.previousPrice || 0,
+        previousPrice: variant.previousPrice || variant.mrp || 0,
         sku: variant.sku || product.sku,
         quantity: quantity,
         maxStock: product.stock || 99

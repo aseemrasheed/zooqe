@@ -47,19 +47,23 @@
 }
 
 .review-card {
-  background: var(--grad-dark-surface);
+  background: rgba(16, 16, 21, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 2rem;
+  border-radius: 12px;
+  padding: 1.85rem;
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .review-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.65);
 }
 
 .review-rating-stars {
