@@ -100,7 +100,7 @@ class CartDrawerManager {
         if (continueBtn) {
           continueBtn.addEventListener('click', () => {
             this.close();
-            const shopSection = document.getElementById('shop');
+            const shopSection = document.getElementById('collections') || document.getElementById('pickles');
             if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
           });
         }
@@ -115,7 +115,7 @@ class CartDrawerManager {
     if (itemsContainer) {
       itemsContainer.innerHTML = items.map(item => `
         <div class="cart-item" data-item-key="${item.itemKey}">
-          <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="if(!this.dataset.fallback){ this.dataset.fallback='1'; this.src = (this.src.startsWith('http') ? 'images/' + (item.productId || 'hero-showcase') + '.png' : this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg')); } else if(this.dataset.fallback==='1'){ this.dataset.fallback='2'; this.src = 'assets/images/logo-mark.svg'; }" />
           <div class="cart-item-details">
             <h4 class="cart-item-title">${item.name}</h4>
             <div class="cart-item-meta">

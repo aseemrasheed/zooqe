@@ -35,7 +35,7 @@ export const CONFIG = {
   web3forms: {
     // Web3Forms Public Access Key (from https://web3forms.com)
     accessKey: 'd78c8ba7-9ec7-4fe0-bb29-1891016f6dc7',
-    targetEmail: 'orders@zooqe.com',
+    targetEmail: 'zooqeee@gmail.com',
     endpoint: 'https://api.web3forms.com/submit'
   }
 };

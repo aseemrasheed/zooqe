@@ -68,6 +68,7 @@ export const Web3Forms = {
     return `=====================================================
 ZOOQE LUXURY STORE — NEW ORDER SUBMISSION
 Order ID: #${orderNumber}
+Recipient: ${CONFIG.web3forms?.targetEmail || 'zooqeee@gmail.com'}
 Date: ${orderData.date || new Date().toLocaleString()}
 =====================================================
 
@@ -131,36 +132,46 @@ Store: ${CONFIG.brandName || 'ZOOQE'}`;
       orderNumber
     );
 
-    const address = customer.address || 
-      [customer.house, customer.street, customer.city, customer.state, customer.pincode].filter(Boolean).join(', ');
+    const addressParts = [customer.house, customer.street, customer.city, customer.state, customer.pincode].filter(Boolean);
+    const rawAddress = customer.address || addressParts.join(', ');
+    const sanitizedAddress = String(rawAddress || '').replace(/[\r\n]+/g, ', ').trim();
 
     const orderItemsSummary = items.map(item => 
       `${item.name}${item.size ? ' (' + item.size + ')' : ''} × ${item.quantity}`
     ).join(', ');
 
+    // Standard sanitized flat JSON string payload without invalid nested objects
     return {
-      access_key: CONFIG.web3forms?.accessKey || 'd78c8ba7-9ec7-4fe0-bb29-1891016f6dc7',
+      access_key: String(CONFIG.web3forms?.accessKey || 'd78c8ba7-9ec7-4fe0-bb29-1891016f6dc7').trim(),
       subject: 'New Order Received - Zooqe',
-      customer_name: customer.name || '',
-      phone: customer.phone || '',
-      address: address || '',
-      order_items: orderItemsSummary || '',
-      total_amount: grandTotal,
-      payment_method: paymentMethodCode === 'COD' ? 'COD' : paymentMode,
-      whatsapp_confirmation_link: whatsappActionUrl,
-      // Additional helpful metadata for store inbox
-      email: customer.email || '',
-      order_id: orderData.orderId || '',
-      message: this.compileOrderMessage(orderData)
+      customer_name: String(customer.name || '').trim(),
+      phone: String(customer.phone || '').trim(),
+      address: sanitizedAddress,
+      order_items: String(orderItemsSummary || '').trim(),
+      total_amount: String(grandTotal).trim(),
+      payment_method: String(paymentMethodCode === 'COD' ? 'COD' : paymentMode).trim(),
+      target_email: String(CONFIG.web3forms?.targetEmail || 'zooqeee@gmail.com').trim(),
+      to_email: String(CONFIG.web3forms?.targetEmail || 'zooqeee@gmail.com').trim(),
+      whatsapp_confirmation_link: String(whatsappActionUrl).trim(),
+      email: String(customer.email || '').trim(),
+      order_id: String(orderData.orderId || '').trim(),
+      message: String(this.compileOrderMessage(orderData)).trim()
     };
   },
 
   /**
    * Send the order details via background AJAX POST request to https://api.web3forms.com/submit
+   * Implements a realistic 10-second fetch timeout with AbortController
    */
   async sendOrderNotification(orderData) {
     const payload = this.buildPayload(orderData);
     const endpoint = CONFIG.web3forms?.endpoint || 'https://api.web3forms.com/submit';
+
+    const controller = new AbortController();
+    const timeoutDuration = 10000; // 10-second realistic timeout
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, timeoutDuration);
 
     try {
       const response = await fetch(endpoint, {
@@ -169,31 +180,50 @@ Store: ${CONFIG.brandName || 'ZOOQE'}`;
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller.signal
       });
 
-      const data = await response.json().catch(() => ({}));
+      clearTimeout(timeoutId);
+
+      let data = {};
+      try {
+        data = await response.json();
+      } catch (parseErr) {
+        data = {};
+      }
       
-      if (response.ok && data.success === true) {
+      // Strictly verify response.status === 200 and data.success === true
+      if (response.status === 200 && data.success === true) {
         return {
           success: true,
+          status: 200,
           data: data,
-          message: data.message || 'Form submitted successfully!'
+          message: data.message || 'Direct notification dispatched to store owner'
         };
       } else {
-        console.warn('Web3Forms returned unsuccessful response:', response.status, data);
+        const errorMsg = data.message || `Web3Forms returned status ${response.status}`;
+        console.warn('Web3Forms returned unsuccessful response or status !== 200:', response.status, data);
         return {
           success: false,
           status: response.status,
-          message: data.message || `Web3Forms returned status ${response.status}`
+          message: errorMsg
         };
       }
     } catch (err) {
-      console.warn('Web3Forms background request failed:', err);
+      clearTimeout(timeoutId);
+      const isTimeout = err.name === 'AbortError';
+      const errorMsg = isTimeout
+        ? 'Request timed out after 10 seconds. Direct notification failed to reach store inbox.'
+        : (err.message || 'Network error occurred while connecting to notification service.');
+
+      console.warn('Web3Forms background request failed:', isTimeout ? 'TIMEOUT (10s)' : err);
       return {
         success: false,
+        status: isTimeout ? 408 : 0,
+        isTimeout: isTimeout,
         error: err.message,
-        message: err.message || 'Network error occurred while contacting Web3Forms API'
+        message: errorMsg
       };
     }
   }

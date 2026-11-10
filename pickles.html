@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>The Pickles Collection — Authentic Kerala Heritage Achars | ZOOQE</title>
+  <meta name="description" content="Discover ZOOQE's authentic Kerala pickles: Beef, Chicken, Fish, Prawns, Mango, and Carrot. Handcrafted in cold-pressed gingelly oil with authentic Malabar spices." />
+  <meta name="keywords" content="Kerala pickles, ZOOQE achar, Beef pickle, Chicken pickle, Fish pickle, Prawns pickle, Mango pickle, Carrot pickle, Kerala food" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="The Pickles Collection — Authentic Kerala Achars | ZOOQE" />
+  <meta property="og:description" content="Handcrafted Kerala pickles in airtight luxury packaging. Beef, Chicken, Fish, Prawns, Mango, and Carrot." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/main.css?v=2.3" />
+</head>
+<body>
+
+  <!-- Page Splash Loading Screen -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="assets/logo.png" alt="ZOOQE Monogram" class="loader-logo-img" />
+    </div>
+    <div class="loader-brand-title">ZOOQE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Global Backdrop for Drawers -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Sticky Luxury Navigation Header with Top Utility Bar -->
+  <header id="site-header" class="site-header">
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+      <div class="top-utility-inner">
+        <div class="topbar-left">
+          <a href="mailto:info@zooqe.com" class="topbar-link">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>info@zooqe.com</span>
+          </a>
+          <span class="topbar-sep">|</span>
+          <a href="tel:+916238463851" class="topbar-link">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+91 62384 63851</span>
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" id="topbar-wishlist-link" class="topbar-link topbar-btn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Wishlist (<span id="topbar-wishlist-count">0</span>)</span>
+          </button>
+          <span class="topbar-sep">|</span>
+          <button type="button" id="topbar-auth-btn" class="topbar-link topbar-btn topbar-auth-btn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Login / Register</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="navbar-inner">
+      <!-- Left: Branding -->
+      <a href="index.html" class="nav-brand" aria-label="ZOOQE Home">
+        <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="nav-brand-emblem" width="36" height="36" />
+        <span class="nav-brand-serif">ZOOQE</span>
+      </a>
+
+      <!-- Center-Right: Navigation Links, Search, Wishlist, Cart, WhatsApp -->
+      <div class="nav-center-right">
+        <!-- Desktop Navigation Links: Home, Pickles, Spices, Snacks -->
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="pickles.html" class="nav-link active">Pickles</a>
+          <a href="spices.html" class="nav-link">Spices</a>
+          <a href="dry-fruits.html" class="nav-link">Dry Fruits</a>
+        </nav>
+
+        <!-- Integrated Pill-Shaped Search Bar -->
+        <div class="nav-search-pill" id="nav-search-pill" role="button" tabindex="0" title="Search ZOOQE Products...">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="nav-search-text">Search Pickles, Spices, Dry Fruits...</span>
+          <kbd class="nav-search-kbd">⌘K</kbd>
+        </div>
+
+        <!-- Right Action Icons -->
+        <div class="nav-actions">
+          <button id="nav-search-btn" class="nav-action-btn nav-search-icon-btn" aria-label="Search Catalog" title="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <button id="nav-wishlist-btn" class="nav-action-btn" aria-label="View Wishlist" title="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span id="nav-wishlist-badge" class="nav-badge">0</span>
+          </button>
+
+          <button id="nav-cart-btn" class="nav-action-btn" aria-label="View Shopping Cart" title="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span id="nav-cart-badge" class="nav-badge">0</span>
+          </button>
+
+          <button id="nav-whatsapp-btn" class="nav-whatsapp-btn" title="Contact on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+            </svg>
+            <span>WHATSAPP</span>
+          </button>
+
+          <button id="nav-hamburger" class="nav-hamburger" aria-label="Open Mobile Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide Drawer -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="nav-brand" aria-label="ZOOQE Home">
+        <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="nav-brand-emblem" width="34" height="34" />
+        <span class="nav-brand-serif">ZOOQE</span>
+      </a>
+      <button id="mobile-drawer-close" class="nav-action-btn" aria-label="Close Menu">✕</button>
+    </div>
+
+    <nav class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link">Home <span>→</span></a>
+      <a href="pickles.html" class="mobile-drawer-link active">Pickles <span>→</span></a>
+      <a href="spices.html" class="mobile-drawer-link">Spices <span>→</span></a>
+      <a href="snacks.html" class="mobile-drawer-link">Snacks <span>→</span></a>
+      <button type="button" id="mobile-wishlist-btn" class="mobile-drawer-link">Wishlist <span>→</span></button>
+      <button type="button" id="mobile-cart-btn" class="mobile-drawer-link">
+        Cart <span id="mobile-cart-badge" style="font-size:0.85rem; color:#ffffff;">0</span>
+      </button>
+      <button type="button" id="mobile-search-btn" class="mobile-drawer-link">Search <span>→</span></button>
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <button id="mobile-whatsapp-btn" class="btn-luxury-primary" style="width: 100%; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+        </svg>
+        WHATSAPP ENQUIRY
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <main class="site-main">
+
+    <!-- Category Banner Header (Clean, Minimal, Modern) -->
+    <section class="category-page-hero">
+      <div class="category-hero-inner">
+        <div class="category-hero-eyebrow">HERITAGE KERALA ACHARS</div>
+        <h1 class="category-hero-title">The Pickles Collection</h1>
+        <p class="category-hero-desc">
+          Handcrafted small-batch achars slow-cooked in pure cold-pressed gingelly oil with authentic Malabar spices and aged to perfection in airtight luxury packaging.
+        </p>
+                <div class="category-quick-filters">
+          <a href="#beef-pickle" class="category-filter-pill">Beef</a>
+          <a href="#tuna-pickle" class="category-filter-pill">Tuna</a>
+          <a href="#garlic-pickle" class="category-filter-pill">Garlic</a>
+          <a href="#carrot-pickle" class="category-filter-pill">Carrot</a>
+          <a href="#netholi-pickle" class="category-filter-pill">Netholi</a>
+          <a href="#chicken-pickle" class="category-filter-pill">Chicken</a>
+          <a href="#ginger-pickle" class="category-filter-pill">Ginger</a>
+          <a href="#mango-pickle" class="category-filter-pill">Mango</a>
+          <a href="#mixed-pickle" class="category-filter-pill">Mixed</a>
+          <a href="#prawns-pickle" class="category-filter-pill">Prawns</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pickles Grid Section (Strictly displays Beef, Chicken, Fish, Prawns, Mango, Carrot) -->
+    <section class="pickles-collection-section" style="border-top: none;">
+      <div class="section-container">
+
+        <div class="pickles-grid">
+
+          <!-- 1. Beef Pickle -->
+          <div class="pickle-card" id="beef-pickle" data-product-id="beef-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/beef-pickle.png" alt="ZOOQE Authentic Kerala Beef Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">SPECIALTY</div>
+                <span class="pickle-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Beef Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹269</span>
+                    <span class="pickle-mrp-price">₹339</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="135" data-mrp="170">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="269" data-mrp="339">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="336" data-mrp="424">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="673" data-mrp="848">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="1345" data-mrp="1695">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="beef-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Beef Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Tuna Pickle -->
+          <div class="pickle-card" id="tuna-pickle" data-product-id="tuna-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/tuna-pickle.png" alt="ZOOQE Authentic Kerala Tuna Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">COASTAL CATCH</div>
+                <span class="pickle-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Tuna Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹259</span>
+                    <span class="pickle-mrp-price">₹329</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="130" data-mrp="165">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="259" data-mrp="329">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="324" data-mrp="411">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="648" data-mrp="823">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="1295" data-mrp="1645">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="tuna-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tuna Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Garlic Pickle -->
+          <div class="pickle-card" id="garlic-pickle" data-product-id="garlic-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/garlic-pickle.png" alt="ZOOQE Authentic Kerala Garlic Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">POPULAR</div>
+                <span class="pickle-save-pill">30% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Garlic Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹119</span>
+                    <span class="pickle-mrp-price">₹169</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="60" data-mrp="85">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="119" data-mrp="169">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="149" data-mrp="211">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="298" data-mrp="423">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="595" data-mrp="845">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="garlic-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Garlic Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Carrot Pickle -->
+          <div class="pickle-card" id="carrot-pickle" data-product-id="carrot-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/carrot-pickle.png" alt="ZOOQE Authentic Kerala Carrot Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">TRADITIONAL</div>
+                <span class="pickle-save-pill">28% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Carrot Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹79</span>
+                    <span class="pickle-mrp-price">₹109</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="40" data-mrp="55">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="79" data-mrp="109">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="99" data-mrp="136">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="198" data-mrp="273">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="395" data-mrp="545">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="carrot-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Carrot Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Netholi Pickle -->
+          <div class="pickle-card" id="netholi-pickle" data-product-id="netholi-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/netholi-pickle.png" alt="ZOOQE Authentic Kerala Netholi Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">ANCHOVY SPECIAL</div>
+                <span class="pickle-save-pill">22% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Netholi Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹249</span>
+                    <span class="pickle-mrp-price">₹319</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="125" data-mrp="160">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="249" data-mrp="319">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="311" data-mrp="399">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="623" data-mrp="798">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="1245" data-mrp="1595">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="netholi-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Netholi Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Chicken Pickle -->
+          <div class="pickle-card" id="chicken-pickle" data-product-id="chicken-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/chicken-pickle.png" alt="ZOOQE Authentic Kerala Chicken Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">SPECIALTY</div>
+                <span class="pickle-save-pill">20% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Chicken Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹239</span>
+                    <span class="pickle-mrp-price">₹299</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="120" data-mrp="150">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="239" data-mrp="299">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="299" data-mrp="374">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="598" data-mrp="748">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="1195" data-mrp="1495">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="chicken-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Chicken Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Ginger Pickle -->
+          <div class="pickle-card" id="ginger-pickle" data-product-id="ginger-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/ginger-pickle.png" alt="ZOOQE Authentic Kerala Ginger Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">INJI PULI</div>
+                <span class="pickle-save-pill">25% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Ginger Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹89</span>
+                    <span class="pickle-mrp-price">₹119</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="45" data-mrp="60">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="89" data-mrp="119">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="111" data-mrp="149">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="223" data-mrp="298">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="445" data-mrp="595">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="ginger-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Ginger Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Mango Pickle -->
+          <div class="pickle-card" id="mango-pickle" data-product-id="mango-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/mango-pickle.png" alt="ZOOQE Authentic Kerala Mango Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">BESTSELLER</div>
+                <span class="pickle-save-pill">28% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Mango Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹79</span>
+                    <span class="pickle-mrp-price">₹109</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="40" data-mrp="55">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="79" data-mrp="109">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="99" data-mrp="136">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="198" data-mrp="273">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="395" data-mrp="545">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="mango-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mango Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Mixed Pickle -->
+          <div class="pickle-card" id="mixed-pickle" data-product-id="mixed-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/mixed-pickle.png" alt="ZOOQE Authentic Kerala Mixed Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">HERITAGE BLEND</div>
+                <span class="pickle-save-pill">25% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Mixed Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹89</span>
+                    <span class="pickle-mrp-price">₹119</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="45" data-mrp="60">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="89" data-mrp="119">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="111" data-mrp="149">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="223" data-mrp="298">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="445" data-mrp="595">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="mixed-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mixed Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Prawns Pickle -->
+          <div class="pickle-card" id="prawns-pickle" data-product-id="prawns-pickle">
+            <div class="pickle-card-media-wrap">
+              <div class="pickle-image-aspect">
+                <img src="images/prawns-pickle.jpg" alt="ZOOQE Wild Coastal Prawns Pickle" class="pickle-card-img" loading="lazy" />
+                <div class="pickle-card-overlay"></div>
+              </div>
+              <div class="pickle-card-badges">
+                <div class="pickle-card-badge">SIGNATURE</div>
+                <span class="pickle-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="pickle-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="pickle-card-content">
+              <div class="pickle-card-top-info">
+                <h3 class="pickle-card-title">Prawns Pickle</h3>
+                <div class="pickle-card-pricing-row">
+                  <div class="pickle-price-cluster">
+                    <span class="pickle-current-price">₹269</span>
+                    <span class="pickle-mrp-price">₹339</span>
+                  </div>
+                </div>
+              </div>
+              <div class="pickle-card-bottom-block">
+                <div class="pickle-weight-selector-wrap">
+                  <div class="pickle-weight-pills">
+                    <button type="button" class="pickle-weight-btn" data-size="100g" data-price="135" data-mrp="170">100g</button>
+                    <button type="button" class="pickle-weight-btn active" data-size="200g" data-price="269" data-mrp="339">200g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="250g" data-price="336" data-mrp="424">250g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="500g" data-price="673" data-mrp="848">500g</button>
+                    <button type="button" class="pickle-weight-btn" data-size="1kg" data-price="1345" data-mrp="1695">1kg</button>
+                  </div>
+                </div>
+                <div class="pickle-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta pickle-card-add-btn" data-product-id="prawns-pickle">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Prawns Pickle on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Luxury Brand Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <!-- Col 1: Brand Story & Monogram -->
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="footer-brand" aria-label="ZOOQE Home">
+            <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="footer-brand-emblem" width="40" height="40" />
+            <span class="footer-brand-serif">ZOOQE</span>
+          </a>
+          <p class="footer-tagline">“Premium Taste. Distinctly ZOOQE.”</p>
+          <p class="footer-desc">
+            A premium Kerala food brand specializing in authentic handcrafted Pickles, single-origin Malabar Spices, and traditional crispy snacks.
+          </p>
+          <div class="footer-badges">
+            <span class="footer-badge">FSSAI Certified</span>
+            <span class="footer-badge">Single Origin</span>
+            <span class="footer-badge">No Preservatives</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Collections Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="pickles.html">The Pickles Collection</a></li>
+            <li><a href="spices.html">The Spices Collection</a></li>
+            <li><a href="snacks.html">Traditional Kerala Snacks</a></li>
+            <li><a href="index.html#collections">Curated Gift Hampers</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care & Policies -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Assistance</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" data-policy="shipping">Shipping Policy</a></li>
+            <li><a href="javascript:void(0)" data-policy="returns">Return & Quality Policy</a></li>
+            <li><a href="javascript:void(0)" data-policy="privacy">Privacy Discretion</a></li>
+            <li><a href="javascript:void(0)" data-policy="terms">Terms & Quality Assurance</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Private Gazette VIP Signup & Contact -->
+        <div class="footer-col footer-col-gazette">
+          <h4 class="footer-heading">Private Gazette</h4>
+          <p class="footer-gazette-desc">
+            Receive exclusive seasonal harvest updates and harvest allocation releases directly to your inbox.
+          </p>
+          <form class="footer-vip-form" id="footer-vip-form">
+            <div class="footer-vip-input-wrap">
+              <input type="email" id="footer-vip-email" class="footer-vip-input" placeholder="Enter your email address" required />
+              <button type="submit" class="footer-vip-btn" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+          <div class="footer-direct-contact" style="margin-top: 1rem;">
+            <p style="font-size: 0.8rem; color: var(--silver-500); margin-bottom: 0.25rem;">WhatsApp Concierge: <a href="https://wa.me/916238463851?text=Hello%20ZOOQE" target="_blank" rel="noopener" style="color: #ffffff;">+91 62384 63851</a></p>
+            <p style="font-size: 0.8rem; color: var(--silver-500);">Direct Inquiries: <a href="mailto:info@zooqe.com" style="color: #ffffff;">info@zooqe.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Legal Strip -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">© 2026 ZOOQE. All rights reserved. Designed for discerning culinary connoisseurs.</p>
+        <p class="footer-secure-note">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          100% Secure Checkout • Direct Background Order Notification
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Shopping Cart Drawer Container -->
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <h3 class="cart-title">YOUR CART</h3>
+        <span id="cart-drawer-count" class="cart-item-count-badge">(0 items)</span>
+      </div>
+      <button id="cart-drawer-close" class="cart-close-btn" aria-label="Close Cart">✕</button>
+    </div>
+
+    <div id="cart-shipping-meter" class="free-shipping-meter"></div>
+    <div id="cart-items-container" class="cart-items-list"></div>
+    <div id="cart-footer-container" class="cart-footer"></div>
+  </aside>
+
+  <!-- Wishlist Slide Drawer Container -->
+  <aside id="wishlist-drawer" class="wishlist-drawer" aria-label="Wishlist">
+    <div class="wishlist-header">
+      <h3 class="wishlist-title">SAVED PRODUCTS</h3>
+      <button id="wishlist-drawer-close" class="cart-close-btn" aria-label="Close Wishlist">✕</button>
+    </div>
+    <div id="wishlist-items-container" class="wishlist-items-list"></div>
+  </aside>
+
+  <!-- Floating Corner WhatsApp Concierge Button -->
+  <aside aria-label="Customer Support">
+    <button id="floating-whatsapp-btn" class="floating-whatsapp-btn" aria-label="Contact Concierge on WhatsApp" title="WhatsApp Concierge">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+      </svg>
+      <span class="floating-wa-label">WhatsApp Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Legal / Policy Modal Backdrop -->
+  <div id="policy-modal-backdrop" class="policy-modal-backdrop">
+    <div class="policy-modal-content">
+      <div class="policy-modal-header">
+        <h3 id="policy-modal-title" class="policy-modal-title">Policy Information</h3>
+        <button id="policy-modal-close" class="policy-modal-close" aria-label="Close Dialog">✕</button>
+      </div>
+      <div id="policy-modal-body" class="policy-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules Entry -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

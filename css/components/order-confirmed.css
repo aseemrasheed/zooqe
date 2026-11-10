@@ -230,3 +230,363 @@
 .btn-confirmed-print:hover {
   color: #ffffff;
 }
+
+/* Fallback Notice Banner (When Direct Notification Fails) */
+.order-fallback-notice-banner {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  animation: fadeInBanner 0.4s ease-out;
+}
+
+@keyframes fadeInBanner {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fallback-banner-icon {
+  flex-shrink: 0;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+}
+
+.fallback-banner-text {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #fef3c7;
+}
+
+.fallback-banner-text strong {
+  color: #fbbf24;
+  font-weight: 700;
+  margin-right: 0.35rem;
+}
+
+.notification-failed-text {
+  color: #f87171;
+  font-weight: 500;
+}
+
+/* Prominent WhatsApp CTA Highlight when in Fallback State */
+.btn-confirmed-whatsapp.fallback-highlight {
+  background: #25d366;
+  border-color: #25d366;
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  box-shadow: 0 4px 25px rgba(37, 211, 102, 0.35);
+  animation: pulseWa 2s infinite ease-in-out;
+}
+
+.btn-confirmed-whatsapp.fallback-highlight:hover {
+  background: #20bd5a;
+  border-color: #20bd5a;
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.55);
+}
+
+@keyframes pulseWa {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Hidden Admin / Debug Orders Log Modal */
+.admin-orders-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.admin-orders-modal.open {
+  display: flex;
+}
+
+.admin-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.admin-modal-content {
+  position: relative;
+  background: #0f0f14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 1080px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+}
+
+.admin-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #14141b;
+}
+
+.admin-header-title h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.admin-subtitle {
+  font-size: 0.78rem;
+  color: var(--silver-400);
+}
+
+.admin-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--silver-400);
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  transition: color 0.2s;
+}
+
+.admin-close-btn:hover {
+  color: #ffffff;
+}
+
+.admin-stats-bar {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-stat-card {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-size: 1.35rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--silver-400);
+  margin-top: 0.2rem;
+}
+
+.admin-stat-card.stat-success .stat-num {
+  color: #34d399;
+}
+
+.admin-stat-card.stat-warning .stat-num {
+  color: #fbbf24;
+}
+
+.admin-orders-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.75rem;
+}
+
+.admin-orders-empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--silver-400);
+  font-size: 0.9rem;
+}
+
+.admin-orders-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: left;
+}
+
+.admin-orders-table th {
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--silver-300);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.admin-orders-table td {
+  padding: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: top;
+  color: var(--silver-200);
+}
+
+.admin-orders-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.text-muted {
+  color: var(--silver-500);
+}
+
+.text-danger {
+  color: #f87171;
+}
+
+.admin-status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.admin-status-badge.status-sent {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.admin-status-badge.status-failed {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.admin-payment-tag {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+}
+
+.admin-action-btns {
+  display: flex;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.btn-admin-wa {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.65rem;
+  background: #25d366;
+  color: #000000;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-admin-wa:hover {
+  opacity: 0.9;
+}
+
+.btn-admin-copy {
+  padding: 0.35rem 0.65rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-admin-copy:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.admin-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #14141b;
+}
+
+.admin-footer-left {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-admin-export,
+.btn-admin-clear {
+  padding: 0.5rem 0.9rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-admin-export:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.btn-admin-clear:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.btn-admin-done {
+  padding: 0.5rem 1.25rem;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-admin-done:hover {
+  opacity: 0.9;
+}

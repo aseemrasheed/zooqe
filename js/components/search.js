@@ -116,7 +116,7 @@ class SearchManager {
       if (viewAllBtn) {
         viewAllBtn.addEventListener('click', () => {
           this.close();
-          const shop = document.getElementById('shop');
+          const shop = document.getElementById('collections') || document.getElementById('pickles');
           if (shop) shop.scrollIntoView({ behavior: 'smooth' });
         });
       }

@@ -13,6 +13,7 @@ import { initHeroSlider } from './components/heroSlider.js';
 import { toast } from './components/toast.js';
 import { WhatsApp } from './components/whatsapp.js';
 import { initSpicesCollection } from './components/spicesCollection.js';
+import { orderStorage } from './state/orderStorage.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Splash Loader Dismissal
@@ -29,63 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 1000);
 
-  // 2. Product Grid Container
-  const gridContainer = document.getElementById('product-grid');
-
-  function renderGrid(productsToRender) {
-    if (!gridContainer) return;
-    gridContainer.innerHTML = '';
-
-    if (productsToRender.length === 0) {
-      gridContainer.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--silver-500);">
-          <h3 style="font-size: 1.3rem; color: #ffffff; margin-bottom: 0.5rem;">No products match the selected criteria.</h3>
-          <p style="margin-bottom: 1.5rem;">Try adjusting your price range, sizes, or category filter.</p>
-          <button class="btn-luxury-secondary" id="grid-reset-filters-btn">RESET FILTERS</button>
-        </div>
-      `;
-      const resetBtn = document.getElementById('grid-reset-filters-btn');
-      if (resetBtn) {
-        resetBtn.addEventListener('click', () => filterManager.reset());
-      }
-      return;
-    }
-
-    productsToRender.forEach(p => {
-      const card = createProductCard(p, {
-        onQuickView: (prod) => {
-          productModal.open(prod, (prodToBuy, size, qty) => {
-            checkout.open({
-              isDirectBuy: true,
-              directProduct: prodToBuy,
-              directSize: size,
-              directQuantity: qty
-            }, handleOrderSuccess);
-          });
-        },
-        onBuyNow: (prod, size, qty) => {
-          checkout.open({
-            isDirectBuy: true,
-            directProduct: prod,
-            directSize: size,
-            directQuantity: qty
-          }, handleOrderSuccess);
-        }
-      });
-      gridContainer.appendChild(card);
-    });
-  }
-
-  // 3. Initialize Filters & Product Catalog
-  filterManager.init((filteredProducts) => {
-    renderGrid(filteredProducts);
-  });
-  renderGrid(PRODUCTS);
+  // 2. Dedicated Category Showcases (Pickles, Spices, Dry Fruits) active
 
   // 4. Handle Order Placement Success
-  function handleOrderSuccess(orderData) {
-    orderConfirmation.show(orderData);
-    toast.show(`Order #${orderData.orderId} Confirmed! Thank you.`);
+  function handleOrderSuccess(orderData, options = {}) {
+    orderConfirmation.show(orderData, options);
+    if (options && options.notificationFailed) {
+      toast.show(`Order #${orderData.orderId} Placed! Please confirm on WhatsApp.`);
+    } else {
+      toast.show(`Order #${orderData.orderId} Confirmed! Thank you.`);
+    }
   }
 
   // 5. Initialize Navbar with Drawer Triggers
@@ -122,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroShopBtn) {
     heroShopBtn.addEventListener('click', () => {
-      const pickles = document.getElementById('pickles') || document.getElementById('shop');
+      const pickles = document.getElementById('pickles') || document.getElementById('collections');
       if (pickles) pickles.scrollIntoView({ behavior: 'smooth' });
     });
   }
@@ -153,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7c. Initialize Spices & Pickles Collection Showcases
+  // 7c. Initialize Spices, Pickles & Snacks Collection Showcases
   initSpicesCollection({
     onQuickView: (prod) => {
       productModal.open(prod, (prodToBuy, size, qty) => {
@@ -172,8 +126,70 @@ document.addEventListener('DOMContentLoaded', () => {
         directSize: size,
         directQuantity: qty
       }, handleOrderSuccess);
+    },
+    onAddToCart: (prod, size, qty) => {
+      // Instantly open sliding cart drawer so customer can proceed directly to checkout
+      setTimeout(() => {
+        cartDrawer.open(({ isDirectBuy }) => {
+          checkout.open({ isDirectBuy: false }, handleOrderSuccess);
+        });
+      }, 300);
     }
   });
+
+  // 7d. Category Tabs Bar Handler (Smooth scroll & tab switching)
+  const categoryTabs = document.querySelectorAll('.category-tab-btn');
+  const catSections = {
+    pickles: document.getElementById('pickles'),
+    spices: document.getElementById('spices'),
+    'dry-fruits': document.getElementById('dry-fruits') || document.getElementById('snacks'),
+    snacks: document.getElementById('dry-fruits') || document.getElementById('snacks')
+  };
+
+  categoryTabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tabKey = tab.dataset.tab;
+      categoryTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      if (tabKey === 'all') {
+        Object.values(catSections).forEach(sec => { if (sec) sec.style.display = ''; });
+        if (catSections.pickles) {
+          catSections.pickles.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (catSections[tabKey]) {
+        Object.values(catSections).forEach(sec => { if (sec) sec.style.display = ''; });
+        catSections[tabKey].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ScrollSpy to keep active tab in sync during scrolling
+  const catSectionKeys = ['pickles', 'spices', 'dry-fruits'];
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 160;
+    let currentKey = 'all';
+
+    catSectionKeys.forEach(key => {
+      const el = catSections[key];
+      if (el) {
+        const top = el.offsetTop;
+        const height = el.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentKey = key;
+        }
+      }
+    });
+
+    categoryTabs.forEach(t => {
+      if (t.dataset.tab === currentKey) {
+        t.classList.add('active');
+      } else if (currentKey !== 'all' && t.dataset.tab === 'all') {
+        t.classList.remove('active');
+      }
+    });
+  }, { passive: true });
 
   // 8. Collections & Category Click-Throughs
   document.querySelectorAll('.collection-card, .category-showcase-card, .btn-category-action').forEach(el => {
@@ -195,11 +211,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
           }
         }
-        filterManager.activeCategory = cat;
-        filterManager.renderCategoryPills();
-        filterManager.apply();
-        const shop = document.getElementById('shop');
-        if (shop) shop.scrollIntoView({ behavior: 'smooth' });
+        if (cat === 'dry-fruits' || cat === 'snacks') {
+          const dryFruitsSec = document.getElementById('dry-fruits') || document.getElementById('snacks');
+          if (dryFruitsSec) {
+            dryFruitsSec.scrollIntoView({ behavior: 'smooth' });
+            return;
+          }
+        }
+        const target = document.getElementById('collections') || document.getElementById('pickles');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });

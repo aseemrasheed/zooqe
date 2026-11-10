@@ -41,16 +41,32 @@ Please provide more details.`;
   },
 
   /**
-   * Generate URL for Order Status Verification
+   * Generate URL for Order Status Verification and Direct Customer Confirmation
+   * Supports pre-loaded Item summary for immediate secondary backup
    */
-  getOrderTrackingUrl(orderId, customerName, total) {
+  getOrderTrackingUrl(orderId, customerName, total, items = [], isFailed = false) {
     const formattedTotal = Number(total || 0).toLocaleString('en-IN');
+    let itemsText = '';
+    if (Array.isArray(items) && items.length > 0) {
+      const itemsList = items.map(item => {
+        const sizeStr = item.size ? ` (${item.size})` : '';
+        const itemPrice = item.price ? ` - ${CONFIG.currency}${Number(item.price * item.quantity).toLocaleString('en-IN')}` : '';
+        return `• ${item.name}${sizeStr} × ${item.quantity}${itemPrice}`;
+      }).join('\n');
+      itemsText = `\n\nItems Ordered:\n${itemsList}`;
+    } else if (typeof items === 'string' && items.trim()) {
+      itemsText = `\n\nItems Ordered:\n${items.trim()}`;
+    }
+
+    const actionText = isFailed
+      ? `\n\nNotice: Direct notification failed to reach store inbox. Please confirm and dispatch my order. Thank you!`
+      : `\n\nKindly share delivery status and tracking details.`;
+
     const text = `Hello ZOOQE,
 
 I have placed Order #${orderId} for ${CONFIG.currency}${formattedTotal}.
-Customer Name: ${customerName}
+Customer Name: ${customerName}${itemsText}${actionText}`;
 
-Kindly share delivery status and tracking details.`;
     return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
   },
 
@@ -171,7 +187,7 @@ Please confirm my order and share delivery updates. Thank you!`;
     window.open(this.getConciergeUrl(text), '_blank');
   },
 
-  openOrderTracking(orderId, customerName, total) {
-    window.open(this.getOrderTrackingUrl(orderId, customerName, total), '_blank');
+  openOrderTracking(orderId, customerName, total, items = [], isFailed = false) {
+    window.open(this.getOrderTrackingUrl(orderId, customerName, total, items, isFailed), '_blank');
   }
 };

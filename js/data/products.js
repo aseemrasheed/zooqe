@@ -1,5 +1,5 @@
 /**
- * ZOOQE Central Product Data Structure — Kerala Pickles & Spices
+ * ZOOQE Central Product Data Structure — Kerala Pickles, Spices & Dry Fruits
  * ==============================================================================
  * NOTE: Easily edit product names, prices, size variants, descriptions,
  * or ingredients directly in this file.
@@ -7,17 +7,17 @@
  */
 
 export const PRODUCTS = [
-  // --- HERITAGE KERALA PICKLES ---
+  // --- HERITAGE KERALA PICKLES (EXACTLY 10 PRODUCTS) ---
   {
     id: 'beef-pickle',
     name: 'Beef Pickle',
     subtitle: 'Slow-Roasted Beef Chunks in Malabar Spices',
     category: 'Premium Pickles',
     categorySlug: 'pickles',
-    startingPrice: 149,
-    basePrice: 149,
-    originalPrice: 189,
-    previousPrice: 189,
+    startingPrice: 135,
+    basePrice: 269,
+    originalPrice: 339,
+    previousPrice: 339,
     discountPercentage: 21,
     sku: 'ZQE-PCL-BEEF',
     rating: 5.0,
@@ -30,17 +30,271 @@ export const PRODUCTS = [
     description: 'A celebrated Kerala delicacy. Tender boneless beef pieces slow-roasted with crushed Tellicherry black pepper, shallots, garlic, fried coconut slices (thenga kothu), and Malabar spices.',
     ingredients: 'Prime Tender Boneless Beef, Fried Coconut Slivers, Garlic, Ginger, Crushed Black Pepper, Red Chili, Coriander, Fennel, Curry Leaves, Sesame Oil, Vinegar, Salt.',
     origin: 'Malabar Heritage Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 149, mrp: 189, previousPrice: 189, sku: 'ZQE-PCL-BEEF-100G' },
+        sizes: [
+      { size: '100g', weight: '100g', price: 135, mrp: 170, previousPrice: 170, sku: 'ZQE-PCL-BEEF-100G' },
       { size: '200g', weight: '200g', price: 269, mrp: 339, previousPrice: 339, sku: 'ZQE-PCL-BEEF-200G' },
-      { size: '250g', weight: '250g', price: 329, mrp: 419, previousPrice: 419, sku: 'ZQE-PCL-BEEF-250G' },
-      { size: '500g', weight: '500g', price: 629, mrp: 799, previousPrice: 799, sku: 'ZQE-PCL-BEEF-500G' },
-      { size: '1kg', weight: '1kg', price: 1199, mrp: 1499, previousPrice: 1499, sku: 'ZQE-PCL-BEEF-1KG' }
+      { size: '250g', weight: '250g', price: 336, mrp: 424, previousPrice: 424, sku: 'ZQE-PCL-BEEF-250G' },
+      { size: '500g', weight: '500g', price: 673, mrp: 848, previousPrice: 848, sku: 'ZQE-PCL-BEEF-500G' },
+      { size: '1kg', weight: '1kg', price: 1345, mrp: 1695, previousPrice: 1695, sku: 'ZQE-PCL-BEEF-1KG' }
     ],
-    image: 'assets/images/products/beef_pickle.jpg',
-    images: [
-      'assets/images/products/beef_pickle.jpg'
-    ]
+    image: 'images/beef-pickle.png',
+    images: ['images/beef-pickle.png']
+  },
+  {
+    id: 'tuna-pickle',
+    name: 'Tuna Pickle',
+    subtitle: 'Fresh Deep-Sea Tuna Cuts in Malabar Masala',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 130,
+    basePrice: 259,
+    originalPrice: 329,
+    previousPrice: 329,
+    discountPercentage: 21,
+    sku: 'ZQE-PCL-TNA',
+    rating: 5.0,
+    reviewsCount: 52,
+    stock: 30,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Coastal Catch',
+    description: 'Premium Kerala Meen Achar prepared with wild-caught fresh tuna cuts, fried to crisp perfection and slow-cooked in a fiery, aromatic ginger-garlic and chili masala sauce.',
+    ingredients: 'Fresh Deep-Sea Tuna Fillets, Cold-Pressed Gingelly Oil, Garlic, Ginger, Kashmiri Chili, Curry Leaves, Mustard, Fenugreek, Spices, Vinegar, Salt.',
+    origin: 'Coastal Kerala Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 130, mrp: 165, previousPrice: 165, sku: 'ZQE-PCL-TNA-100G' },
+      { size: '200g', weight: '200g', price: 259, mrp: 329, previousPrice: 329, sku: 'ZQE-PCL-TNA-200G' },
+      { size: '250g', weight: '250g', price: 324, mrp: 411, previousPrice: 411, sku: 'ZQE-PCL-TNA-250G' },
+      { size: '500g', weight: '500g', price: 648, mrp: 823, previousPrice: 823, sku: 'ZQE-PCL-TNA-500G' },
+      { size: '1kg', weight: '1kg', price: 1295, mrp: 1645, previousPrice: 1645, sku: 'ZQE-PCL-TNA-1KG' }
+    ],
+    image: 'images/tuna-pickle.png',
+    images: ['images/tuna-pickle.png']
+  },
+  {
+    id: 'garlic-pickle',
+    name: 'Garlic Pickle',
+    subtitle: 'Whole Aged Garlic Cloves in Gingelly Oil',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 60,
+    basePrice: 119,
+    originalPrice: 169,
+    previousPrice: 169,
+    discountPercentage: 30,
+    sku: 'ZQE-PCL-GRL',
+    rating: 4.9,
+    reviewsCount: 29,
+    stock: 40,
+    isFeatured: true,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Popular',
+    description: 'Whole peeled garlic cloves slow-cooked and aged in spicy mustard and sesame oil gravy. Rich, pungent, savory, and packed with authentic traditional Kerala flavors.',
+    ingredients: 'Whole Fresh Garlic Cloves, Pure Gingelly Oil, Kashmiri Chili, Mustard Seeds, Fenugreek, Asafoetida, Curry Leaves, Vinegar, Salt.',
+    origin: 'Traditional Kerala Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 60, mrp: 85, previousPrice: 85, sku: 'ZQE-PCL-GRL-100G' },
+      { size: '200g', weight: '200g', price: 119, mrp: 169, previousPrice: 169, sku: 'ZQE-PCL-GRL-200G' },
+      { size: '250g', weight: '250g', price: 149, mrp: 211, previousPrice: 211, sku: 'ZQE-PCL-GRL-250G' },
+      { size: '500g', weight: '500g', price: 298, mrp: 423, previousPrice: 423, sku: 'ZQE-PCL-GRL-500G' },
+      { size: '1kg', weight: '1kg', price: 595, mrp: 845, previousPrice: 845, sku: 'ZQE-PCL-GRL-1KG' }
+    ],
+    image: 'images/garlic-pickle.png',
+    images: ['images/garlic-pickle.png']
+  },
+  {
+    id: 'carrot-pickle',
+    name: 'Carrot Pickle',
+    subtitle: 'Crunchy, Tangy Traditional Carrot Achar',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 40,
+    basePrice: 79,
+    originalPrice: 109,
+    previousPrice: 109,
+    discountPercentage: 28,
+    sku: 'ZQE-PCL-CRT',
+    rating: 4.9,
+    reviewsCount: 31,
+    stock: 45,
+    isFeatured: false,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Traditional',
+    description: 'Crunchy, tangy traditional carrot pickle made from farm-fresh tender carrots, sun-cured and infused with aromatic mustard seeds, fenugreek, green chilies, and cold-pressed gingelly oil.',
+    ingredients: 'Farm Fresh Tender Carrots, Pure Gingelly Oil, Kashmiri Chili, Mustard Seeds, Fenugreek, Asafoetida, Green Chilies, Ginger, Vinegar, Sea Salt.',
+    origin: 'Traditional Kerala Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 40, mrp: 55, previousPrice: 55, sku: 'ZQE-PCL-CRT-100G' },
+      { size: '200g', weight: '200g', price: 79, mrp: 109, previousPrice: 109, sku: 'ZQE-PCL-CRT-200G' },
+      { size: '250g', weight: '250g', price: 99, mrp: 136, previousPrice: 136, sku: 'ZQE-PCL-CRT-250G' },
+      { size: '500g', weight: '500g', price: 198, mrp: 273, previousPrice: 273, sku: 'ZQE-PCL-CRT-500G' },
+      { size: '1kg', weight: '1kg', price: 395, mrp: 545, previousPrice: 545, sku: 'ZQE-PCL-CRT-1KG' }
+    ],
+    image: 'images/carrot-pickle.png',
+    images: ['images/carrot-pickle.png']
+  },
+  {
+    id: 'netholi-pickle',
+    name: 'Netholi Pickle',
+    subtitle: 'Crisp Sun-Dried Anchovies in Spiced Sesame Oil',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 125,
+    basePrice: 249,
+    originalPrice: 319,
+    previousPrice: 319,
+    discountPercentage: 22,
+    sku: 'ZQE-PCL-NTH',
+    rating: 5.0,
+    reviewsCount: 39,
+    stock: 30,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Anchovy Catch',
+    description: 'Authentic Kerala Netholi (Kozhuva / Anchovy) Meen Achar. Sun-dried tender anchovies flash-fried and submerged in an intensely spiced garlic, ginger, and curry leaf gingelly oil gravy.',
+    ingredients: 'Crisp Dried Netholi (Anchovy), Cold-Pressed Sesame Oil, Garlic, Ginger, Kashmiri Chili, Fenugreek, Mustard, Curry Leaves, Vinegar, Salt.',
+    origin: 'Malabar Coastal Heritage',
+        sizes: [
+      { size: '100g', weight: '100g', price: 125, mrp: 160, previousPrice: 160, sku: 'ZQE-PCL-NTH-100G' },
+      { size: '200g', weight: '200g', price: 249, mrp: 319, previousPrice: 319, sku: 'ZQE-PCL-NTH-200G' },
+      { size: '250g', weight: '250g', price: 311, mrp: 399, previousPrice: 399, sku: 'ZQE-PCL-NTH-250G' },
+      { size: '500g', weight: '500g', price: 623, mrp: 798, previousPrice: 798, sku: 'ZQE-PCL-NTH-500G' },
+      { size: '1kg', weight: '1kg', price: 1245, mrp: 1595, previousPrice: 1595, sku: 'ZQE-PCL-NTH-1KG' }
+    ],
+    image: 'images/netholi-pickle.png',
+    images: ['images/netholi-pickle.png']
+  },
+  {
+    id: 'chicken-pickle',
+    name: 'Chicken Pickle',
+    subtitle: 'Spicy Authentic Kerala Style Chicken Achar',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 120,
+    basePrice: 239,
+    originalPrice: 299,
+    previousPrice: 299,
+    discountPercentage: 20,
+    sku: 'ZQE-PCL-CHK',
+    rating: 5.0,
+    reviewsCount: 44,
+    stock: 35,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Specialty',
+    description: 'Spicy authentic Kerala style chicken pickle prepared with tender chicken chunks, slow-cooked in pure gingelly oil with curry leaves, crushed pepper, garlic, and traditional Malabar spices.',
+    ingredients: 'Tender Fresh Chicken Chunks, Pure Sesame Oil, Garlic, Ginger, Kashmiri Chili, Curry Leaves, Mustard, Fenugreek, Vinegar, Spices, Salt.',
+    origin: 'Malabar Heritage Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 120, mrp: 150, previousPrice: 150, sku: 'ZQE-PCL-CHK-100G' },
+      { size: '200g', weight: '200g', price: 239, mrp: 299, previousPrice: 299, sku: 'ZQE-PCL-CHK-200G' },
+      { size: '250g', weight: '250g', price: 299, mrp: 374, previousPrice: 374, sku: 'ZQE-PCL-CHK-250G' },
+      { size: '500g', weight: '500g', price: 598, mrp: 748, previousPrice: 748, sku: 'ZQE-PCL-CHK-500G' },
+      { size: '1kg', weight: '1kg', price: 1195, mrp: 1495, previousPrice: 1495, sku: 'ZQE-PCL-CHK-1KG' }
+    ],
+    image: 'images/chicken-pickle.png',
+    images: ['images/chicken-pickle.png']
+  },
+  {
+    id: 'ginger-pickle',
+    name: 'Ginger Pickle',
+    subtitle: 'Tangy & Sweet Tamarind Inji Puli Achar',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 45,
+    basePrice: 89,
+    originalPrice: 119,
+    previousPrice: 119,
+    discountPercentage: 25,
+    sku: 'ZQE-PCL-GNG',
+    rating: 4.9,
+    reviewsCount: 33,
+    stock: 40,
+    isFeatured: false,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Inji Puli',
+    description: 'Traditional Kerala Inji Curry / Inji Puli pickle made from finely chopped fresh ginger fried in sesame oil, simmered in thick tamarind pulp, roasted spices, and organic melted jaggery.',
+    ingredients: 'Fresh Mountain Ginger, Wild Tamarind Pulp, Organic Jaggery, Green Chilies, Sesame Oil, Fenugreek, Mustard, Curry Leaves, Salt.',
+    origin: 'Onam Sadya Heritage Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 45, mrp: 60, previousPrice: 60, sku: 'ZQE-PCL-GNG-100G' },
+      { size: '200g', weight: '200g', price: 89, mrp: 119, previousPrice: 119, sku: 'ZQE-PCL-GNG-200G' },
+      { size: '250g', weight: '250g', price: 111, mrp: 149, previousPrice: 149, sku: 'ZQE-PCL-GNG-250G' },
+      { size: '500g', weight: '500g', price: 223, mrp: 298, previousPrice: 298, sku: 'ZQE-PCL-GNG-500G' },
+      { size: '1kg', weight: '1kg', price: 445, mrp: 595, previousPrice: 595, sku: 'ZQE-PCL-GNG-1KG' }
+    ],
+    image: 'images/ginger-pickle.png',
+    images: ['images/ginger-pickle.png']
+  },
+  {
+    id: 'mango-pickle',
+    name: 'Mango Pickle',
+    subtitle: 'Authentic Kerala Spiced Mango Achar',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 40,
+    basePrice: 79,
+    originalPrice: 109,
+    previousPrice: 109,
+    discountPercentage: 28,
+    sku: 'ZQE-PCL-MNG',
+    rating: 5.0,
+    reviewsCount: 48,
+    stock: 45,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: false,
+    badge: 'Bestseller',
+    description: 'Traditional Kerala style cut mango pickle prepared with hand-selected raw mangoes, roasted mustard, fenugreek, Kashmiri chili, and cold-pressed gingelly (sesame) oil. Aged to perfection in airtight luxury packaging.',
+    ingredients: 'Raw Green Mangoes, Cold-Pressed Sesame Oil, Kashmiri Chili Powder, Mustard Seeds, Fenugreek, Asafoetida, Turmeric, Sea Salt, Vinegar.',
+    origin: 'Traditional Kerala Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 40, mrp: 55, previousPrice: 55, sku: 'ZQE-PCL-MNG-100G' },
+      { size: '200g', weight: '200g', price: 79, mrp: 109, previousPrice: 109, sku: 'ZQE-PCL-MNG-200G' },
+      { size: '250g', weight: '250g', price: 99, mrp: 136, previousPrice: 136, sku: 'ZQE-PCL-MNG-250G' },
+      { size: '500g', weight: '500g', price: 198, mrp: 273, previousPrice: 273, sku: 'ZQE-PCL-MNG-500G' },
+      { size: '1kg', weight: '1kg', price: 395, mrp: 545, previousPrice: 545, sku: 'ZQE-PCL-MNG-1KG' }
+    ],
+    image: 'images/mango-pickle.png',
+    images: ['images/mango-pickle.png']
+  },
+  {
+    id: 'mixed-pickle',
+    name: 'Mixed Pickle',
+    subtitle: 'Garden Fresh Vegetables in Gingelly Oil Gravy',
+    category: 'Premium Pickles',
+    categorySlug: 'pickles',
+    startingPrice: 45,
+    basePrice: 89,
+    originalPrice: 119,
+    previousPrice: 119,
+    discountPercentage: 25,
+    sku: 'ZQE-PCL-MXD',
+    rating: 4.9,
+    reviewsCount: 30,
+    stock: 40,
+    isFeatured: false,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Heritage Blend',
+    description: 'A harmonious blend of crisp raw mango, tender carrots, lemons, garlic cloves, and green chilies steeped in pure gingelly oil with stone-ground mustard and fenugreek masala.',
+    ingredients: 'Raw Mango, Carrots, Lemon, Garlic, Green Chili, Pure Sesame Oil, Mustard, Fenugreek, Asafoetida, Spices, Salt.',
+    origin: 'Traditional Kerala Recipe',
+        sizes: [
+      { size: '100g', weight: '100g', price: 45, mrp: 60, previousPrice: 60, sku: 'ZQE-PCL-MXD-100G' },
+      { size: '200g', weight: '200g', price: 89, mrp: 119, previousPrice: 119, sku: 'ZQE-PCL-MXD-200G' },
+      { size: '250g', weight: '250g', price: 111, mrp: 149, previousPrice: 149, sku: 'ZQE-PCL-MXD-250G' },
+      { size: '500g', weight: '500g', price: 223, mrp: 298, previousPrice: 298, sku: 'ZQE-PCL-MXD-500G' },
+      { size: '1kg', weight: '1kg', price: 445, mrp: 595, previousPrice: 595, sku: 'ZQE-PCL-MXD-1KG' }
+    ],
+    image: 'images/mixed-pickle.png',
+    images: ['images/mixed-pickle.png']
   },
   {
     id: 'prawns-pickle',
@@ -48,10 +302,10 @@ export const PRODUCTS = [
     subtitle: 'Wild-Caught Coastal Prawns in Fiery Masala',
     category: 'Premium Pickles',
     categorySlug: 'pickles',
-    startingPrice: 149,
-    basePrice: 149,
-    originalPrice: 189,
-    previousPrice: 189,
+    startingPrice: 135,
+    basePrice: 269,
+    originalPrice: 339,
+    previousPrice: 339,
     discountPercentage: 21,
     sku: 'ZQE-PCL-PRW',
     rating: 5.0,
@@ -64,225 +318,15 @@ export const PRODUCTS = [
     description: 'Fresh wild-caught prawns marinated and pan-roasted in cold-pressed sesame oil, blended with sliced garlic, curry leaves, Kashmiri chili, and traditional Malabar spices for a rich, savory coastal flavor.',
     ingredients: 'Fresh Wild Prawns, Cold-Pressed Gingelly Oil, Garlic, Ginger, Kashmiri Chili, Curry Leaves, Mustard, Fenugreek, Vinegar, Spices, Sea Salt.',
     origin: 'Coastal Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 149, mrp: 189, previousPrice: 189, sku: 'ZQE-PCL-PRW-100G' },
+        sizes: [
+      { size: '100g', weight: '100g', price: 135, mrp: 170, previousPrice: 170, sku: 'ZQE-PCL-PRW-100G' },
       { size: '200g', weight: '200g', price: 269, mrp: 339, previousPrice: 339, sku: 'ZQE-PCL-PRW-200G' },
-      { size: '250g', weight: '250g', price: 329, mrp: 419, previousPrice: 419, sku: 'ZQE-PCL-PRW-250G' },
-      { size: '500g', weight: '500g', price: 629, mrp: 799, previousPrice: 799, sku: 'ZQE-PCL-PRW-500G' },
-      { size: '1kg', weight: '1kg', price: 1199, mrp: 1499, previousPrice: 1499, sku: 'ZQE-PCL-PRW-1KG' }
+      { size: '250g', weight: '250g', price: 336, mrp: 424, previousPrice: 424, sku: 'ZQE-PCL-PRW-250G' },
+      { size: '500g', weight: '500g', price: 673, mrp: 848, previousPrice: 848, sku: 'ZQE-PCL-PRW-500G' },
+      { size: '1kg', weight: '1kg', price: 1345, mrp: 1695, previousPrice: 1695, sku: 'ZQE-PCL-PRW-1KG' }
     ],
-    image: 'assets/images/products/prawns_pickle.jpg',
-    images: [
-      'assets/images/products/prawns_pickle.jpg'
-    ]
-  },
-  {
-    id: 'fish-pickle',
-    name: 'Fish Pickle',
-    subtitle: 'Wild-Caught Seer Fish in Coastal Malabar Masala',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 139,
-    basePrice: 139,
-    originalPrice: 179,
-    previousPrice: 179,
-    discountPercentage: 22,
-    sku: 'ZQE-PCL-FSH',
-    rating: 5.0,
-    reviewsCount: 52,
-    stock: 30,
-    isFeatured: true,
-    isBestSeller: true,
-    isNew: true,
-    badge: 'Signature',
-    description: 'Premium Kerala Meen Achar prepared with wild-caught fresh fish cuts, fried to crisp perfection and slow-cooked in a fiery, aromatic ginger-garlic and chili masala sauce.',
-    ingredients: 'Fresh Seer Fish / King Fish Fillets, Cold-Pressed Gingelly Oil, Garlic, Ginger, Kashmiri Chili, Curry Leaves, Mustard, Fenugreek, Spices, Vinegar, Salt.',
-    origin: 'Coastal Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 139, mrp: 179, previousPrice: 179, sku: 'ZQE-PCL-FSH-100G' },
-      { size: '200g', weight: '200g', price: 259, mrp: 329, previousPrice: 329, sku: 'ZQE-PCL-FSH-200G' },
-      { size: '250g', weight: '250g', price: 319, mrp: 399, previousPrice: 399, sku: 'ZQE-PCL-FSH-250G' },
-      { size: '500g', weight: '500g', price: 599, mrp: 769, previousPrice: 769, sku: 'ZQE-PCL-FSH-500G' },
-      { size: '1kg', weight: '1kg', price: 1149, mrp: 1449, previousPrice: 1449, sku: 'ZQE-PCL-FSH-1KG' }
-    ],
-    image: 'assets/images/products/fish_pickle.jpg',
-    images: [
-      'assets/images/products/fish_pickle.jpg'
-    ]
-  },
-  {
-    id: 'chicken-pickle',
-    name: 'Chicken Pickle',
-    subtitle: 'Spicy Authentic Kerala Style Chicken Achar',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 129,
-    basePrice: 129,
-    originalPrice: 169,
-    previousPrice: 169,
-    discountPercentage: 24,
-    sku: 'ZQE-PCL-CHK',
-    rating: 5.0,
-    reviewsCount: 44,
-    stock: 35,
-    isFeatured: true,
-    isBestSeller: true,
-    isNew: true,
-    badge: 'Specialty',
-    description: 'Spicy authentic Kerala style chicken pickle prepared with tender chicken chunks, slow-cooked in pure gingelly oil with curry leaves, crushed pepper, garlic, and traditional Malabar spices.',
-    ingredients: 'Tender Fresh Chicken Chunks, Pure Sesame Oil, Garlic, Ginger, Kashmiri Chili, Curry Leaves, Mustard, Fenugreek, Vinegar, Spices, Salt.',
-    origin: 'Malabar Heritage Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 129, mrp: 169, previousPrice: 169, sku: 'ZQE-PCL-CHK-100G' },
-      { size: '200g', weight: '200g', price: 239, mrp: 299, previousPrice: 299, sku: 'ZQE-PCL-CHK-200G' },
-      { size: '250g', weight: '250g', price: 289, mrp: 369, previousPrice: 369, sku: 'ZQE-PCL-CHK-250G' },
-      { size: '500g', weight: '500g', price: 549, mrp: 699, previousPrice: 699, sku: 'ZQE-PCL-CHK-500G' },
-      { size: '1kg', weight: '1kg', price: 1049, mrp: 1349, previousPrice: 1349, sku: 'ZQE-PCL-CHK-1KG' }
-    ],
-    image: 'assets/images/products/chicken_pickle.jpg',
-    images: [
-      'assets/images/products/chicken_pickle.jpg'
-    ]
-  },
-  {
-    id: 'mango-pickle',
-    name: 'Mango Pickle',
-    subtitle: 'Authentic Kerala Spiced Mango Achar',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 49,
-    basePrice: 49,
-    originalPrice: 69,
-    previousPrice: 69,
-    discountPercentage: 29,
-    sku: 'ZQE-PCL-MNG',
-    rating: 5.0,
-    reviewsCount: 48,
-    stock: 45,
-    isFeatured: true,
-    isBestSeller: true,
-    isNew: false,
-    badge: 'Bestseller',
-    description: 'Traditional Kerala style cut mango pickle prepared with hand-selected raw mangoes, roasted mustard, fenugreek, Kashmiri chili, and cold-pressed gingelly (sesame) oil. Aged to perfection in airtight luxury packaging.',
-    ingredients: 'Raw Green Mangoes, Cold-Pressed Sesame Oil, Kashmiri Chili Powder, Mustard Seeds, Fenugreek, Asafoetida, Turmeric, Sea Salt, Vinegar.',
-    origin: 'Traditional Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 49, mrp: 69, previousPrice: 69, sku: 'ZQE-PCL-MNG-100G' },
-      { size: '200g', weight: '200g', price: 79, mrp: 109, previousPrice: 109, sku: 'ZQE-PCL-MNG-200G' },
-      { size: '250g', weight: '250g', price: 95, mrp: 129, previousPrice: 129, sku: 'ZQE-PCL-MNG-250G' },
-      { size: '500g', weight: '500g', price: 179, mrp: 249, previousPrice: 249, sku: 'ZQE-PCL-MNG-500G' },
-      { size: '1kg', weight: '1kg', price: 339, mrp: 449, previousPrice: 449, sku: 'ZQE-PCL-MNG-1KG' }
-    ],
-    image: 'assets/images/products/mango_pickle.jpg',
-    images: [
-      'assets/images/products/mango_pickle.jpg'
-    ]
-  },
-  {
-    id: 'carrot-pickle',
-    name: 'Carrot Pickle',
-    subtitle: 'Crunchy, Tangy Traditional Carrot Achar',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 49,
-    basePrice: 49,
-    originalPrice: 69,
-    previousPrice: 69,
-    discountPercentage: 29,
-    sku: 'ZQE-PCL-CRT',
-    rating: 4.9,
-    reviewsCount: 31,
-    stock: 45,
-    isFeatured: false,
-    isBestSeller: false,
-    isNew: true,
-    badge: 'Traditional',
-    description: 'Crunchy, tangy traditional carrot pickle made from farm-fresh tender carrots, sun-cured and infused with aromatic mustard seeds, fenugreek, green chilies, and cold-pressed gingelly oil.',
-    ingredients: 'Farm Fresh Tender Carrots, Pure Gingelly Oil, Kashmiri Chili, Mustard Seeds, Fenugreek, Asafoetida, Green Chilies, Ginger, Vinegar, Sea Salt.',
-    origin: 'Traditional Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 49, mrp: 69, previousPrice: 69, sku: 'ZQE-PCL-CRT-100G' },
-      { size: '200g', weight: '200g', price: 79, mrp: 109, previousPrice: 109, sku: 'ZQE-PCL-CRT-200G' },
-      { size: '250g', weight: '250g', price: 95, mrp: 129, previousPrice: 129, sku: 'ZQE-PCL-CRT-250G' },
-      { size: '500g', weight: '500g', price: 179, mrp: 249, previousPrice: 249, sku: 'ZQE-PCL-CRT-500G' },
-      { size: '1kg', weight: '1kg', price: 339, mrp: 449, previousPrice: 449, sku: 'ZQE-PCL-CRT-1KG' }
-    ],
-    image: 'assets/images/products/carrot_pickle.jpg',
-    images: [
-      'assets/images/products/carrot_pickle.jpg'
-    ]
-  },
-  {
-    id: 'lemon-pickle',
-    name: 'Lemon Pickle',
-    subtitle: 'Slow-Cured Whole Lemons with Malabar Spices',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 49,
-    basePrice: 49,
-    originalPrice: 69,
-    previousPrice: 69,
-    discountPercentage: 29,
-    sku: 'ZQE-PCL-LMN',
-    rating: 4.9,
-    reviewsCount: 36,
-    stock: 40,
-    isFeatured: false,
-    isBestSeller: true,
-    isNew: false,
-    badge: 'Traditional',
-    description: 'Authentic Kerala lemon achar made from sun-cured thin-skinned lemons. Infused with aromatic roasted spices, green chilies, and gingelly oil for a rich, tangy, and robust flavor.',
-    ingredients: 'Fresh Farm Lemons, Pure Sesame Oil, Red Chili Powder, Mustard, Fenugreek, Green Chilies, Ginger, Asafoetida, Salt.',
-    origin: 'Traditional Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 49, mrp: 69, previousPrice: 69, sku: 'ZQE-PCL-LMN-100G' },
-      { size: '200g', weight: '200g', price: 79, mrp: 109, previousPrice: 109, sku: 'ZQE-PCL-LMN-200G' },
-      { size: '250g', weight: '250g', price: 95, mrp: 129, previousPrice: 129, sku: 'ZQE-PCL-LMN-250G' },
-      { size: '500g', weight: '500g', price: 179, mrp: 249, previousPrice: 249, sku: 'ZQE-PCL-LMN-500G' },
-      { size: '1kg', weight: '1kg', price: 339, mrp: 449, previousPrice: 449, sku: 'ZQE-PCL-LMN-1KG' }
-    ],
-    image: 'assets/images/products/lemon-pickle-1.jpg',
-    images: [
-      'assets/images/products/lemon-pickle-1.jpg',
-      'assets/images/products/lemon-pickle-2.jpg',
-      'assets/images/products/lemon-pickle-3.jpg'
-    ]
-  },
-  {
-    id: 'garlic-pickle',
-    name: 'Garlic Pickle',
-    subtitle: 'Whole Aged Garlic Cloves in Gingelly Oil',
-    category: 'Premium Pickles',
-    categorySlug: 'pickles',
-    startingPrice: 69,
-    basePrice: 69,
-    originalPrice: 99,
-    previousPrice: 99,
-    discountPercentage: 30,
-    sku: 'ZQE-PCL-GRL',
-    rating: 4.9,
-    reviewsCount: 29,
-    stock: 40,
-    isFeatured: false,
-    isBestSeller: false,
-    isNew: false,
-    badge: 'Popular',
-    description: 'Whole peeled garlic cloves slow-cooked and aged in spicy mustard and sesame oil gravy. Rich, pungent, savory, and packed with authentic traditional Kerala flavors.',
-    ingredients: 'Whole Fresh Garlic Cloves, Pure Gingelly Oil, Kashmiri Chili, Mustard Seeds, Fenugreek, Asafoetida, Curry Leaves, Vinegar, Salt.',
-    origin: 'Traditional Kerala Recipe',
-    sizes: [
-      { size: '100g', weight: '100g', price: 69, mrp: 99, previousPrice: 99, sku: 'ZQE-PCL-GRL-100G' },
-      { size: '200g', weight: '200g', price: 119, mrp: 169, previousPrice: 169, sku: 'ZQE-PCL-GRL-200G' },
-      { size: '250g', weight: '250g', price: 149, mrp: 209, previousPrice: 209, sku: 'ZQE-PCL-GRL-250G' },
-      { size: '500g', weight: '500g', price: 279, mrp: 389, previousPrice: 389, sku: 'ZQE-PCL-GRL-500G' },
-      { size: '1kg', weight: '1kg', price: 529, mrp: 729, previousPrice: 729, sku: 'ZQE-PCL-GRL-1KG' }
-    ],
-    image: 'assets/images/products/garlic-pickle-1.jpg',
-    images: [
-      'assets/images/products/garlic-pickle-1.jpg',
-      'assets/images/products/garlic-pickle-2.jpg',
-      'assets/images/products/garlic-pickle-3.jpg'
-    ]
+    image: 'images/prawns-pickle.jpg',
+    images: ['images/prawns-pickle.jpg', 'images/Prawn Pickle.jpg', 'images/prawns-pickle.png']
   },
 
   // --- THE SPICES COLLECTION (9 DISTINCT LUXURY SPICES) ---
@@ -293,10 +337,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 149,
-    basePrice: 149,
-    originalPrice: 189,
-    previousPrice: 189,
-    discountPercentage: 21,
+    basePrice: 279,
+    originalPrice: 349,
+    previousPrice: 349,
+    discountPercentage: 20,
     sku: 'ZQE-SPC-PEP',
     rating: 5.0,
     reviewsCount: 42,
@@ -316,10 +360,8 @@ export const PRODUCTS = [
       { size: '500g', weight: '500g', price: 999, mrp: 1249, previousPrice: 1249, sku: 'ZQE-SPC-PEP-500G' },
       { size: '1kg', weight: '1kg', price: 1899, mrp: 2349, previousPrice: 2349, sku: 'ZQE-SPC-PEP-1KG' }
     ],
-    image: 'assets/images/products/spices/tellicherry_black_pepper.jpg',
-    images: [
-      'assets/images/products/spices/tellicherry_black_pepper.jpg'
-    ]
+    image: 'images/tellicherry-black-pepper.png',
+    images: ['images/tellicherry-black-pepper.png']
   },
   {
     id: 'idukki-green-cardamom',
@@ -328,10 +370,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 219,
-    basePrice: 219,
-    originalPrice: 279,
-    previousPrice: 279,
-    discountPercentage: 21,
+    basePrice: 399,
+    originalPrice: 499,
+    previousPrice: 499,
+    discountPercentage: 20,
     sku: 'ZQE-SPC-CRD',
     rating: 5.0,
     reviewsCount: 38,
@@ -351,10 +393,8 @@ export const PRODUCTS = [
       { size: '500g', weight: '500g', price: 1599, mrp: 1999, previousPrice: 1999, sku: 'ZQE-SPC-CRD-500G' },
       { size: '1kg', weight: '1kg', price: 2999, mrp: 3699, previousPrice: 3699, sku: 'ZQE-SPC-CRD-1KG' }
     ],
-    image: 'assets/images/products/spices/idukki_green_cardamom.jpg',
-    images: [
-      'assets/images/products/spices/idukki_green_cardamom.jpg'
-    ]
+    image: 'images/cardamom.png',
+    images: ['images/cardamom.png']
   },
   {
     id: 'cloves-grambu',
@@ -363,10 +403,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 119,
-    basePrice: 119,
-    originalPrice: 149,
-    previousPrice: 149,
-    discountPercentage: 20,
+    basePrice: 219,
+    originalPrice: 269,
+    previousPrice: 269,
+    discountPercentage: 19,
     sku: 'ZQE-SPC-CLV',
     rating: 4.9,
     reviewsCount: 33,
@@ -387,9 +427,7 @@ export const PRODUCTS = [
       { size: '1kg', weight: '1kg', price: 1699, mrp: 2099, previousPrice: 2099, sku: 'ZQE-SPC-CLV-1KG' }
     ],
     image: 'assets/images/products/spices/cloves_grambu.jpg',
-    images: [
-      'assets/images/products/spices/cloves_grambu.jpg'
-    ]
+    images: ['assets/images/products/spices/cloves_grambu.jpg']
   },
   {
     id: 'cinnamon-bark',
@@ -398,10 +436,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 99,
-    basePrice: 99,
-    originalPrice: 129,
-    previousPrice: 129,
-    discountPercentage: 23,
+    basePrice: 179,
+    originalPrice: 229,
+    previousPrice: 229,
+    discountPercentage: 22,
     sku: 'ZQE-SPC-CIN',
     rating: 4.9,
     reviewsCount: 29,
@@ -422,9 +460,7 @@ export const PRODUCTS = [
       { size: '1kg', weight: '1kg', price: 1399, mrp: 1699, previousPrice: 1699, sku: 'ZQE-SPC-CIN-1KG' }
     ],
     image: 'assets/images/products/spices/cinnamon_bark.jpg',
-    images: [
-      'assets/images/products/spices/cinnamon_bark.jpg'
-    ]
+    images: ['assets/images/products/spices/cinnamon_bark.jpg']
   },
   {
     id: 'royal-mixed-masala',
@@ -433,10 +469,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 129,
-    basePrice: 129,
-    originalPrice: 169,
-    previousPrice: 169,
-    discountPercentage: 24,
+    basePrice: 239,
+    originalPrice: 299,
+    previousPrice: 299,
+    discountPercentage: 20,
     sku: 'ZQE-SPC-RMX',
     rating: 5.0,
     reviewsCount: 37,
@@ -456,10 +492,8 @@ export const PRODUCTS = [
       { size: '500g', weight: '500g', price: 949, mrp: 1199, previousPrice: 1199, sku: 'ZQE-SPC-RMX-500G' },
       { size: '1kg', weight: '1kg', price: 1799, mrp: 2249, previousPrice: 2249, sku: 'ZQE-SPC-RMX-1KG' }
     ],
-    image: 'assets/images/products/spices/royal_mixed_masala.jpg',
-    images: [
-      'assets/images/products/spices/royal_mixed_masala.jpg'
-    ]
+    image: 'images/kerala-spice-mix.png',
+    images: ['images/kerala-spice-mix.png']
   },
   {
     id: 'kerala-curry-masala',
@@ -468,10 +502,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 79,
-    basePrice: 79,
-    originalPrice: 99,
-    previousPrice: 99,
-    discountPercentage: 20,
+    basePrice: 149,
+    originalPrice: 189,
+    previousPrice: 189,
+    discountPercentage: 21,
     sku: 'ZQE-SPC-KCM',
     rating: 5.0,
     reviewsCount: 46,
@@ -491,10 +525,8 @@ export const PRODUCTS = [
       { size: '500g', weight: '500g', price: 599, mrp: 749, previousPrice: 749, sku: 'ZQE-SPC-KCM-500G' },
       { size: '1kg', weight: '1kg', price: 1149, mrp: 1399, previousPrice: 1399, sku: 'ZQE-SPC-KCM-1KG' }
     ],
-    image: 'assets/images/products/spices/kerala_curry_masala.jpg',
-    images: [
-      'assets/images/products/spices/kerala_curry_masala.jpg'
-    ]
+    image: 'images/kerala-spice-mix.png',
+    images: ['images/kerala-spice-mix.png']
   },
   {
     id: 'star-anise-thakkolam',
@@ -503,10 +535,10 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 109,
-    basePrice: 109,
-    originalPrice: 139,
-    previousPrice: 139,
-    discountPercentage: 22,
+    basePrice: 199,
+    originalPrice: 249,
+    previousPrice: 249,
+    discountPercentage: 20,
     sku: 'ZQE-SPC-STA',
     rating: 4.9,
     reviewsCount: 28,
@@ -527,9 +559,7 @@ export const PRODUCTS = [
       { size: '1kg', weight: '1kg', price: 1549, mrp: 1899, previousPrice: 1899, sku: 'ZQE-SPC-STA-1KG' }
     ],
     image: 'assets/images/products/spices/star_anise.jpg',
-    images: [
-      'assets/images/products/spices/star_anise.jpg'
-    ]
+    images: ['assets/images/products/spices/star_anise.jpg']
   },
   {
     id: 'nutmeg-mace',
@@ -538,9 +568,9 @@ export const PRODUCTS = [
     category: 'Signature Spices',
     categorySlug: 'spices',
     startingPrice: 149,
-    basePrice: 149,
-    originalPrice: 189,
-    previousPrice: 189,
+    basePrice: 499,
+    originalPrice: 629,
+    previousPrice: 629,
     discountPercentage: 21,
     sku: 'ZQE-SPC-MAC',
     rating: 5.0,
@@ -562,9 +592,7 @@ export const PRODUCTS = [
       { size: '500g', weight: '500g', price: 2199, mrp: 2749, previousPrice: 2749, sku: 'ZQE-SPC-MAC-500G' }
     ],
     image: 'assets/images/products/spices/nutmeg_mace.jpg',
-    images: [
-      'assets/images/products/spices/nutmeg_mace.jpg'
-    ]
+    images: ['assets/images/products/spices/nutmeg_mace.jpg']
   },
   {
     id: 'kashmiri-saffron',
@@ -596,9 +624,7 @@ export const PRODUCTS = [
       { size: '25g', weight: '25g', price: 6499, mrp: 7999, previousPrice: 7999, sku: 'ZQE-SPC-SAF-25G' }
     ],
     image: 'assets/images/products/spices/kashmiri_saffron.jpg',
-    images: [
-      'assets/images/products/spices/kashmiri_saffron.jpg'
-    ]
+    images: ['assets/images/products/spices/kashmiri_saffron.jpg']
   },
 
   // --- SPECIAL RESERVE & BESPOKE GIFTING ---
@@ -621,7 +647,7 @@ export const PRODUCTS = [
     isBestSeller: true,
     isNew: true,
     badge: 'Exclusive Gift',
-    description: 'An exclusive gift collection presented in signature ZOOQE luxury packaging. Contains Mango Pickle (250g), Beef Pickle (250g), Fish Pickle (250g), Tellicherry Black Pepper (100g), and Green Cardamom (100g).',
+    description: 'An exclusive gift collection presented in signature ZOOQE luxury packaging. Contains Mango Pickle (250g), Beef Pickle (250g), Tuna Pickle (250g), Tellicherry Black Pepper (100g), and Green Cardamom (100g).',
     ingredients: 'Curated selection of ZOOQE signature Kerala pickles and single-origin Malabar spices.',
     origin: 'ZOOQE Kerala Master Selection',
     sizes: [
@@ -637,6 +663,321 @@ export const PRODUCTS = [
       'assets/images/products/heritage-hamper-2.jpg',
       'assets/images/products/heritage-hamper-3.jpg'
     ]
+  },
+
+  // --- DRY FRUITS COLLECTION (EXACTLY 10 PRODUCTS AT 100G BASE PRICING) ---
+  {
+    id: 'almonds',
+    name: 'Almonds',
+    subtitle: 'Prime California Whole Sweet Almonds (Badam)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 140,
+    basePrice: 140,
+    originalPrice: 179,
+    previousPrice: 179,
+    discountPercentage: 22,
+    sku: 'ZQE-DFR-ALM',
+    rating: 5.0,
+    reviewsCount: 48,
+    stock: 50,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'California Grade',
+    description: 'Hand-selected premium California whole almonds. Rich in natural oils, crisp texture, and subtle sweet crunch. Perfectly packaged to preserve peak freshness.',
+    ingredients: '100% Pure Natural Whole California Almonds (Prunus dulcis).',
+    origin: 'California, USA',
+        sizes: [
+      { size: '100g', weight: '100g', price: 140, mrp: 179, previousPrice: 179, sku: 'ZQE-DFR-ALM-100G' },
+      { size: '250g', weight: '250g', price: 350, mrp: 448, previousPrice: 448, sku: 'ZQE-DFR-ALM-250G' },
+      { size: '500g', weight: '500g', price: 700, mrp: 895, previousPrice: 895, sku: 'ZQE-DFR-ALM-500G' },
+      { size: '1kg', weight: '1kg', price: 1400, mrp: 1790, previousPrice: 1790, sku: 'ZQE-DFR-ALM-1KG' }
+    ],
+    image: 'images/almonds.png',
+    images: ['images/almonds.png']
+  },
+  {
+    id: 'cashews',
+    name: 'Cashews',
+    subtitle: 'Whole Jumbo W240 Malabar Cashew Kernels (Kaju)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 140,
+    basePrice: 140,
+    originalPrice: 179,
+    previousPrice: 179,
+    discountPercentage: 22,
+    sku: 'ZQE-DFR-CSH',
+    rating: 5.0,
+    reviewsCount: 52,
+    stock: 45,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'W240 Jumbo',
+    description: 'Wholesome W240 grade jumbo cashew nuts harvested from the coastal orchards of Malabar. Butter-smooth, naturally sweet, and crunchy.',
+    ingredients: '100% Pure Natural Whole Cashew Kernels (Anacardium occidentale).',
+    origin: 'Malabar Coast, Kerala',
+        sizes: [
+      { size: '100g', weight: '100g', price: 140, mrp: 179, previousPrice: 179, sku: 'ZQE-DFR-CSH-100G' },
+      { size: '250g', weight: '250g', price: 350, mrp: 448, previousPrice: 448, sku: 'ZQE-DFR-CSH-250G' },
+      { size: '500g', weight: '500g', price: 700, mrp: 895, previousPrice: 895, sku: 'ZQE-DFR-CSH-500G' },
+      { size: '1kg', weight: '1kg', price: 1400, mrp: 1790, previousPrice: 1790, sku: 'ZQE-DFR-CSH-1KG' }
+    ],
+    image: 'images/cashews.png',
+    images: ['images/cashews.png']
+  },
+  {
+    id: 'pistachios',
+    name: 'Pistachios',
+    subtitle: 'Roasted & Lightly Salted California Pistachios (Pista)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 240,
+    basePrice: 240,
+    originalPrice: 299,
+    previousPrice: 299,
+    discountPercentage: 20,
+    sku: 'ZQE-DFR-PST',
+    rating: 4.9,
+    reviewsCount: 41,
+    stock: 35,
+    isFeatured: true,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Roasted & Salted',
+    description: 'Freshly roasted in-shell California pistachios, gently seasoned with sea salt. Nutty aroma, satisfying crunch, and vibrant green kernels.',
+    ingredients: 'Whole Roasted In-Shell Pistachios, Natural Sea Salt.',
+    origin: 'California, USA',
+        sizes: [
+      { size: '100g', weight: '100g', price: 240, mrp: 299, previousPrice: 299, sku: 'ZQE-DFR-PST-100G' },
+      { size: '250g', weight: '250g', price: 600, mrp: 748, previousPrice: 748, sku: 'ZQE-DFR-PST-250G' },
+      { size: '500g', weight: '500g', price: 1200, mrp: 1495, previousPrice: 1495, sku: 'ZQE-DFR-PST-500G' },
+      { size: '1kg', weight: '1kg', price: 2400, mrp: 2990, previousPrice: 2990, sku: 'ZQE-DFR-PST-1KG' }
+    ],
+    image: 'images/pistachios.png',
+    images: ['images/pistachios.png']
+  },
+  {
+    id: 'walnuts',
+    name: 'Walnuts',
+    subtitle: 'Extra Light Chilean Whole Walnut Halves (Akhrot)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 190,
+    basePrice: 190,
+    originalPrice: 249,
+    previousPrice: 249,
+    discountPercentage: 24,
+    sku: 'ZQE-DFR-WLN',
+    rating: 5.0,
+    reviewsCount: 36,
+    stock: 30,
+    isFeatured: true,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Chilean Reserve',
+    description: 'Extra-light Chilean walnut kernel halves. Crisp, pleasant earthy flavor without any bitterness, loaded with plant-based Omega-3 fatty acids.',
+    ingredients: '100% Pure Raw Walnut Halves (Juglans regia).',
+    origin: 'Chile, South America',
+        sizes: [
+      { size: '100g', weight: '100g', price: 190, mrp: 249, previousPrice: 249, sku: 'ZQE-DFR-WLN-100G' },
+      { size: '250g', weight: '250g', price: 475, mrp: 623, previousPrice: 623, sku: 'ZQE-DFR-WLN-250G' },
+      { size: '500g', weight: '500g', price: 950, mrp: 1245, previousPrice: 1245, sku: 'ZQE-DFR-WLN-500G' },
+      { size: '1kg', weight: '1kg', price: 1900, mrp: 2490, previousPrice: 2490, sku: 'ZQE-DFR-WLN-1KG' }
+    ],
+    image: 'images/walnuts.png',
+    images: ['images/walnuts.png']
+  },
+  {
+    id: 'raisins',
+    name: 'Raisins',
+    subtitle: 'Golden Long Afghan Seedless Sweet Raisins (Kismis)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 80,
+    basePrice: 80,
+    originalPrice: 109,
+    previousPrice: 109,
+    discountPercentage: 27,
+    sku: 'ZQE-DFR-RSN',
+    rating: 4.8,
+    reviewsCount: 39,
+    stock: 50,
+    isFeatured: false,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Afghan Golden',
+    description: 'Juicy, golden long seedless raisins sun-dried to perfection. Intensely sweet, soft, and ideal for healthy snacking and traditional desserts.',
+    ingredients: '100% Pure Dried Golden Raisins.',
+    origin: 'Kandahar, Afghanistan',
+        sizes: [
+      { size: '100g', weight: '100g', price: 80, mrp: 109, previousPrice: 109, sku: 'ZQE-DFR-RSN-100G' },
+      { size: '250g', weight: '250g', price: 200, mrp: 273, previousPrice: 273, sku: 'ZQE-DFR-RSN-250G' },
+      { size: '500g', weight: '500g', price: 400, mrp: 545, previousPrice: 545, sku: 'ZQE-DFR-RSN-500G' },
+      { size: '1kg', weight: '1kg', price: 800, mrp: 1090, previousPrice: 1090, sku: 'ZQE-DFR-RSN-1KG' }
+    ],
+    image: 'images/raisins.png',
+    images: ['images/raisins.png']
+  },
+  {
+    id: 'dates-ajwa',
+    name: 'Dates (Ajwa)',
+    subtitle: 'Authentic Blessed Madinah Ajwa Dates',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 120,
+    basePrice: 120,
+    originalPrice: 159,
+    previousPrice: 159,
+    discountPercentage: 25,
+    sku: 'ZQE-DFR-AJW',
+    rating: 5.0,
+    reviewsCount: 56,
+    stock: 40,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Madinah Reserve',
+    description: 'Authentic Grade-A dark, soft Ajwa dates cultivated in the blessed groves of Al-Madinah. Delicate fine texture, rich caramel notes, and revered heritage.',
+    ingredients: '100% Natural Whole Madinah Ajwa Dates.',
+    origin: 'Al-Madinah Al-Munawwarah, KSA',
+        sizes: [
+      { size: '100g', weight: '100g', price: 120, mrp: 159, previousPrice: 159, sku: 'ZQE-DFR-AJW-100G' },
+      { size: '250g', weight: '250g', price: 300, mrp: 398, previousPrice: 398, sku: 'ZQE-DFR-AJW-250G' },
+      { size: '500g', weight: '500g', price: 600, mrp: 795, previousPrice: 795, sku: 'ZQE-DFR-AJW-500G' },
+      { size: '1kg', weight: '1kg', price: 1200, mrp: 1590, previousPrice: 1590, sku: 'ZQE-DFR-AJW-1KG' }
+    ],
+    image: 'images/dates.png',
+    images: ['images/dates.png']
+  },
+  {
+    id: 'dried-figs',
+    name: 'Dried Figs',
+    subtitle: 'Natural Sun-Dried Jumbo Turkish Figs (Anjeer)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 140,
+    basePrice: 140,
+    originalPrice: 179,
+    previousPrice: 179,
+    discountPercentage: 22,
+    sku: 'ZQE-DFR-FIG',
+    rating: 4.9,
+    reviewsCount: 34,
+    stock: 35,
+    isFeatured: true,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Jumbo Turkish',
+    description: 'Sun-dried jumbo Turkish anjeer figs. Naturally sweet, soft and chewy with delightful crunchy seeds inside. Packed with natural fibre, calcium, and minerals.',
+    ingredients: '100% Natural Sun-Dried Whole Figs (Ficus carica).',
+    origin: 'Aydin, Turkey',
+        sizes: [
+      { size: '100g', weight: '100g', price: 140, mrp: 179, previousPrice: 179, sku: 'ZQE-DFR-FIG-100G' },
+      { size: '250g', weight: '250g', price: 350, mrp: 448, previousPrice: 448, sku: 'ZQE-DFR-FIG-250G' },
+      { size: '500g', weight: '500g', price: 700, mrp: 895, previousPrice: 895, sku: 'ZQE-DFR-FIG-500G' },
+      { size: '1kg', weight: '1kg', price: 1400, mrp: 1790, previousPrice: 1790, sku: 'ZQE-DFR-FIG-1KG' }
+    ],
+    image: 'images/figs.png',
+    images: ['images/figs.png']
+  },
+  {
+    id: 'banana-chips',
+    name: 'Banana Chips',
+    subtitle: 'Crisp Golden Raw Nendran Slices in Pure Coconut Oil',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 60,
+    basePrice: 60,
+    originalPrice: 79,
+    previousPrice: 79,
+    discountPercentage: 24,
+    sku: 'ZQE-DFR-BNC',
+    rating: 5.0,
+    reviewsCount: 54,
+    stock: 50,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: 'Bestseller',
+    description: 'Thin, crunchy authentic Kerala banana chips sliced from hand-selected prime raw Nendran bananas and fried to golden crispness in 100% pure cold-pressed coconut oil with rock salt and a pinch of turmeric.',
+    ingredients: 'Prime Raw Nendran Bananas, 100% Pure Coconut Oil, Turmeric, Sea Salt.',
+    origin: 'Palakkad & Thrissur, Kerala',
+        sizes: [
+      { size: '100g', weight: '100g', price: 60, mrp: 79, previousPrice: 79, sku: 'ZQE-DFR-BNC-100G' },
+      { size: '200g', weight: '200g', price: 120, mrp: 158, previousPrice: 158, sku: 'ZQE-DFR-BNC-200G' },
+      { size: '250g', weight: '250g', price: 150, mrp: 198, previousPrice: 198, sku: 'ZQE-DFR-BNC-250G' },
+      { size: '500g', weight: '500g', price: 300, mrp: 395, previousPrice: 395, sku: 'ZQE-DFR-BNC-500G' },
+      { size: '1kg', weight: '1kg', price: 600, mrp: 790, previousPrice: 790, sku: 'ZQE-DFR-BNC-1KG' }
+    ],
+    image: 'images/banana-chips.jpg',
+    images: ['images/banana-chips.jpg', 'images/Banana Chips.jpg', 'images/banana-chips.png']
+  },
+  {
+    id: 'potato-chips',
+    name: 'Potato Chips',
+    subtitle: 'Thin-Cut Golden Salted Crispy Farm Potatoes',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 60,
+    basePrice: 60,
+    originalPrice: 79,
+    previousPrice: 79,
+    discountPercentage: 24,
+    sku: 'ZQE-DFR-POT',
+    rating: 4.8,
+    reviewsCount: 32,
+    stock: 45,
+    isFeatured: false,
+    isBestSeller: false,
+    isNew: true,
+    badge: 'Classic Crisp',
+    description: 'Fresh farm potatoes sliced ultra-thin and flash-fried to golden crisp perfection, dusted with crystal sea salt.',
+    ingredients: 'Farm Fresh Potatoes, Cold-Pressed Vegetable Oil, Sea Salt.',
+    origin: 'Artisanal Farm Batch',
+        sizes: [
+      { size: '100g', weight: '100g', price: 60, mrp: 79, previousPrice: 79, sku: 'ZQE-DFR-POT-100G' },
+      { size: '200g', weight: '200g', price: 120, mrp: 158, previousPrice: 158, sku: 'ZQE-DFR-POT-200G' },
+      { size: '250g', weight: '250g', price: 150, mrp: 198, previousPrice: 198, sku: 'ZQE-DFR-POT-250G' },
+      { size: '500g', weight: '500g', price: 300, mrp: 395, previousPrice: 395, sku: 'ZQE-DFR-POT-500G' },
+      { size: '1kg', weight: '1kg', price: 600, mrp: 790, previousPrice: 790, sku: 'ZQE-DFR-POT-1KG' }
+    ],
+    image: 'images/potato-chips.jpg',
+    images: ['images/potato-chips.jpg', 'images/pottato chips.jpg', 'images/potato-chips.png']
+  },
+  {
+    id: 'dried-jackfruit',
+    name: 'Dried Jackfruit',
+    subtitle: 'Natural Dehydrated Sweet Wild Jackfruit Carpels (Chakka)',
+    category: 'Dry Fruits',
+    categorySlug: 'dry-fruits',
+    startingPrice: 70,
+    basePrice: 70,
+    originalPrice: 95,
+    previousPrice: 95,
+    discountPercentage: 26,
+    sku: 'ZQE-DFR-JCK',
+    rating: 5.0,
+    reviewsCount: 38,
+    stock: 35,
+    isFeatured: true,
+    isBestSeller: true,
+    isNew: true,
+    badge: '100% Natural',
+    description: 'Pure dehydrated ripe wild Kerala Varikka jackfruit pods. No added sugar or chemicals, rich in natural honeyed sweetness and chewy goodness.',
+    ingredients: '100% Pure Natural Sun-Dried Jackfruit Carpels (Artocarpus heterophyllus).',
+    origin: 'Wayanad Forests, Kerala',
+        sizes: [
+      { size: '100g', weight: '100g', price: 70, mrp: 95, previousPrice: 95, sku: 'ZQE-DFR-JCK-100G' },
+      { size: '200g', weight: '200g', price: 140, mrp: 190, previousPrice: 190, sku: 'ZQE-DFR-JCK-200G' },
+      { size: '250g', weight: '250g', price: 175, mrp: 238, previousPrice: 238, sku: 'ZQE-DFR-JCK-250G' },
+      { size: '500g', weight: '500g', price: 350, mrp: 475, previousPrice: 475, sku: 'ZQE-DFR-JCK-500G' },
+      { size: '1kg', weight: '1kg', price: 700, mrp: 950, previousPrice: 950, sku: 'ZQE-DFR-JCK-1KG' }
+    ],
+    image: 'images/dried-jackfruit.jpg',
+    images: ['images/dried-jackfruit.jpg', 'images/Dried Jackfruit Pouch.jpg', 'images/jackfruit.png']
   }
 ];
 
@@ -644,5 +985,43 @@ export const CATEGORIES = [
   { id: 'all', name: 'All Products' },
   { id: 'pickles', name: 'Pickles' },
   { id: 'spices', name: 'Spices' },
+  { id: 'dry-fruits', name: 'Dry Fruits' },
   { id: 'other', name: 'Other' }
 ];
+
+/**
+ * Utility: Linear weight and price calculation math
+ */
+export function parseWeightGrams(weightStr) {
+  if (!weightStr) return 100;
+  const str = String(weightStr).toLowerCase().trim();
+  if (str.endsWith('kg')) {
+    const val = parseFloat(str.replace('kg', ''));
+    return isNaN(val) ? 1000 : val * 1000;
+  }
+  if (str.endsWith('g')) {
+    const val = parseFloat(str.replace('g', ''));
+    return isNaN(val) ? 100 : val;
+  }
+  return parseFloat(str) || 100;
+}
+
+export function calculateLinearPrice(basePrice, baseWeightStr, targetWeightStr) {
+  const baseGrams = parseWeightGrams(baseWeightStr);
+  const targetGrams = parseWeightGrams(targetWeightStr);
+  if (!baseGrams || baseGrams <= 0) return basePrice;
+  return Math.round((basePrice / baseGrams) * targetGrams);
+}
+
+export function getVariantPrice(product, targetWeightStr) {
+  if (!product) return 0;
+  if (product.sizes && Array.isArray(product.sizes)) {
+    const found = product.sizes.find(s => (s.size || s.weight) === targetWeightStr);
+    if (found && typeof found.price === 'number') {
+      return found.price;
+    }
+  }
+  const baseWeight = product.baseUnit || (product.categorySlug === 'pickles' ? '200g' : '100g');
+  const basePrice = product.basePrice || product.startingPrice || 0;
+  return calculateLinearPrice(basePrice, baseWeight, targetWeightStr);
+}

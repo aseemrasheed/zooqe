@@ -1,0 +1,19 @@
+===============================================================
+ZOOQE — CUSTOM KERALA SNACKS PRODUCT PHOTOS FOLDER
+===============================================================
+
+You can easily drop your custom snack product photos directly into this folder.
+Simply name your photo files to match the filenames below:
+
+1. banana-chips.jpg    -> Kerala Banana Chips (Nendran Upperi)
+2. sharkara-upperi.jpg -> Sharkara Upperi (Jaggery Banana Chips)
+3. kerala-mixture.jpg  -> Kerala Spicy Mixture
+4. jackfruit-chips.jpg -> Chakka Chips (Jackfruit Chips)
+5. achappam.jpg        -> Achappam (Rose Cookies)
+6. kuzhalappam.jpg     -> Kuzhalappam (Crispy Rice Rolls)
+7. pakkavada.jpg       -> Pakkavada (Ribbon Crisps)
+8. tapioca-chips.jpg   -> Kappa Chips (Tapioca Chips)
+
+Recommended format: JPG, PNG, or WebP.
+Recommended aspect ratio: Square 1:1 (e.g. 800x800px or 1000x1000px).
+As soon as you replace any file here, the website updates immediately!

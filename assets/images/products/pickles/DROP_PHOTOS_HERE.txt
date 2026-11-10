@@ -1,0 +1,17 @@
+===============================================================
+ZOOQE — CUSTOM PICKLE PRODUCT PHOTOS FOLDER
+===============================================================
+
+You can easily drop your custom product photos directly into this folder.
+Simply name your photo files to match the filenames below:
+
+1. beef-pickle.jpg     -> Authentic Kerala Beef Pickle
+2. chicken-pickle.jpg  -> Spicy Kerala Chicken Pickle
+3. fish-pickle.jpg     -> Coastal Seer Fish Pickle
+4. prawns-pickle.jpg   -> Wild-Caught Kerala Prawns Pickle
+5. mango-pickle.jpg    -> Traditional Kerala Cut Mango Pickle
+6. carrot-pickle.jpg   -> Crunchy Traditional Carrot Pickle
+
+Recommended format: JPG, PNG, or WebP.
+Recommended aspect ratio: Square 1:1 (e.g. 800x800px or 1000x1000px).
+As soon as you replace any file here, the website updates immediately!

@@ -48,9 +48,19 @@ class ProductModalManager {
   open(product, onBuyNow) {
     this.currentProduct = product;
     this.onBuyNowCallback = onBuyNow;
-    this.selectedSize = (product.sizes && product.sizes[0]) ? (product.sizes[0].size || product.sizes[0].weight) : '100g';
-    this.selectedPrice = (product.sizes && product.sizes[0]) ? product.sizes[0].price : (product.basePrice || product.startingPrice);
-    this.selectedPrevPrice = (product.sizes && product.sizes[0]) ? (product.sizes[0].previousPrice || product.sizes[0].mrp || 0) : (product.previousPrice || product.originalPrice || 0);
+    
+    // Pickles base unit is 200g; dry fruits and spices base unit is 100g (or first available)
+    let defaultVariant = null;
+    if (product.categorySlug === 'pickles' && product.sizes) {
+      defaultVariant = product.sizes.find(s => (s.size || s.weight) === '200g');
+    }
+    if (!defaultVariant && product.sizes && product.sizes.length > 0) {
+      defaultVariant = product.sizes[0];
+    }
+
+    this.selectedSize = defaultVariant ? (defaultVariant.size || defaultVariant.weight) : '100g';
+    this.selectedPrice = defaultVariant ? defaultVariant.price : (product.basePrice || product.startingPrice);
+    this.selectedPrevPrice = defaultVariant ? (defaultVariant.previousPrice || defaultVariant.mrp || 0) : (product.previousPrice || product.originalPrice || 0);
     this.quantity = 1;
 
     this.render();
@@ -91,7 +101,7 @@ class ProductModalManager {
     const images = (p.images && p.images.length > 0) ? p.images : (p.image ? [p.image] : ['assets/images/logo-mark.svg']);
     const thumbsHtml = images.map((img, idx) => `
       <div class="gallery-thumb ${idx === 0 ? 'active' : ''}" data-index="${idx}">
-        <img src="${img}" alt="${p.name} view ${idx + 1}" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+        <img src="${img}" alt="${p.name} view ${idx + 1}" onerror="if(!this.dataset.fallback){ this.dataset.fallback='1'; this.src = (this.src.startsWith('http') ? 'images/${p.id}.png' : this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg')); } else if(this.dataset.fallback==='1'){ this.dataset.fallback='2'; this.src = 'assets/images/logo-mark.svg'; }" />
       </div>
     `).join('');
 
@@ -111,7 +121,7 @@ class ProductModalManager {
         <!-- Left: Gallery -->
         <div class="product-gallery">
           <div class="product-gallery-main">
-            <img id="modal-main-img" src="${images[0]}" alt="${p.name}" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+            <img id="modal-main-img" src="${images[0]}" alt="${p.name}" onerror="if(!this.dataset.fallback){ this.dataset.fallback='1'; this.src = (this.src.startsWith('http') ? 'images/${p.id}.png' : this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg')); } else if(this.dataset.fallback==='1'){ this.dataset.fallback='2'; this.src = 'assets/images/logo-mark.svg'; }" />
           </div>
           <div class="product-gallery-thumbs">${thumbsHtml}</div>
         </div>

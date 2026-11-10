@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>The Spices Collection — Single-Origin Malabar Spices | ZOOQE</title>
+  <meta name="description" content="Discover ZOOQE's hand-harvested single-origin Malabar spices: Tellicherry Black Pepper, Idukki Cardamom, Cloves, Cinnamon, Star Anise, Nutmeg Mace, and Kashmiri Saffron." />
+  <meta name="keywords" content="Kerala spices, Malabar spices, Tellicherry black pepper, Idukki cardamom, Cloves, Cinnamon bark, Kashmiri saffron, Star anise, ZOOQE spices" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="The Spices Collection — Single-Origin Malabar Spices | ZOOQE" />
+  <meta property="og:description" content="Hand-harvested estate spices from the Western Ghats and Kashmir. Sun-dried, unadulterated, and sealed at peak aroma." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/main.css?v=2.3" />
+</head>
+<body>
+
+  <!-- Page Splash Loading Screen -->
+  <div id="page-loader" class="page-loader">
+    <div class="loader-logo-wrap">
+      <img src="assets/logo.png" alt="ZOOQE Monogram" class="loader-logo-img" />
+    </div>
+    <div class="loader-brand-title">ZOOQE</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Global Backdrop for Drawers -->
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- Sticky Luxury Navigation Header with Top Utility Bar -->
+  <header id="site-header" class="site-header">
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+      <div class="top-utility-inner">
+        <div class="topbar-left">
+          <a href="mailto:info@zooqe.com" class="topbar-link">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1-0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>info@zooqe.com</span>
+          </a>
+          <span class="topbar-sep">|</span>
+          <a href="tel:+916238463851" class="topbar-link">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+91 62384 63851</span>
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <button type="button" id="topbar-wishlist-link" class="topbar-link topbar-btn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Wishlist (<span id="topbar-wishlist-count">0</span>)</span>
+          </button>
+          <span class="topbar-sep">|</span>
+          <button type="button" id="topbar-auth-btn" class="topbar-link topbar-btn topbar-auth-btn">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Login / Register</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="navbar-inner">
+      <!-- Left: Branding -->
+      <a href="index.html" class="nav-brand" aria-label="ZOOQE Home">
+        <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="nav-brand-emblem" width="36" height="36" />
+        <span class="nav-brand-serif">ZOOQE</span>
+      </a>
+
+      <!-- Center-Right: Navigation Links, Search, Wishlist, Cart, WhatsApp -->
+      <div class="nav-center-right">
+        <!-- Desktop Navigation Links: Home, Pickles, Spices, Snacks -->
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="pickles.html" class="nav-link">Pickles</a>
+          <a href="spices.html" class="nav-link active">Spices</a>
+          <a href="dry-fruits.html" class="nav-link">Dry Fruits</a>
+        </nav>
+
+        <!-- Integrated Pill-Shaped Search Bar -->
+        <div class="nav-search-pill" id="nav-search-pill" role="button" tabindex="0" title="Search ZOOQE Products...">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="nav-search-text">Search Pickles, Spices, Dry Fruits...</span>
+          <kbd class="nav-search-kbd">⌘K</kbd>
+        </div>
+
+        <!-- Right Action Icons -->
+        <div class="nav-actions">
+          <button id="nav-search-btn" class="nav-action-btn nav-search-icon-btn" aria-label="Search Catalog" title="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <button id="nav-wishlist-btn" class="nav-action-btn" aria-label="View Wishlist" title="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span id="nav-wishlist-badge" class="nav-badge">0</span>
+          </button>
+
+          <button id="nav-cart-btn" class="nav-action-btn" aria-label="View Shopping Cart" title="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span id="nav-cart-badge" class="nav-badge">0</span>
+          </button>
+
+          <button id="nav-whatsapp-btn" class="nav-whatsapp-btn" title="Contact on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+            </svg>
+            <span>WHATSAPP</span>
+          </button>
+
+          <button id="nav-hamburger" class="nav-hamburger" aria-label="Open Mobile Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Slide Drawer -->
+  <aside id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="nav-brand" aria-label="ZOOQE Home">
+        <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="nav-brand-emblem" width="34" height="34" />
+        <span class="nav-brand-serif">ZOOQE</span>
+      </a>
+      <button id="mobile-drawer-close" class="nav-action-btn" aria-label="Close Menu">✕</button>
+    </div>
+
+    <nav class="mobile-drawer-links">
+      <a href="index.html" class="mobile-drawer-link">Home <span>→</span></a>
+      <a href="pickles.html" class="mobile-drawer-link">Pickles <span>→</span></a>
+      <a href="spices.html" class="mobile-drawer-link active">Spices <span>→</span></a>
+      <a href="dry-fruits.html" class="mobile-drawer-link">Dry Fruits <span>→</span></a>
+      <button type="button" id="mobile-wishlist-btn" class="mobile-drawer-link">Wishlist <span>→</span></button>
+      <button type="button" id="mobile-cart-btn" class="mobile-drawer-link">
+        Cart <span id="mobile-cart-badge" style="font-size:0.85rem; color:#ffffff;">0</span>
+      </button>
+      <button type="button" id="mobile-search-btn" class="mobile-drawer-link">Search <span>→</span></button>
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <button id="mobile-whatsapp-btn" class="btn-luxury-primary" style="width: 100%; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+        </svg>
+        WHATSAPP ENQUIRY
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <main class="site-main">
+
+    <!-- Category Banner Header (Clean, Minimal, Modern) -->
+    <section class="category-page-hero">
+      <div class="category-hero-inner">
+        <div class="category-hero-eyebrow">MALABAR HIGHLANDS HARVEST</div>
+        <h1 class="category-hero-title">The Spices Collection</h1>
+        <p class="category-hero-desc">
+          Hand-harvested estate spices from mist-shrouded hills across the Western Ghats and Kashmir. Sun-dried, unadulterated, and sealed at peak aroma with strict visual purity.
+        </p>
+        <div class="category-quick-filters">
+          <a href="#tellicherry-black-pepper" class="category-filter-pill">Pepper</a>
+          <a href="#idukki-green-cardamom" class="category-filter-pill">Cardamom</a>
+          <a href="#cloves-grambu" class="category-filter-pill">Cloves</a>
+          <a href="#cinnamon-bark" class="category-filter-pill">Cinnamon</a>
+          <a href="#royal-mixed-masala" class="category-filter-pill">Royal Masala</a>
+          <a href="#kerala-curry-masala" class="category-filter-pill">Curry Masala</a>
+          <a href="#star-anise-thakkolam" class="category-filter-pill">Star Anise</a>
+          <a href="#nutmeg-mace" class="category-filter-pill">Mace</a>
+          <a href="#kashmiri-saffron" class="category-filter-pill">Saffron</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spices Grid Section (Strictly displays 9 Distinct Malabar Spices) -->
+    <section class="spices-collection-section" style="border-top: none;">
+      <div class="section-container">
+
+        <div class="spices-grid">
+
+          <!-- 1. Tellicherry Black Pepper -->
+          <div class="spice-card" id="tellicherry-black-pepper" data-product-id="tellicherry-black-pepper">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="images/tellicherry-black-pepper.png" alt="ZOOQE Tellicherry Garbled Extra Bold Black Pepper" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/tellicherry_black_pepper.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">SINGLE ORIGIN</div>
+                <span class="spice-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Tellicherry Black Pepper</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹149</span>
+                    <span class="spice-mrp-price">₹189</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="149" data-mrp="189">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="279" data-mrp="349">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="449" data-mrp="559">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="549" data-mrp="679">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="999" data-mrp="1249">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1899" data-mrp="2349">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="tellicherry-black-pepper">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tellicherry Black Pepper on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Idukki Green Cardamom -->
+          <div class="spice-card" id="idukki-green-cardamom" data-product-id="idukki-green-cardamom">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="images/cardamom.png" alt="ZOOQE Idukki Jumbo 8mm+ Green Cardamom Pods" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/idukki_green_cardamom.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">SINGLE ORIGIN</div>
+                <span class="spice-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Idukki Green Cardamom</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹219</span>
+                    <span class="spice-mrp-price">₹279</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="219" data-mrp="279">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="399" data-mrp="499">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="699" data-mrp="869">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="849" data-mrp="1049">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="1599" data-mrp="1999">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="2999" data-mrp="3699">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="idukki-green-cardamom">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Idukki Green Cardamom on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Cloves (Grambu) -->
+          <div class="spice-card" id="cloves-grambu" data-product-id="cloves-grambu">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="assets/images/products/spices/cloves_grambu.jpg" alt="ZOOQE Hand-Picked Whole Malabar Cloves Grambu" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/cloves_grambu.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">PREMIUM HARVEST</div>
+                <span class="spice-save-pill">20% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Cloves (Grambu)</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹119</span>
+                    <span class="spice-mrp-price">₹149</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="119" data-mrp="149">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="219" data-mrp="269">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="389" data-mrp="469">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="499" data-mrp="599">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="899" data-mrp="1099">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1699" data-mrp="2099">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="cloves-grambu">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cloves on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Cinnamon Bark (Patta) -->
+          <div class="spice-card" id="cinnamon-bark" data-product-id="cinnamon-bark">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="assets/images/products/spices/cinnamon_bark.jpg" alt="ZOOQE True Ceylon Cinnamon Bark Quills Karuvapatta" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/cinnamon_bark.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">SINGLE ORIGIN</div>
+                <span class="spice-save-pill">23% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Cinnamon Bark (Patta)</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹99</span>
+                    <span class="spice-mrp-price">₹129</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="99" data-mrp="129">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="179" data-mrp="229">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="319" data-mrp="399">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="399" data-mrp="499">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="749" data-mrp="929">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1399" data-mrp="1699">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="cinnamon-bark">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cinnamon Bark on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Royal Mixed Masala -->
+          <div class="spice-card" id="royal-mixed-masala" data-product-id="royal-mixed-masala">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="images/kerala-spice-mix.png" alt="ZOOQE Imperial Whole Malabar Royal Mixed Masala" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/royal_mixed_masala.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">SIGNATURE BLEND</div>
+                <span class="spice-save-pill">24% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Royal Mixed Masala</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹129</span>
+                    <span class="spice-mrp-price">₹169</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="129" data-mrp="169">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="239" data-mrp="299">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="419" data-mrp="529">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="529" data-mrp="649">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="949" data-mrp="1199">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1799" data-mrp="2249">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="royal-mixed-masala">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Royal Mixed Masala on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Traditional Kerala Curry Masala -->
+          <div class="spice-card" id="kerala-curry-masala" data-product-id="kerala-curry-masala">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="images/kerala-spice-mix.png" alt="ZOOQE Authentic Stone-Ground Roasted Kerala Curry Masala" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/kerala_curry_masala.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">HERITAGE RECIPE</div>
+                <span class="spice-save-pill">20% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Traditional Kerala Curry Masala</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹79</span>
+                    <span class="spice-mrp-price">₹99</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="79" data-mrp="99">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="149" data-mrp="189">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="259" data-mrp="329">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="329" data-mrp="399">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="599" data-mrp="749">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1149" data-mrp="1399">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="kerala-curry-masala">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kerala Curry Masala on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Star Anise (Thakkolam) -->
+          <div class="spice-card" id="star-anise-thakkolam" data-product-id="star-anise-thakkolam">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="assets/images/products/spices/star_anise.jpg" alt="ZOOQE Whole Eight-Point Autumn Harvest Star Anise Thakkolam" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/star_anise.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">SINGLE ORIGIN</div>
+                <span class="spice-save-pill">22% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Star Anise (Thakkolam)</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹109</span>
+                    <span class="spice-mrp-price">₹139</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="50g" data-price="109" data-mrp="139">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="199" data-mrp="249">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="349" data-mrp="439">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="449" data-mrp="559">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="829" data-mrp="1029">500g</button>
+                    <button type="button" class="spice-weight-btn" data-size="1kg" data-price="1549" data-mrp="1899">1kg</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="star-anise-thakkolam">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Star Anise on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Nutmeg Mace (Jaathipathiri) -->
+          <div class="spice-card" id="nutmeg-mace" data-product-id="nutmeg-mace">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="assets/images/products/spices/nutmeg_mace.jpg" alt="ZOOQE Golden Lacy Nutmeg Mace Blades Jaathipathiri" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/nutmeg_mace.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">RARE RESERVE</div>
+                <span class="spice-save-pill">21% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Nutmeg Mace (Jaathipathiri)</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹149</span>
+                    <span class="spice-mrp-price">₹189</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="25g" data-price="149" data-mrp="189">25g</button>
+                    <button type="button" class="spice-weight-btn" data-size="50g" data-price="279" data-mrp="349">50g</button>
+                    <button type="button" class="spice-weight-btn" data-size="100g" data-price="499" data-mrp="629">100g</button>
+                    <button type="button" class="spice-weight-btn" data-size="200g" data-price="899" data-mrp="1129">200g</button>
+                    <button type="button" class="spice-weight-btn" data-size="250g" data-price="1149" data-mrp="1429">250g</button>
+                    <button type="button" class="spice-weight-btn" data-size="500g" data-price="2199" data-mrp="2749">500g</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="nutmeg-mace">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Nutmeg Mace on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Premium Kashmiri Saffron -->
+          <div class="spice-card" id="kashmiri-saffron" data-product-id="kashmiri-saffron">
+            <div class="spice-card-media-wrap">
+              <div class="spice-image-aspect">
+                <img src="assets/images/products/spices/kashmiri_saffron.jpg" alt="ZOOQE Grade A1 Mongra Kashmiri Saffron Kunkuma Poovu" class="spice-card-img" loading="lazy" onerror="if(!this.src.endsWith('.svg')){ this.src = 'assets/images/products/spices/kashmiri_saffron.svg'; }" />
+                <div class="spice-card-overlay"></div>
+              </div>
+              <div class="spice-card-badges">
+                <div class="spice-card-badge">IMPERIAL RESERVE</div>
+                <span class="spice-save-pill">22% OFF</span>
+              </div>
+              <button type="button" class="spice-card-wishlist-btn" aria-label="Add to Wishlist" title="Add to Wishlist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="spice-card-content">
+              <div class="spice-card-top-info">
+                <h3 class="spice-card-title">Premium Kashmiri Saffron</h3>
+                <div class="spice-card-pricing-row">
+                  <div class="spice-price-cluster">
+                    <span class="spice-current-price">₹349</span>
+                    <span class="spice-mrp-price">₹449</span>
+                  </div>
+                </div>
+              </div>
+              <div class="spice-card-bottom-block">
+                <div class="spice-weight-selector-wrap">
+                  <div class="spice-weight-pills">
+                    <button type="button" class="spice-weight-btn active" data-size="1g" data-price="349" data-mrp="449">1g</button>
+                    <button type="button" class="spice-weight-btn" data-size="2g" data-price="649" data-mrp="829">2g</button>
+                    <button type="button" class="spice-weight-btn" data-size="5g" data-price="1499" data-mrp="1899">5g</button>
+                    <button type="button" class="spice-weight-btn" data-size="10g" data-price="2799" data-mrp="3449">10g</button>
+                    <button type="button" class="spice-weight-btn" data-size="25g" data-price="6499" data-mrp="7999">25g</button>
+                  </div>
+                </div>
+                <div class="spice-card-cta-wrap">
+                  <div class="card-cta-actions-row">
+                    <button type="button" class="btn-archive-cta spice-card-add-btn" data-product-id="kashmiri-saffron">
+                      <span class="btn-archive-text">ADD TO CART</span>
+                      <span class="btn-archive-arrow">→</span>
+                      <span class="btn-archive-underline"></span>
+                    </button>
+                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kashmiri Saffron on WhatsApp">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Category Banner Switcher Footer -->
+        <div style="margin-top: 3.5rem; text-align: center; padding: 2.5rem 1.5rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px;">
+          <h3 style="font-family: var(--font-display, Georgia, serif); color: #ffffff; font-size: 1.35rem; margin-bottom: 0.5rem;">Explore authentic pickles and crispy traditional snacks</h3>
+          <p style="color: var(--silver-400); font-size: 0.92rem; margin-bottom: 1.5rem;">Discover our authentic Kerala meat and vegetarian achars or crunchy coconut oil snacks.</p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="pickles.html" class="btn-hero-gold" style="padding: 0.75rem 1.75rem; font-size: 0.8rem; text-decoration: none;">EXPLORE PICKLES COLLECTION →</a>
+            <a href="snacks.html" class="btn-hero-dark" style="padding: 0.75rem 1.75rem; font-size: 0.8rem; text-decoration: none;">EXPLORE SNACKS COLLECTION →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Luxury Brand Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-container">
+        <!-- Col 1: Brand Story & Monogram -->
+        <div class="footer-col footer-col-brand">
+          <a href="index.html" class="footer-brand" aria-label="ZOOQE Home">
+            <img src="assets/images/brand/zooqe-emblem.jpg" alt="ZOOQE Emblem" class="footer-brand-emblem" width="40" height="40" />
+            <span class="footer-brand-serif">ZOOQE</span>
+          </a>
+          <p class="footer-tagline">“Premium Taste. Distinctly ZOOQE.”</p>
+          <p class="footer-desc">
+            A premium Kerala food brand specializing in authentic handcrafted Pickles, single-origin Malabar Spices, and traditional crispy snacks.
+          </p>
+          <div class="footer-badges">
+            <span class="footer-badge">FSSAI Certified</span>
+            <span class="footer-badge">Single Origin</span>
+            <span class="footer-badge">No Preservatives</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Collections Navigation -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="pickles.html">The Pickles Collection</a></li>
+            <li><a href="spices.html">The Spices Collection</a></li>
+            <li><a href="snacks.html">Traditional Kerala Snacks</a></li>
+            <li><a href="index.html#collections">Curated Gift Hampers</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Customer Care & Policies -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Assistance</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" data-policy="shipping">Shipping Policy</a></li>
+            <li><a href="javascript:void(0)" data-policy="returns">Return & Quality Policy</a></li>
+            <li><a href="javascript:void(0)" data-policy="privacy">Privacy Discretion</a></li>
+            <li><a href="javascript:void(0)" data-policy="terms">Terms & Quality Assurance</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Private Gazette VIP Signup & Contact -->
+        <div class="footer-col footer-col-gazette">
+          <h4 class="footer-heading">Private Gazette</h4>
+          <p class="footer-gazette-desc">
+            Receive exclusive seasonal harvest updates and harvest allocation releases directly to your inbox.
+          </p>
+          <form class="footer-vip-form" id="footer-vip-form">
+            <div class="footer-vip-input-wrap">
+              <input type="email" id="footer-vip-email" class="footer-vip-input" placeholder="Enter your email address" required />
+              <button type="submit" class="footer-vip-btn" aria-label="Subscribe">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </form>
+          <div class="footer-direct-contact" style="margin-top: 1rem;">
+            <p style="font-size: 0.8rem; color: var(--silver-500); margin-bottom: 0.25rem;">WhatsApp Concierge: <a href="https://wa.me/916238463851?text=Hello%20ZOOQE" target="_blank" rel="noopener" style="color: #ffffff;">+91 62384 63851</a></p>
+            <p style="font-size: 0.8rem; color: var(--silver-500);">Direct Inquiries: <a href="mailto:info@zooqe.com" style="color: #ffffff;">info@zooqe.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Legal Strip -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copy">© 2026 ZOOQE. All rights reserved. Designed for discerning culinary connoisseurs.</p>
+        <p class="footer-secure-note">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          100% Secure Checkout • Direct Background Order Notification
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Shopping Cart Drawer Container -->
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-title-wrap">
+        <h3 class="cart-title">YOUR CART</h3>
+        <span id="cart-drawer-count" class="cart-item-count-badge">(0 items)</span>
+      </div>
+      <button id="cart-drawer-close" class="cart-close-btn" aria-label="Close Cart">✕</button>
+    </div>
+
+    <div id="cart-shipping-meter" class="free-shipping-meter"></div>
+    <div id="cart-items-container" class="cart-items-list"></div>
+    <div id="cart-footer-container" class="cart-footer"></div>
+  </aside>
+
+  <!-- Wishlist Slide Drawer Container -->
+  <aside id="wishlist-drawer" class="wishlist-drawer" aria-label="Wishlist">
+    <div class="wishlist-header">
+      <h3 class="wishlist-title">SAVED PRODUCTS</h3>
+      <button id="wishlist-drawer-close" class="cart-close-btn" aria-label="Close Wishlist">✕</button>
+    </div>
+    <div id="wishlist-items-container" class="wishlist-items-list"></div>
+  </aside>
+
+  <!-- Floating Corner WhatsApp Concierge Button -->
+  <aside aria-label="Customer Support">
+    <button id="floating-whatsapp-btn" class="floating-whatsapp-btn" aria-label="Contact Concierge on WhatsApp" title="WhatsApp Concierge">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
+      </svg>
+      <span class="floating-wa-label">WhatsApp Concierge</span>
+    </button>
+  </aside>
+
+  <!-- Legal / Policy Modal Backdrop -->
+  <div id="policy-modal-backdrop" class="policy-modal-backdrop">
+    <div class="policy-modal-content">
+      <div class="policy-modal-header">
+        <h3 id="policy-modal-title" class="policy-modal-title">Policy Information</h3>
+        <button id="policy-modal-close" class="policy-modal-close" aria-label="Close Dialog">✕</button>
+      </div>
+      <div id="policy-modal-body" class="policy-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules Entry -->
+  <script type="module" src="js/app.js"></script>
+
+</body>
+</html>

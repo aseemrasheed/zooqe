@@ -67,10 +67,94 @@ export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
 
   // Close drawer on clicking internal nav links
   document.querySelectorAll('.mobile-drawer-link').forEach(link => {
-    link.addEventListener('click', () => {
-      closeDrawer();
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        closeDrawer();
+        const target = document.querySelector(href);
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 120);
+        }
+      } else {
+        closeDrawer();
+      }
     });
   });
+
+  // Desktop smooth scrolling on nav links
+  const desktopNavLinks = document.querySelectorAll('.nav-links .nav-link');
+  desktopNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          desktopNavLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+    });
+  });
+
+  // Dynamic ScrollSpy for Desktop Navigation Links
+  const spySections = [
+    { id: 'hero', el: document.getElementById('hero') },
+    { id: 'pickles', el: document.getElementById('pickles') },
+    { id: 'spices', el: document.getElementById('spices') },
+    { id: 'dry-fruits', el: document.getElementById('dry-fruits') || document.getElementById('snacks') },
+    { id: 'about', el: document.getElementById('about') },
+    { id: 'contact', el: document.getElementById('contact') }
+  ].filter(s => s.el !== null);
+
+  function updateScrollSpy() {
+    if (!desktopNavLinks.length || !spySections.length) return;
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+    let activeId = '';
+    const picklesSection = spySections.find(s => s.id === 'pickles');
+    const heroLimit = picklesSection ? (picklesSection.el.offsetTop - 180) : 350;
+
+    if (scrollPos < heroLimit) {
+      activeId = 'hero';
+    } else {
+      for (let i = spySections.length - 1; i >= 0; i--) {
+        const sec = spySections[i];
+        if (sec.id === 'hero') continue;
+        if (scrollPos >= sec.el.offsetTop - 180) {
+          activeId = sec.id;
+          break;
+        }
+      }
+    }
+
+    desktopNavLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${activeId}` || (activeId === 'dry-fruits' && href === '#snacks')) {
+        link.classList.add('active');
+      } else if (href && href.startsWith('#')) {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  let spyTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!spyTicking) {
+      window.requestAnimationFrame(() => {
+        updateScrollSpy();
+        spyTicking = false;
+      });
+      spyTicking = true;
+    }
+  }, { passive: true });
+
+  // Initial ScrollSpy synchronization
+  updateScrollSpy();
 
   // Action listeners
   if (cartBtn) cartBtn.addEventListener('click', onOpenCart);

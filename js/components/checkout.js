@@ -3,6 +3,8 @@ import { cartState } from '../state/cartState.js';
 import { toast } from './toast.js';
 import { Web3Forms } from './web3forms.js';
 import { orderConfirmation } from './orderConfirmation.js';
+import { orderStorage } from '../state/orderStorage.js';
+import { getVariantPrice } from '../data/products.js';
 
 class CheckoutManager {
   constructor() {
@@ -50,11 +52,10 @@ class CheckoutManager {
     this.onOrderPlacedCallback = onOrderPlaced;
 
     if (isDirectBuy && directProduct) {
-      const variant = (directProduct.sizes && directProduct.sizes.find(s => s.size === directSize)) || {
-        size: directSize,
-        price: directProduct.basePrice,
-        sku: directProduct.sku
-      };
+      const variant = (directProduct.sizes && directProduct.sizes.find(s => (s.size || s.weight) === directSize));
+      const chosenSize = variant ? (variant.size || variant.weight || directSize) : directSize;
+      const finalPrice = variant ? variant.price : getVariantPrice(directProduct, chosenSize);
+      const finalSku = (variant && variant.sku) || `${directProduct.sku || 'ZQE'}-${chosenSize.toUpperCase()}`;
       this.checkoutData = {
         isDirectBuy: true,
         items: [{
@@ -63,9 +64,9 @@ class CheckoutManager {
           subtitle: directProduct.subtitle,
           category: directProduct.category,
           image: directProduct.images && directProduct.images[0] ? directProduct.images[0] : 'assets/images/logo-mark.svg',
-          size: variant.size,
-          price: variant.price,
-          sku: variant.sku || directProduct.sku,
+          size: chosenSize,
+          price: finalPrice,
+          sku: finalSku,
           quantity: directQuantity
         }]
       };
@@ -117,7 +118,7 @@ class CheckoutManager {
     const itemsSummaryHtml = items.map(item => `
       <div class="checkout-mini-item">
         <div class="checkout-mini-item-info">
-          <img src="${item.image}" alt="${item.name}" class="checkout-mini-item-img" onerror="if(!this.src.endsWith('.svg')){ this.src = this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg'); }" />
+          <img src="${item.image}" alt="${item.name}" class="checkout-mini-item-img" onerror="if(!this.dataset.fallback){ this.dataset.fallback='1'; this.src = (this.src.startsWith('http') ? 'images/' + (item.productId || 'hero-showcase') + '.png' : this.src.replace(/\\.(jpg|jpeg|png|webp)$/i, '.svg')); } else if(this.dataset.fallback==='1'){ this.dataset.fallback='2'; this.src = 'assets/images/logo-mark.svg'; }" />
           <div class="checkout-mini-item-text">
             <div class="checkout-mini-item-title">${item.name}</div>
             <div class="checkout-mini-item-meta">${item.size} • Qty: ${item.quantity}</div>
@@ -390,10 +391,16 @@ class CheckoutManager {
       `;
 
       try {
+        // Order Persistence: Save full order payload into localStorage under 'zooqe_orders_log'
+        orderStorage.saveOrder(orderData, 'pending');
+
         // 1. Send background POST request (using fetch API) to https://api.web3forms.com/submit
         const notifyResult = await Web3Forms.sendOrderNotification(orderData);
 
         if (notifyResult && notifyResult.success === true) {
+          // Persist successful dispatch in localStorage
+          orderStorage.updateStatus(orderData.orderId, 'sent');
+
           // 2. On successful response (result.success === true):
           // Clear the cart items
           cartState.clearCart();
@@ -407,26 +414,55 @@ class CheckoutManager {
 
           // Display the Order Confirmed screen
           if (this.onOrderPlacedCallback) {
-            this.onOrderPlacedCallback(orderData);
+            this.onOrderPlacedCallback(orderData, { notificationFailed: false });
           } else {
-            orderConfirmation.show(orderData);
+            orderConfirmation.show(orderData, { notificationFailed: false });
           }
           toast.show(`Order #${orderData.orderId} Confirmed! Direct notification dispatched to store owner.`);
         } else {
-          // 3. If an error occurs, show an alert message and do not clear the cart
-          const errorMsg = notifyResult?.message || 'Failed to submit order. Please check your details and try again.';
+          // Do NOT mark the order as quietly completed if Web3Forms returns an error or status !== 200
+          const errorMsg = notifyResult?.message || `Web3Forms returned status ${notifyResult?.status || 'failed'}`;
+          console.warn('Web3Forms delivery failed:', errorMsg);
+          orderStorage.updateStatus(orderData.orderId, 'failed', errorMsg);
+
           placeOrderBtn.disabled = false;
           placeOrderBtn.innerHTML = originalBtnHtml;
-          alert(`Order Submission Error: ${errorMsg}\n\nYour cart items are saved. Please try submitting again.`);
-          toast.show(errorMsg);
+
+          // Clear fallback notice required by store specification
+          const fallbackNotice = "Notice: Direct notification failed to reach store inbox. Please tap 'Confirm on WhatsApp' to complete your order.";
+          alert(fallbackNotice);
+
+          // Clear cart and show order confirmation with fallback notice
+          cartState.clearCart();
+          this.close();
+
+          if (this.onOrderPlacedCallback) {
+            this.onOrderPlacedCallback(orderData, { notificationFailed: true, fallbackNotice });
+          } else {
+            orderConfirmation.show(orderData, { notificationFailed: true, fallbackNotice });
+          }
+          toast.show(fallbackNotice);
         }
       } catch (err) {
         console.error('Checkout submission error:', err);
         const errorMsg = err.message || 'Network error occurred while submitting order.';
+        orderStorage.updateStatus(orderData.orderId, 'failed', errorMsg);
+
         placeOrderBtn.disabled = false;
         placeOrderBtn.innerHTML = originalBtnHtml;
-        alert(`Order Submission Error: ${errorMsg}\n\nYour cart items are saved. Please try submitting again.`);
-        toast.show(errorMsg);
+
+        const fallbackNotice = "Notice: Direct notification failed to reach store inbox. Please tap 'Confirm on WhatsApp' to complete your order.";
+        alert(fallbackNotice);
+
+        cartState.clearCart();
+        this.close();
+
+        if (this.onOrderPlacedCallback) {
+          this.onOrderPlacedCallback(orderData, { notificationFailed: true, fallbackNotice });
+        } else {
+          orderConfirmation.show(orderData, { notificationFailed: true, fallbackNotice });
+        }
+        toast.show(fallbackNotice);
       }
     };
 

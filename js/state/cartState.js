@@ -1,4 +1,5 @@
 import { CONFIG } from '../config.js';
+import { getVariantPrice } from '../data/products.js';
 
 const STORAGE_KEY = 'zooqe_cart_v1';
 const PROMO_KEY = 'zooqe_promo_v1';
@@ -56,14 +57,12 @@ class CartState {
    * Add product variant to cart
    */
   addItem(product, size = '100g', quantity = 1) {
-    const variant = (product.sizes && product.sizes.find(s => (s.size || s.weight) === size)) || {
-      size: size,
-      price: product.basePrice || product.startingPrice,
-      previousPrice: product.previousPrice || product.originalPrice || 0,
-      sku: product.sku
-    };
+    const variant = (product.sizes && product.sizes.find(s => (s.size || s.weight) === size));
+    const chosenSize = variant ? (variant.size || variant.weight || size) : size;
+    const finalPrice = variant ? variant.price : getVariantPrice(product, chosenSize);
+    const finalPrevPrice = variant ? (variant.previousPrice || variant.mrp || 0) : (product.previousPrice || product.originalPrice || 0);
+    const finalSku = (variant && variant.sku) || `${product.sku || 'ZQE'}-${chosenSize.toUpperCase()}`;
 
-    const chosenSize = variant.size || variant.weight || size;
     const itemKey = `${product.id}__${chosenSize}`;
     const existingIndex = this.items.findIndex(item => item.itemKey === itemKey);
 
@@ -78,9 +77,9 @@ class CartState {
         category: product.category,
         image: (product.images && product.images[0]) || product.image || 'assets/images/logo-mark.svg',
         size: chosenSize,
-        price: variant.price,
-        previousPrice: variant.previousPrice || variant.mrp || 0,
-        sku: variant.sku || product.sku,
+        price: finalPrice,
+        previousPrice: finalPrevPrice,
+        sku: finalSku,
         quantity: quantity,
         maxStock: product.stock || 99
       });

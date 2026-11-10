@@ -4,7 +4,9 @@
 
 /* 1. Section Containers */
 .pickles-collection-section,
-.spices-collection-section {
+.spices-collection-section,
+.snacks-collection-section,
+.dryfruits-collection-section {
   padding: 4.5rem 0;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -14,7 +16,9 @@
 
 /* 2. Grid System: 4 Compact Cards per row on Desktop (with 16px - 20px gap) */
 .pickles-grid,
-.spices-grid {
+.spices-grid,
+.snacks-grid,
+.dryfruits-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.15rem; /* ~18px clean spacing */
@@ -23,7 +27,9 @@
 
 @media (max-width: 1100px) {
   .pickles-grid,
-  .spices-grid {
+  .spices-grid,
+  .snacks-grid,
+  .dryfruits-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
@@ -31,7 +37,9 @@
 
 @media (max-width: 768px) {
   .pickles-grid,
-  .spices-grid {
+  .spices-grid,
+  .snacks-grid,
+  .dryfruits-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.85rem;
   }
@@ -39,15 +47,31 @@
 
 @media (max-width: 480px) {
   .pickles-grid,
-  .spices-grid {
+  .spices-grid,
+  .snacks-grid,
+  .dryfruits-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.65rem;
   }
 }
 
+/* Entrance Keyframes for smooth loading and category switching */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* 3. Compact Product Card: Clean Dark Frosted Glass & Uniform Heights */
 .pickle-card,
-.spice-card {
+.spice-card,
+.snack-card,
+.dryfruit-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -60,19 +84,24 @@
   border-radius: var(--radius-md, 10px);
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
-  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: cardEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
 }
 
 .pickle-card:hover,
-.spice-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(212, 175, 55, 0.35);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+.spice-card:hover,
+.snack-card:hover,
+.dryfruit-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.72);
 }
 
-/* Image Wrapper: Tighter Aspect Ratio (1:1, max-height 200px-220px on desktop) */
+/* Image Wrapper: Tighter Aspect Ratio (1:1, max-height 220px on desktop) */
 .pickle-card-media-wrap,
-.spice-card-media-wrap {
+.spice-card-media-wrap,
+.snack-card-media-wrap,
+.dryfruit-card-media-wrap {
   position: relative;
   width: 100%;
   background: #09090d;
@@ -81,7 +110,9 @@
 }
 
 .pickle-image-aspect,
-.spice-image-aspect {
+.spice-image-aspect,
+.snack-image-aspect,
+.dryfruit-image-aspect {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -90,31 +121,71 @@
 }
 
 .pickle-card-img,
-.spice-card-img {
+.spice-card-img,
+.snack-card-img,
+.dryfruit-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   display: block;
-  transition: transform 0.6s var(--ease-luxury);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .pickle-card:hover .pickle-card-img,
-.spice-card:hover .spice-card-img {
-  transform: scale(1.05);
+.spice-card:hover .spice-card-img,
+.snack-card:hover .snack-card-img,
+.dryfruit-card:hover .snack-card-img,
+.dryfruit-card:hover .dryfruit-card-img {
+  transform: scale(1.04);
 }
 
 .pickle-card-overlay,
-.spice-card-overlay {
+.spice-card-overlay,
+.snack-card-overlay,
+.dryfruit-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, rgba(5, 5, 8, 0.55) 100%);
   pointer-events: none;
 }
 
+/* Dry Fruits Pouch & Cutout Display Rules */
+.dryfruit-card .snack-image-aspect,
+.dryfruit-card .dryfruit-image-aspect {
+  background: radial-gradient(circle at 50% 50%, #1a1a26 0%, #09090e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.dryfruit-card .snack-card-img,
+.dryfruit-card .dryfruit-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.65));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.dryfruit-card:hover .snack-card-img,
+.dryfruit-card:hover .dryfruit-card-img {
+  transform: scale(1.06);
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.85));
+}
+
+.dryfruit-card .snack-card-overlay,
+.dryfruit-card .dryfruit-card-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(5, 5, 8, 0.2) 100%);
+}
+
 /* Badges on Image (Status Tag & Discount Badge) */
 .pickle-card-badges,
-.spice-card-badges {
+.spice-card-badges,
+.snack-card-badges,
+.dryfruit-card-badges {
   position: absolute;
   top: 0.65rem;
   left: 0.65rem;
@@ -126,7 +197,9 @@
 }
 
 .pickle-card-badge,
-.spice-card-badge {
+.spice-card-badge,
+.snack-card-badge,
+.dryfruit-card-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -146,7 +219,9 @@
 }
 
 .pickle-card-badge::before,
-.spice-card-badge::before {
+.spice-card-badge::before,
+.snack-card-badge::before,
+.dryfruit-card-badge::before {
   content: '';
   width: 4px;
   height: 4px;
@@ -155,7 +230,9 @@
 }
 
 .pickle-save-pill,
-.spice-save-pill {
+.spice-save-pill,
+.snack-save-pill,
+.dryfruit-save-pill {
   display: inline-flex;
   align-items: center;
   padding: 0.18rem 0.5rem;
@@ -172,7 +249,9 @@
 
 /* Compact Wishlist Button */
 .pickle-card-wishlist-btn,
-.spice-card-wishlist-btn {
+.spice-card-wishlist-btn,
+.snack-card-wishlist-btn,
+.dryfruit-card-wishlist-btn {
   position: absolute;
   top: 0.65rem;
   right: 0.65rem;
@@ -193,35 +272,45 @@
 }
 
 .pickle-card-wishlist-btn svg,
-.spice-card-wishlist-btn svg {
+.spice-card-wishlist-btn svg,
+.snack-card-wishlist-btn svg,
+.dryfruit-card-wishlist-btn svg {
   width: 14px;
   height: 14px;
   transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
 }
 
 .pickle-card-wishlist-btn:hover,
-.spice-card-wishlist-btn:hover {
+.spice-card-wishlist-btn:hover,
+.snack-card-wishlist-btn:hover,
+.dryfruit-card-wishlist-btn:hover {
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
 .pickle-card-wishlist-btn.active,
-.spice-card-wishlist-btn.active {
+.spice-card-wishlist-btn.active,
+.snack-card-wishlist-btn.active,
+.dryfruit-card-wishlist-btn.active {
   background: #ffffff;
   border-color: #ffffff;
   color: #000000;
 }
 
 .pickle-card-wishlist-btn.active svg,
-.spice-card-wishlist-btn.active svg {
+.spice-card-wishlist-btn.active svg,
+.snack-card-wishlist-btn.active svg,
+.dryfruit-card-wishlist-btn.active svg {
   fill: #000000;
   stroke: #000000;
 }
 
 /* Card Content: Sleek Compact Inner Padding */
 .pickle-card-content,
-.spice-card-content {
+.spice-card-content,
+.snack-card-content,
+.dryfruit-card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -230,14 +319,18 @@
 }
 
 .pickle-card-top-info,
-.spice-card-top-info {
+.spice-card-top-info,
+.snack-card-top-info,
+.dryfruit-card-top-info {
   display: flex;
   flex-direction: column;
 }
 
 /* Minimalist typography: Clean sans-serif Product Title */
 .pickle-card-title,
-.spice-card-title {
+.spice-card-title,
+.snack-card-title,
+.dryfruit-card-title {
   font-family: var(--font-body);
   font-size: 0.98rem;
   font-weight: 600;
@@ -250,13 +343,17 @@
 }
 
 .pickle-card-title:hover,
-.spice-card-title:hover {
+.spice-card-title:hover,
+.snack-card-title:hover,
+.dryfruit-card-title:hover {
   color: #f7df99;
 }
 
 /* Immediate Pricing Row: Current Price & Strikethrough MRP Side-by-Side */
 .pickle-card-pricing-row,
-.spice-card-pricing-row {
+.spice-card-pricing-row,
+.snack-card-pricing-row,
+.dryfruit-card-pricing-row {
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
@@ -264,14 +361,18 @@
 }
 
 .pickle-price-cluster,
-.spice-price-cluster {
+.spice-price-cluster,
+.snack-price-cluster,
+.dryfruit-price-cluster {
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
 }
 
 .pickle-current-price,
-.spice-current-price {
+.spice-current-price,
+.snack-current-price,
+.dryfruit-current-price {
   font-family: var(--font-body);
   font-size: 1.15rem;
   font-weight: 700;
@@ -280,7 +381,9 @@
 }
 
 .pickle-mrp-price,
-.spice-mrp-price {
+.spice-mrp-price,
+.snack-mrp-price,
+.dryfruit-mrp-price {
   font-family: var(--font-body);
   font-size: 0.8rem;
   color: var(--silver-600);
@@ -289,7 +392,9 @@
 
 /* Bottom Action Block (Strictly Horizontally Aligned) */
 .pickle-card-bottom-block,
-.spice-card-bottom-block {
+.spice-card-bottom-block,
+.snack-card-bottom-block,
+.dryfruit-card-bottom-block {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -300,21 +405,27 @@
 
 /* Clean, compact Weight/Variant selector directly under title/price */
 .pickle-weight-selector-wrap,
-.spice-weight-selector-wrap {
+.spice-weight-selector-wrap,
+.snack-weight-selector-wrap,
+.dryfruit-weight-selector-wrap {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
 .pickle-weight-pills,
-.spice-weight-pills {
+.spice-weight-pills,
+.snack-weight-pills,
+.dryfruit-weight-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
 
 .pickle-weight-btn,
-.spice-weight-btn {
+.spice-weight-btn,
+.snack-weight-btn,
+.dryfruit-weight-btn {
   min-height: 28px;
   min-width: 32px;
   padding: 3px 8px;
@@ -336,14 +447,18 @@
 }
 
 .pickle-weight-btn:hover,
-.spice-weight-btn:hover {
+.spice-weight-btn:hover,
+.snack-weight-btn:hover,
+.dryfruit-weight-btn:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.3);
   color: #ffffff;
 }
 
 .pickle-weight-btn.active,
-.spice-weight-btn.active {
+.spice-weight-btn.active,
+.snack-weight-btn.active,
+.dryfruit-weight-btn.active {
   background: rgba(255, 255, 255, 0.16);
   border-color: #ffffff;
   color: #ffffff;
@@ -351,62 +466,331 @@
   font-weight: 600;
 }
 
-/* Compact 'Add to Cart' button placed neatly at the bottom with standard height */
+/* Compact 'Add to Cart' and Action Row buttons */
 .pickle-card-cta-wrap,
-.spice-card-cta-wrap {
+.spice-card-cta-wrap,
+.snack-card-cta-wrap,
+.dryfruit-card-cta-wrap {
+  width: 100%;
+}
+
+.card-cta-actions-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: stretch;
   width: 100%;
 }
 
 .pickle-card-add-btn,
-.spice-card-add-btn {
-  width: 100%;
+.spice-card-add-btn,
+.snack-card-add-btn,
+.dryfruit-card-add-btn {
+  flex: 1;
   justify-content: center;
   min-height: 36px;
-  padding: 7px 12px;
+  padding: 7px 10px;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   gap: 0.45rem;
+  transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pickle-card-add-btn:active,
+.spice-card-add-btn:active,
+.snack-card-add-btn:active,
+.dryfruit-card-add-btn:active,
+.card-wa-btn:active,
+.pickle-weight-btn:active,
+.spice-weight-btn:active,
+.snack-weight-btn:active,
+.dryfruit-weight-btn:active {
+  transform: scale(0.97);
 }
 
 .pickle-card-add-btn .btn-archive-arrow,
-.spice-card-add-btn .btn-archive-arrow {
+.spice-card-add-btn .btn-archive-arrow,
+.snack-card-add-btn .btn-archive-arrow {
   font-size: 0.95rem;
+}
+
+.card-wa-btn {
+  min-height: 36px;
+  width: 36px;
+  flex-shrink: 0;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: var(--radius-sm, 4px);
+  color: #25d366;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-wa-btn:hover {
+  background: #25d366;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+.card-wa-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Category Page Clean Banner (Minimal & Modern) */
+.category-page-hero {
+  padding: 4.5rem 0 2.5rem;
+  background: linear-gradient(180deg, #0e0e13 0%, #07070a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.category-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.category-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.category-hero-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.category-hero-desc {
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  color: var(--silver-400);
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+}
+
+.category-quick-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.category-filter-pill {
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--silver-300);
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.category-filter-pill:hover,
+.category-filter-pill.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 /* Mobile & Tablet Optimizations */
 @media (max-width: 768px) {
   .pickles-collection-section,
-  .spices-collection-section {
-    padding: 3.5rem 0;
+  .spices-collection-section,
+  .snacks-collection-section {
+    padding: 3rem 0;
+  }
+
+  .category-page-hero {
+    padding: 3.5rem 0 2rem;
   }
 
   .pickle-card-content,
-  .spice-card-content {
+  .spice-card-content,
+  .snack-card-content {
     padding: 0.75rem 0.85rem;
   }
 
   .pickle-card-title,
-  .spice-card-title {
+  .spice-card-title,
+  .snack-card-title {
     font-size: 0.92rem;
   }
 
   .pickle-card-desc,
-  .spice-card-desc {
-    display: none; /* Hide description in 2-column mobile layout to keep cards compact & equal */
+  .spice-card-desc,
+  .snack-card-desc {
+    display: none;
   }
 
   .pickle-weight-btn,
-  .spice-weight-btn {
+  .spice-weight-btn,
+  .snack-weight-btn {
     min-height: 28px;
     padding: 3px 6px;
     font-size: 0.68rem;
   }
 
   .pickle-card-add-btn,
-  .spice-card-add-btn {
+  .spice-card-add-btn,
+  .snack-card-add-btn {
     min-height: 36px;
-    padding: 7px 10px;
-    font-size: 0.72rem;
+    padding: 7px 8px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ==============================================================================
+ * ZOOQE Sticky Category Tabs Bar: [All, Pickles, Spices, Snacks]
+ * ============================================================================== */
+.category-tabs-sticky-wrapper {
+  position: sticky;
+  top: 64px;
+  z-index: 90;
+  background: rgba(7, 7, 10, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+
+.category-tabs-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  width: 100%;
+  padding: 0.25rem 1rem;
+}
+.category-tabs-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--silver-300, #cccccc);
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.category-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.category-tab-btn.active {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #050508;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.18);
+  transform: translateY(0);
+}
+
+.category-tab-btn .tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.category-tab-btn.active .tab-badge {
+  background: rgba(0, 0, 0, 0.15);
+  color: #050508;
+}
+
+/* Scroll margin offset so section headers are never blocked by sticky headers */
+#pickles,
+#spices,
+#dry-fruits,
+#snacks,
+#collections,
+#about,
+#contact,
+#shop {
+  scroll-margin-top: 135px;
+}
+
+@media (max-width: 768px) {
+  .category-tabs-sticky-wrapper {
+    top: 58px;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+  .category-tabs-inner {
+    justify-content: flex-start;
+    padding: 0.25rem 1rem;
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+  .category-tab-btn {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  #pickles,
+  #spices,
+  #dry-fruits,
+  #snacks,
+  #collections,
+  #about,
+  #contact,
+  #shop {
+    scroll-margin-top: 115px;
   }
 }
