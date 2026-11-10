@@ -1,8 +1,14 @@
 import os
 import re
+import sys
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
+
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except Exception:
+    pass
 
 base_dir = r"C:\Users\MuhammedAseem\.gemini\antigravity\scratch\zooqe-store"
 
@@ -106,7 +112,7 @@ for root, _, files in os.walk(js_dir):
                         if not any(f"id = '{m}'" in c or f'id = "{m}"' in c or f'id="{m}"' in c for c in [content]):
                             missing_ids.append((f, m))
 
-# Filter out known dynamically rendered modal/drawer IDs
+# Filter out known dynamically rendered modal/drawer IDs and legacy fallback IDs
 dynamically_created = {
     'modal-product-price', 'modal-product-prev-price', 'modal-main-img',
     'modal-qty-minus', 'modal-qty-plus', 'modal-qty-value',
@@ -118,7 +124,10 @@ dynamically_created = {
     'btn-confirmed-whatsapp', 'btn-confirmed-continue', 'btn-confirmed-print',
     'search-modal-input', 'search-modal-clear', 'search-view-all-btn', 'search-results-list',
     'product-modal-content', 'checkout-body-content', 'order-confirmed-content',
-    'grid-reset-filters-btn'
+    'grid-reset-filters-btn',
+    'zooqe-admin-orders-modal', 'admin-modal-backdrop', 'admin-close-btn',
+    'btn-admin-done', 'btn-admin-clear', 'btn-admin-export',
+    'snacks'  # Fallback alias for dry-fruits section
 }
 
 truly_missing = [item for item in missing_ids if item[1] not in dynamically_created]
@@ -129,10 +138,29 @@ else:
     print(f"[FAIL] Unresolved DOM IDs in JS: {truly_missing}")
 
 # 6. TEST LIVE LOCAL HTTP SERVER RESPONSES
+import threading
+import time
+from server import NoCacheRequestHandler, ThreadingHTTPServer
+
 server_url = "http://127.0.0.1:8000"
+
+# Ensure in-process test server is running
+try:
+    req = urllib.request.Request(server_url, headers={"User-Agent": "ZOOQE-TestBot/1.0"})
+    with urllib.request.urlopen(req, timeout=0.5) as r:
+        pass
+except Exception:
+    httpd = ThreadingHTTPServer(('127.0.0.1', 8000), NoCacheRequestHandler)
+    server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+    server_thread.start()
+    time.sleep(0.4)
+
 test_endpoints = [
     "/",
     "/index.html",
+    "/pickles.html",
+    "/spices.html",
+    "/snacks.html",
     "/css/main.css",
     "/css/variables.css",
     "/css/reset.css",
@@ -156,6 +184,7 @@ test_endpoints = [
     "/js/data/reviews.js",
     "/js/state/cartState.js",
     "/js/state/wishlistState.js",
+    "/js/state/orderStorage.js",
     "/js/components/navbar.js",
     "/js/components/productCard.js",
     "/js/components/productModal.js",
@@ -171,6 +200,19 @@ test_endpoints = [
     "/js/components/web3forms.js",
     "/js/components/spicesCollection.js",
     "/js/app.js",
+    "/images/hero-showcase.png",
+    "/images/beef-pickle.png",
+    "/images/chicken-pickle.png",
+    "/images/fish-pickle.png",
+    "/images/prawns-pickle.png",
+    "/images/mango-pickle.png",
+    "/images/carrot-pickle.png",
+    "/images/tellicherry-black-pepper.png",
+    "/images/cardamom.png",
+    "/images/kerala-spice-mix.png",
+    "/images/banana-chips.png",
+    "/images/tapioca-chips.png",
+    "/images/mixture.png",
     "/assets/logo.png",
     "/assets/images/logo.jpg",
     "/assets/images/logo-mark.svg",
@@ -186,6 +228,34 @@ test_endpoints = [
     "/assets/images/products/beef-pickle-1.svg",
     "/assets/images/products/beef-pickle-2.svg",
     "/assets/images/products/beef-pickle-3.svg",
+    "/assets/images/products/pickles/beef-pickle.jpg",
+    "/assets/images/products/pickles/beef-pickle.svg",
+    "/assets/images/products/pickles/chicken-pickle.jpg",
+    "/assets/images/products/pickles/chicken-pickle.svg",
+    "/assets/images/products/pickles/fish-pickle.jpg",
+    "/assets/images/products/pickles/fish-pickle.svg",
+    "/assets/images/products/pickles/prawns-pickle.jpg",
+    "/assets/images/products/pickles/prawns-pickle.svg",
+    "/assets/images/products/pickles/mango-pickle.jpg",
+    "/assets/images/products/pickles/mango-pickle.svg",
+    "/assets/images/products/pickles/carrot-pickle.jpg",
+    "/assets/images/products/pickles/carrot-pickle.svg",
+    "/assets/images/products/snacks/banana-chips.jpg",
+    "/assets/images/products/snacks/banana-chips.svg",
+    "/assets/images/products/snacks/sharkara-upperi.jpg",
+    "/assets/images/products/snacks/sharkara-upperi.svg",
+    "/assets/images/products/snacks/kerala-mixture.jpg",
+    "/assets/images/products/snacks/kerala-mixture.svg",
+    "/assets/images/products/snacks/jackfruit-chips.jpg",
+    "/assets/images/products/snacks/jackfruit-chips.svg",
+    "/assets/images/products/snacks/achappam.jpg",
+    "/assets/images/products/snacks/achappam.svg",
+    "/assets/images/products/snacks/kuzhalappam.jpg",
+    "/assets/images/products/snacks/kuzhalappam.svg",
+    "/assets/images/products/snacks/pakkavada.jpg",
+    "/assets/images/products/snacks/pakkavada.svg",
+    "/assets/images/products/snacks/tapioca-chips.jpg",
+    "/assets/images/products/snacks/tapioca-chips.svg",
     "/assets/images/products/chicken_pickle.jpg",
     "/assets/images/products/chicken_pickle.svg",
     "/assets/images/products/carrot_pickle.jpg",
@@ -260,12 +330,19 @@ with open(products_js_path, "r", encoding="utf-8") as f:
 
 # Verify expected products are present
 expected_products = [
-    "Mango Pickle", "Lemon Pickle", "Fish Pickle", "Beef Pickle",
-    "Chicken Pickle", "Carrot Pickle", "Prawns Pickle", "Garlic Pickle",
+    # 10 Pickles
+    "Beef Pickle", "Tuna Pickle", "Garlic Pickle", "Carrot Pickle",
+    "Netholi Pickle", "Chicken Pickle", "Ginger Pickle", "Mango Pickle",
+    "Mixed Pickle", "Prawns Pickle",
+    # 9 Spices
     "Tellicherry Black Pepper", "Idukki Green Cardamom", "Cloves (Grambu)",
     "Cinnamon Bark (Patta)", "Royal Mixed Masala", "Traditional Kerala Curry Masala",
     "Star Anise (Thakkolam)", "Nutmeg Mace (Jaathipathiri)", "Premium Kashmiri Saffron (Kunkuma Poovu)",
-    "Heritage Luxury Hamper"
+    # Reserve
+    "Heritage Luxury Hamper",
+    # 10 Dry Fruits
+    "Almonds", "Cashews", "Pistachios", "Walnuts", "Raisins",
+    "Dates (Ajwa)", "Dried Figs", "Banana Chips", "Potato Chips", "Dried Jackfruit"
 ]
 missing_products = [p for p in expected_products if p not in prod_content]
 
