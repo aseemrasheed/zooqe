@@ -466,11 +466,26 @@
   .hero-section {
     padding-top: 58px;
   }
+  .hero-headline {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    line-height: 1.2;
+    max-width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 640px) {
   .hero-headline {
-    font-size: 2.35rem;
+    font-size: clamp(1.75rem, 6vw, 2.35rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .hero-subtext {
     font-size: 0.95rem;
@@ -501,5 +516,57 @@
   }
   .hotspot-bubble-price {
     font-size: 0.8rem;
+  }
+}
+
+
+/* ========================================================
+   Mobile Fluid Layout Override (< 768px / iPhone < 420px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  .hero-section {
+    width: 100vw !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 0 !important;
+  }
+  .hero-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+  .hero-content-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem 0 !important;
+    text-align: center !important;
+  }
+  .hero-content-col h1,
+  .hero-section h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+    margin: 0.5rem auto !important;
+  }
+  .hero-content-col p,
+  .hero-section p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
+  }
+  .hero-cta-group,
+  .hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    align-items: center !important;
   }
 }

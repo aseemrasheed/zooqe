@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dry Fruits Reserve — Handpicked Premium Nuts & Natural Crisps | ZOOQE</title>
   <meta name="description" content="Discover ZOOQE's premium handpicked dry fruits and nuts: California Almonds, Jumbo Cashews, Pistachios, Walnuts, Afghan Raisins, Ajwa Dates, Figs, and Natural Banana Chips at authentic 100g base pricing." />
   <meta name="keywords" content="Kerala snacks, Banana chips, Nendran upperi, Sharkara upperi, Kerala mixture, Jackfruit chips, Achappam, Kuzhalappam, Pakkavada, Tapioca chips, Coconut oil snacks" />
@@ -35,6 +35,35 @@
     <div class="loader-brand-title">ZOOQE</div>
     <div class="loader-bar"></div>
   </div>
+  <script>
+    (function() {
+      var dismissed = false;
+      function dismissPreloader() {
+        if (dismissed) return;
+        dismissed = true;
+        var loaders = document.querySelectorAll('#page-loader, #preloader, .page-loader, .loader');
+        loaders.forEach(function(l) {
+          if (!l) return;
+          l.classList.add('loaded');
+          l.style.opacity = '0';
+          l.style.pointerEvents = 'none';
+          setTimeout(function() {
+            l.style.display = 'none';
+          }, 400);
+        });
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissPreloader, 200);
+      } else {
+        window.addEventListener('load', function() { setTimeout(dismissPreloader, 300); });
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 500); });
+      }
+
+      // Safety fallback: strictly maximum 1.5s
+      setTimeout(dismissPreloader, 1500);
+    })();
+  </script>
 
   <!-- Global Backdrop for Drawers -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
@@ -257,11 +286,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Almonds on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="almonds">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Almonds on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -311,11 +345,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cashews on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="cashews">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cashews on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -365,11 +404,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Pistachios on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="pistachios">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Pistachios on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -419,11 +463,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Walnuts on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="walnuts">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Walnuts on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -473,11 +522,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Raisins on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="raisins">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Raisins on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -527,11 +581,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dates (Ajwa) on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dates-ajwa">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dates (Ajwa) on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -581,11 +640,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Figs on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dried-figs">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Figs on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -636,11 +700,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Banana Chips on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="banana-chips">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Banana Chips on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -691,11 +760,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Potato Chips on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="potato-chips">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Potato Chips on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -746,11 +820,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Jackfruit on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dried-jackfruit">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Jackfruit on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>

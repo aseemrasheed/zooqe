@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZOOQE — Premium Taste. Distinctly ZOOQE. | Kerala Pickles & Spices</title>
   <meta name="description" content="ZOOQE is a premium Kerala food brand specializing exclusively in authentic handcrafted Pickles (Mango, Lemon, Fish, Beef, Garlic) and single-origin Malabar Spices (Black Pepper, Cardamom)." />
   <meta name="keywords" content="ZOOQE, Kerala pickles, Kerala achar, Mango pickle, Fish pickle, Beef pickle, Lemon pickle, Garlic pickle, Tellicherry black pepper, Green cardamom, Malabar spices" />
@@ -24,6 +24,1269 @@
 
   <!-- Master Stylesheet -->
   <link rel="stylesheet" href="css/main.css?v=2.2" />
+  <!-- Mobile Hero Layout Override (< 768px / iPhone < 420px) -->
+  <style>
+/* Desktop & Universal Action Buttons Structure */
+.card-cta-actions-row,
+.product-card-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.card-secondary-row {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.card-secondary-row .card-wa-btn,
+.card-cta-actions-row .card-wa-btn {
+  width: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-secondary-row .card-wa-btn:hover,
+.card-cta-actions-row .card-wa-btn:hover {
+  background: #25d366;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ==============================================================================
+   * Mobile Collection Sections Reset (< 768px): Vertical Stack & 2-Col Grid
+   * ============================================================================== */
+
+  /* 1. Reset Section Grid/Flex Container: Stack vertically into a single column */
+  .pickles-collection,
+  .pickles-collection-section,
+  .spices-collection,
+  .spices-collection-section,
+  .snacks-collection,
+  .snacks-collection-section,
+  .dryfruits-collection,
+  .dryfruits-collection-section,
+  .category-section,
+  .collection-layout,
+  .collection-section,
+  .section-container,
+  #pickles > .section-container,
+  #spices > .section-container,
+  #dry-fruits > .section-container,
+  #snacks > .section-container,
+  section[id="pickles"] > div,
+  section[id="spices"] > div,
+  section[id="dry-fruits"] > div,
+  section[id="snacks"] > div,
+  section > .section-container,
+  .collection-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Header/Text Side: Full width, centered text, bottom margin */
+  .section-header,
+  .section-header-center,
+  .collection-intro,
+  .category-intro,
+  .category-header,
+  .collection-header,
+  .section-intro,
+  .collection-text-col,
+  .section-left-col,
+  .pickles-collection-section .section-header-center,
+  .spices-collection-section .section-header-center,
+  .snacks-collection-section .section-header-center,
+  .dryfruits-collection-section .section-header-center,
+  #pickles .section-header-center,
+  #spices .section-header-center,
+  #dry-fruits .section-header-center,
+  #snacks .section-header-center,
+  .category-page-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Products Grid Container: Clean 2-column mobile grid */
+  .products-grid,
+  .product-grid,
+  .collection-grid,
+  .collections-products-grid,
+  .pickles-grid,
+  .pickle-grid,
+  .spices-grid,
+  .spice-grid,
+  .snacks-grid,
+  .snack-grid,
+  .dryfruits-grid,
+  .dryfruit-grid,
+  .collection-right-col,
+  .products-column,
+  #pickles .pickles-grid,
+  #spices .spices-grid,
+  #dry-fruits .dryfruits-grid,
+  #snacks .snacks-grid,
+  #pickles .products-grid,
+  #spices .products-grid,
+  #dry-fruits .products-grid,
+  #snacks .products-grid,
+  div[class*="products-grid"],
+  div[class*="collection-grid"],
+  section:not(#collections) > .products-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Product Card Container: Compact padding, no forced min-height, overflow hidden */
+  article,
+  .product-card,
+  .pickle-card,
+  .spice-card,
+  .snack-card,
+  .dryfruit-card,
+  div[class*="product-card"],
+  div[class*="pickle-card"],
+  div[class*="spice-card"],
+  div[class*="snack-card"],
+  div[class*="dryfruit-card"],
+  div[class*="product-item"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .product-card img,
+  .pickle-card-img,
+  .spice-card-img,
+  .snack-card-img,
+  .dryfruit-card-img,
+  .product-item img {
+    height: 135px !important;
+    max-height: 135px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    margin-bottom: 4px !important;
+  }
+
+  .product-card h3,
+  .pickle-card-title,
+  .spice-card-title,
+  .snack-card-title,
+  .product-title {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .price,
+  span[class*="price"],
+  div[class*="price"],
+  .pickle-card-pricing-row,
+  .spice-card-pricing-row,
+  .snack-card-pricing-row,
+  .product-card-pricing {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .pickle-card-content,
+  .spice-card-content,
+  .snack-card-content,
+  .dryfruit-card-content,
+  .product-card-body {
+    padding: 4px 0 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .pickle-card-bottom-block,
+  .spice-card-bottom-block,
+  .snack-card-bottom-block,
+  .dryfruit-card-bottom-block {
+    margin-top: auto !important;
+    padding: 0 !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide Weight Selectors: Completely hide grams / weight variant buttons in cards */
+  .pickle-weight-selector-wrap,
+  .spice-weight-selector-wrap,
+  .snack-weight-selector-wrap,
+  .dryfruit-weight-selector-wrap,
+  .pickle-weight-pills,
+  .spice-weight-pills,
+  .snack-weight-pills,
+  .dryfruit-weight-pills,
+  .pickle-weight-btn,
+  .spice-weight-btn,
+  .snack-weight-btn,
+  .weight-selector,
+  .variant-selector,
+  .weight-pills,
+  .product-card-sizes,
+  .product-card .product-card-sizes,
+  .size-tag,
+  div[class*="weight"],
+  div[class*="variant"],
+  div[class*="size-tag"],
+  [class*="weight-selector"],
+  [class*="weight-pills"],
+  [class*="variant-selector"],
+  .product-card [class*="sizes"],
+  .product-card [class*="weight"],
+  .product-card [class*="variant"],
+  .pickle-card .pickle-weight-selector-wrap,
+  .spice-card .spice-weight-selector-wrap,
+  .snack-card .snack-weight-selector-wrap,
+  .dryfruit-card .snack-weight-selector-wrap {
+    display: none !important;
+  }
+
+  /* Keep product detail modal options and BUY NOW fully visible and interactive */
+  .product-modal-container .variant-btn,
+  .product-modal-container .product-modal-variants,
+  .product-modal-container [class*="variant"],
+  .product-modal-container .btn-detail-buy,
+  #modal-buy-now-btn {
+    display: inline-flex !important;
+  }
+
+  /* Action Container on mobile */
+  .card-actions,
+  .product-actions,
+  .card-cta-actions-row,
+  .product-card-actions,
+  .pickle-card-cta-wrap,
+  .spice-card-cta-wrap,
+  .snack-card-cta-wrap,
+  .dryfruit-card-cta-wrap {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* "ADD TO CART" is the ONLY main button visible on mobile product grid cards */
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart {
+    width: 100% !important;
+    display: block !important;
+    padding: 8px 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+    line-height: 1.2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline,
+  .btn-card-add-cart svg {
+    display: none !important;
+  }
+
+  /* Hide "BUY NOW" button from card grid view (available inside product details page) */
+  .product-card .btn-card-buy-now,
+  .product-card .card-buy-btn,
+  .product-card .buy-now-btn,
+  .pickle-card .pickle-card-buy-btn,
+  .spice-card .spice-card-buy-btn,
+  .snack-card .snack-card-buy-btn,
+  .dryfruit-card .dryfruit-card-buy-btn,
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn,
+  .card-secondary-row,
+  .card-buy-wa-row,
+  .card-buy-row {
+    display: none !important;
+  }
+
+  /* Hide inline WhatsApp icon button from cards (floating widget is available) */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .archive-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .card-wa-btn,
+  .card-cta-actions-row .card-wa-btn,
+  .pickle-card-cta-wrap .card-wa-btn,
+  .spice-card-cta-wrap .card-wa-btn,
+  .snack-card-cta-wrap .card-wa-btn,
+  .dryfruit-card-cta-wrap .card-wa-btn,
+  button[class*="card-wa-btn"],
+  a[class*="card-wa-btn"] {
+    display: none !important;
+  }
+
+  /* Floating WhatsApp widget remains visible and accessible */
+  .floating-whatsapp-btn {
+    display: flex !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    z-index: 99 !important;
+  }
+
+  /* ========================================================
+     Signature Categories Section Layout (< 768px)
+     ======================================================== */
+  #collections .section-container,
+  .collections-section .section-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .categories-showcase-grid,
+  .categories-grid,
+  .signature-categories-container,
+  .category-cards,
+  #collections .categories-showcase-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 16px !important;
+    margin-top: 1.5rem !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .category-showcase-card,
+  .category-card,
+  [class*="category-card"],
+  [class*="category-showcase-card"] {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    border-radius: var(--radius-lg, 12px) !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: rgba(11, 11, 15, 0.95) !important;
+    border: 1px solid rgba(212, 175, 55, 0.22) !important;
+  }
+
+  .category-showcase-card .category-card-media,
+  .category-card .category-card-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 200px !important;
+    border-radius: var(--radius-md, 8px) !important;
+    overflow: hidden !important;
+    margin-bottom: 12px !important;
+  }
+
+  .category-showcase-card .category-card-img,
+  .category-card .category-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .category-card-body,
+  .category-showcase-card .category-card-body {
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  .category-card-eyebrow,
+  .category-showcase-card .category-card-eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  .category-card-title,
+  .category-showcase-card .category-card-title {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-subtitle,
+  .category-showcase-card .category-card-subtitle {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  .category-card-desc,
+  .category-showcase-card .category-card-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-footer,
+  .category-showcase-card .category-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .category-card-link,
+  .category-showcase-card .category-card-link {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+}
+
+</style>
+  <style>
+/* Desktop & Universal Action Buttons Structure */
+.card-cta-actions-row,
+.product-card-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.card-secondary-row {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.card-secondary-row .card-wa-btn,
+.card-cta-actions-row .card-wa-btn {
+  width: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-secondary-row .card-wa-btn:hover,
+.card-cta-actions-row .card-wa-btn:hover {
+  background: #25d366;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ==============================================================================
+   * Mobile Collection Sections Reset (< 768px): Vertical Stack & 2-Col Grid
+   * ============================================================================== */
+
+  /* 1. Reset Section Grid/Flex Container: Stack vertically into a single column */
+  .pickles-collection,
+  .pickles-collection-section,
+  .spices-collection,
+  .spices-collection-section,
+  .snacks-collection,
+  .snacks-collection-section,
+  .dryfruits-collection,
+  .dryfruits-collection-section,
+  .category-section,
+  .collection-layout,
+  .collection-section,
+  .section-container,
+  #pickles > .section-container,
+  #spices > .section-container,
+  #dry-fruits > .section-container,
+  #snacks > .section-container,
+  section[id="pickles"] > div,
+  section[id="spices"] > div,
+  section[id="dry-fruits"] > div,
+  section[id="snacks"] > div,
+  section > .section-container,
+  .collection-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Header/Text Side: Full width, centered text, bottom margin */
+  .section-header,
+  .section-header-center,
+  .collection-intro,
+  .category-intro,
+  .category-header,
+  .collection-header,
+  .section-intro,
+  .collection-text-col,
+  .section-left-col,
+  .pickles-collection-section .section-header-center,
+  .spices-collection-section .section-header-center,
+  .snacks-collection-section .section-header-center,
+  .dryfruits-collection-section .section-header-center,
+  #pickles .section-header-center,
+  #spices .section-header-center,
+  #dry-fruits .section-header-center,
+  #snacks .section-header-center,
+  .category-page-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Products Grid Container: Clean 2-column mobile grid */
+  .products-grid,
+  .product-grid,
+  .collection-grid,
+  .collections-products-grid,
+  .pickles-grid,
+  .pickle-grid,
+  .spices-grid,
+  .spice-grid,
+  .snacks-grid,
+  .snack-grid,
+  .dryfruits-grid,
+  .dryfruit-grid,
+  .collection-right-col,
+  .products-column,
+  #pickles .pickles-grid,
+  #spices .spices-grid,
+  #dry-fruits .dryfruits-grid,
+  #snacks .snacks-grid,
+  #pickles .products-grid,
+  #spices .products-grid,
+  #dry-fruits .products-grid,
+  #snacks .products-grid,
+  div[class*="products-grid"],
+  div[class*="collection-grid"],
+  section:not(#collections) > .products-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Product Card Container: Compact padding, no forced min-height, overflow hidden */
+  article,
+  .product-card,
+  .pickle-card,
+  .spice-card,
+  .snack-card,
+  .dryfruit-card,
+  div[class*="product-card"],
+  div[class*="pickle-card"],
+  div[class*="spice-card"],
+  div[class*="snack-card"],
+  div[class*="dryfruit-card"],
+  div[class*="product-item"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .product-card img,
+  .pickle-card-img,
+  .spice-card-img,
+  .snack-card-img,
+  .dryfruit-card-img,
+  .product-item img {
+    height: 135px !important;
+    max-height: 135px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    margin-bottom: 4px !important;
+  }
+
+  .product-card h3,
+  .pickle-card-title,
+  .spice-card-title,
+  .snack-card-title,
+  .product-title {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .price,
+  span[class*="price"],
+  div[class*="price"],
+  .pickle-card-pricing-row,
+  .spice-card-pricing-row,
+  .snack-card-pricing-row,
+  .product-card-pricing {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .pickle-card-content,
+  .spice-card-content,
+  .snack-card-content,
+  .dryfruit-card-content,
+  .product-card-body {
+    padding: 4px 0 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .pickle-card-bottom-block,
+  .spice-card-bottom-block,
+  .snack-card-bottom-block,
+  .dryfruit-card-bottom-block {
+    margin-top: auto !important;
+    padding: 0 !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide Weight Selectors: Completely hide grams / weight variant buttons in cards */
+  .pickle-weight-selector-wrap,
+  .spice-weight-selector-wrap,
+  .snack-weight-selector-wrap,
+  .dryfruit-weight-selector-wrap,
+  .pickle-weight-pills,
+  .spice-weight-pills,
+  .snack-weight-pills,
+  .dryfruit-weight-pills,
+  .pickle-weight-btn,
+  .spice-weight-btn,
+  .snack-weight-btn,
+  .weight-selector,
+  .variant-selector,
+  .weight-pills,
+  .product-card-sizes,
+  .product-card .product-card-sizes,
+  .size-tag,
+  div[class*="weight"],
+  div[class*="variant"],
+  div[class*="size-tag"],
+  [class*="weight-selector"],
+  [class*="weight-pills"],
+  [class*="variant-selector"],
+  .product-card [class*="sizes"],
+  .product-card [class*="weight"],
+  .product-card [class*="variant"],
+  .pickle-card .pickle-weight-selector-wrap,
+  .spice-card .spice-weight-selector-wrap,
+  .snack-card .snack-weight-selector-wrap,
+  .dryfruit-card .snack-weight-selector-wrap {
+    display: none !important;
+  }
+
+  /* Keep product detail modal options and BUY NOW fully visible and interactive */
+  .product-modal-container .variant-btn,
+  .product-modal-container .product-modal-variants,
+  .product-modal-container [class*="variant"],
+  .product-modal-container .btn-detail-buy,
+  #modal-buy-now-btn {
+    display: inline-flex !important;
+  }
+
+  /* Action Container on mobile */
+  .card-actions,
+  .product-actions,
+  .card-cta-actions-row,
+  .product-card-actions,
+  .pickle-card-cta-wrap,
+  .spice-card-cta-wrap,
+  .snack-card-cta-wrap,
+  .dryfruit-card-cta-wrap {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* "ADD TO CART" is the ONLY main button visible on mobile product grid cards */
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart {
+    width: 100% !important;
+    display: block !important;
+    padding: 8px 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+    line-height: 1.2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline,
+  .btn-card-add-cart svg {
+    display: none !important;
+  }
+
+  /* Hide "BUY NOW" button from card grid view (available inside product details page) */
+  .product-card .btn-card-buy-now,
+  .product-card .card-buy-btn,
+  .product-card .buy-now-btn,
+  .pickle-card .pickle-card-buy-btn,
+  .spice-card .spice-card-buy-btn,
+  .snack-card .snack-card-buy-btn,
+  .dryfruit-card .dryfruit-card-buy-btn,
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn,
+  .card-secondary-row,
+  .card-buy-wa-row,
+  .card-buy-row {
+    display: none !important;
+  }
+
+  /* Hide inline WhatsApp icon button from cards (floating widget is available) */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .archive-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .card-wa-btn,
+  .card-cta-actions-row .card-wa-btn,
+  .pickle-card-cta-wrap .card-wa-btn,
+  .spice-card-cta-wrap .card-wa-btn,
+  .snack-card-cta-wrap .card-wa-btn,
+  .dryfruit-card-cta-wrap .card-wa-btn,
+  button[class*="card-wa-btn"],
+  a[class*="card-wa-btn"] {
+    display: none !important;
+  }
+
+  /* Floating WhatsApp widget remains visible and accessible */
+  .floating-whatsapp-btn {
+    display: flex !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    z-index: 99 !important;
+  }
+
+  /* ========================================================
+     Signature Categories Section Layout (< 768px)
+     ======================================================== */
+  #collections .section-container,
+  .collections-section .section-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .categories-showcase-grid,
+  .categories-grid,
+  .signature-categories-container,
+  .category-cards,
+  #collections .categories-showcase-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 16px !important;
+    margin-top: 1.5rem !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .category-showcase-card,
+  .category-card,
+  [class*="category-card"],
+  [class*="category-showcase-card"] {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    border-radius: var(--radius-lg, 12px) !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: rgba(11, 11, 15, 0.95) !important;
+    border: 1px solid rgba(212, 175, 55, 0.22) !important;
+  }
+
+  .category-showcase-card .category-card-media,
+  .category-card .category-card-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 200px !important;
+    border-radius: var(--radius-md, 8px) !important;
+    overflow: hidden !important;
+    margin-bottom: 12px !important;
+  }
+
+  .category-showcase-card .category-card-img,
+  .category-card .category-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .category-card-body,
+  .category-showcase-card .category-card-body {
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  .category-card-eyebrow,
+  .category-showcase-card .category-card-eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  .category-card-title,
+  .category-showcase-card .category-card-title {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-subtitle,
+  .category-showcase-card .category-card-subtitle {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  .category-card-desc,
+  .category-showcase-card .category-card-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-footer,
+  .category-showcase-card .category-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .category-card-link,
+  .category-showcase-card .category-card-link {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+}
+
+</style>
 </head>
 <body>
 
@@ -35,6 +1298,35 @@
     <div class="loader-brand-title">ZOOQE</div>
     <div class="loader-bar"></div>
   </div>
+  <script>
+    (function() {
+      var dismissed = false;
+      function dismissPreloader() {
+        if (dismissed) return;
+        dismissed = true;
+        var loaders = document.querySelectorAll('#page-loader, #preloader, .page-loader, .loader');
+        loaders.forEach(function(l) {
+          if (!l) return;
+          l.classList.add('loaded');
+          l.style.opacity = '0';
+          l.style.pointerEvents = 'none';
+          setTimeout(function() {
+            l.style.display = 'none';
+          }, 400);
+        });
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissPreloader, 200);
+      } else {
+        window.addEventListener('load', function() { setTimeout(dismissPreloader, 300); });
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 500); });
+      }
+
+      // Safety fallback: strictly maximum 1.5s
+      setTimeout(dismissPreloader, 1500);
+    })();
+  </script>
 
   <!-- Global Backdrop for Drawers -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
@@ -454,11 +1746,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Beef Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="beef-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Beef Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -509,11 +1806,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tuna Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="tuna-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tuna Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -564,11 +1866,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Garlic Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="garlic-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Garlic Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -619,11 +1926,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Carrot Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="carrot-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Carrot Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -674,11 +1986,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Netholi Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="netholi-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Netholi Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -729,11 +2046,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Chicken Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="chicken-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Chicken Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -784,11 +2106,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Ginger Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="ginger-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Ginger Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -839,11 +2166,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mango Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="mango-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mango Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -894,11 +2226,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mixed Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="mixed-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mixed Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -949,11 +2286,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Prawns Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="prawns-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Prawns Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1025,11 +2367,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tellicherry Black Pepper on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="tellicherry-black-pepper">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tellicherry Black Pepper on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1081,11 +2428,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Idukki Green Cardamom on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="idukki-green-cardamom">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Idukki Green Cardamom on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1137,11 +2489,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cloves on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="cloves-grambu">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cloves on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1193,11 +2550,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cinnamon Bark on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="cinnamon-bark">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cinnamon Bark on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1249,11 +2611,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Royal Mixed Masala on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="royal-mixed-masala">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Royal Mixed Masala on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1305,11 +2672,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kerala Curry Masala on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="kerala-curry-masala">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kerala Curry Masala on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1361,11 +2733,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Star Anise on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="star-anise-thakkolam">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Star Anise on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1417,11 +2794,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Nutmeg Mace on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="nutmeg-mace">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Nutmeg Mace on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1472,11 +2854,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kashmiri Saffron on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="kashmiri-saffron">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kashmiri Saffron on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1543,11 +2930,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Almonds on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="almonds">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Almonds on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1597,11 +2989,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cashews on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="cashews">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cashews on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1651,11 +3048,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Pistachios on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="pistachios">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Pistachios on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1705,11 +3107,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Walnuts on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="walnuts">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Walnuts on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1759,11 +3166,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Raisins on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="raisins">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Raisins on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1813,11 +3225,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dates (Ajwa) on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dates-ajwa">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dates (Ajwa) on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1867,11 +3284,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Figs on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dried-figs">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Figs on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1922,11 +3344,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Banana Chips on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="banana-chips">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Banana Chips on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1977,11 +3404,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Potato Chips on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="potato-chips">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Potato Chips on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2032,11 +3464,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Jackfruit on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn snack-card-buy-btn" data-product-id="dried-jackfruit">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn snack-card-wa-btn" title="Order on WhatsApp" aria-label="Order Dried Jackfruit on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>

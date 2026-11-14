@@ -142,7 +142,7 @@ import threading
 import time
 from server import NoCacheRequestHandler, ThreadingHTTPServer
 
-server_url = "http://127.0.0.1:8000"
+server_url = "http://127.0.0.1:8080"
 
 # Ensure in-process test server is running
 try:

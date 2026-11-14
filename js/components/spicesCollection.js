@@ -6,7 +6,7 @@ import { formatPrice } from '../config.js';
 import { WhatsApp } from './whatsapp.js';
 
 export function initSpicesCollection({ onQuickView, onBuyNow, onAddToCart } = {}) {
-  const cards = document.querySelectorAll('.spice-card, .pickle-card, .snack-card, .dryfruit-card, .product-card-interactive');
+  const cards = document.querySelectorAll('.spice-card, .pickle-card, .snack-card, .dryfruit-card, .product-card-interactive, .product-card');
   if (!cards.length) return;
 
   cards.forEach(card => {
@@ -122,7 +122,7 @@ export function initSpicesCollection({ onQuickView, onBuyNow, onAddToCart } = {}
     }
 
     // 6. Direct Buy Now Button
-    const buyBtn = card.querySelector('.spice-card-buy-btn, .pickle-card-buy-btn, .snack-card-buy-btn, .dryfruit-card-buy-btn, .card-buy-btn');
+    const buyBtn = card.querySelector('.spice-card-buy-btn, .pickle-card-buy-btn, .snack-card-buy-btn, .dryfruit-card-buy-btn, .card-buy-btn, .btn-card-buy-now, .buy-now-btn');
     if (buyBtn && typeof onBuyNow === 'function') {
       buyBtn.addEventListener('click', (e) => {
         e.stopPropagation();

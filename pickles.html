@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Pickles Collection — Authentic Kerala Heritage Achars | ZOOQE</title>
   <meta name="description" content="Discover ZOOQE's authentic Kerala pickles: Beef, Chicken, Fish, Prawns, Mango, and Carrot. Handcrafted in cold-pressed gingelly oil with authentic Malabar spices." />
   <meta name="keywords" content="Kerala pickles, ZOOQE achar, Beef pickle, Chicken pickle, Fish pickle, Prawns pickle, Mango pickle, Carrot pickle, Kerala food" />
@@ -35,6 +35,35 @@
     <div class="loader-brand-title">ZOOQE</div>
     <div class="loader-bar"></div>
   </div>
+  <script>
+    (function() {
+      var dismissed = false;
+      function dismissPreloader() {
+        if (dismissed) return;
+        dismissed = true;
+        var loaders = document.querySelectorAll('#page-loader, #preloader, .page-loader, .loader');
+        loaders.forEach(function(l) {
+          if (!l) return;
+          l.classList.add('loaded');
+          l.style.opacity = '0';
+          l.style.pointerEvents = 'none';
+          setTimeout(function() {
+            l.style.display = 'none';
+          }, 400);
+        });
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissPreloader, 200);
+      } else {
+        window.addEventListener('load', function() { setTimeout(dismissPreloader, 300); });
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 500); });
+      }
+
+      // Safety fallback: strictly maximum 1.5s
+      setTimeout(dismissPreloader, 1500);
+    })();
+  </script>
 
   <!-- Global Backdrop for Drawers -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
@@ -258,11 +287,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Beef Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="beef-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Beef Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -313,11 +347,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tuna Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="tuna-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tuna Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -368,11 +407,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Garlic Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="garlic-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Garlic Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -423,11 +467,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Carrot Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="carrot-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Carrot Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -478,11 +527,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Netholi Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="netholi-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Netholi Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -533,11 +587,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Chicken Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="chicken-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Chicken Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -588,11 +647,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Ginger Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="ginger-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Ginger Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -643,11 +707,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mango Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="mango-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mango Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -698,11 +767,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mixed Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="mixed-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Mixed Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -753,11 +827,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Prawns Pickle on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn pickle-card-buy-btn" data-product-id="prawns-pickle">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn pickle-card-wa-btn" title="Order on WhatsApp" aria-label="Order Prawns Pickle on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>

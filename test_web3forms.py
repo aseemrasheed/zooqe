@@ -36,13 +36,14 @@ for method in required_methods:
 
 # Check exact required fields in payload
 exact_required_payload_keys = [
-    "access_key", "subject", "customer_name", "phone", "address",
+    "access_key", "subject", "from_name", "customer_name", "phone", "address", "pincode",
     "order_items", "total_amount", "payment_method", "whatsapp_confirmation_link"
 ]
 for key in exact_required_payload_keys:
     assert f"{key}:" in web3forms_content, f"Exact key '{key}' not found in web3forms.js buildPayload!"
 
-assert "New Order Received - Zooqe" in web3forms_content, "Exact subject 'New Order Received - Zooqe' missing from web3forms.js!"
+assert 'New ZOOQE Order Received - ' in web3forms_content, "Exact subject 'New ZOOQE Order Received - ' missing from web3forms.js!"
+assert 'ZOOQE Store Alerts' in web3forms_content, "Exact from_name 'ZOOQE Store Alerts' missing from web3forms.js!"
 assert "STORE OWNER ACTION" in web3forms_content, "Store owner WhatsApp action prompt missing from web3forms message!"
 assert "https://wa.me/${targetPhone}?text=Hi%20${encodedName},%20your%20Zooqe%20order%20%23${orderNumber}%20has%20been%20confirmed!%20We%20are%20preparing%20your%20items%20for%20dispatch.%20Thank%20you%20for%20choosing%20Zooqe." in web3forms_content, "Exact WhatsApp confirmation URL format template missing from web3forms.js!"
 
@@ -111,10 +112,12 @@ expected_wa_url = f"https://wa.me/91{wa_clean_phone}?text=Hi%20Muhammed%20Aseem,
 
 simulated_payload = {
     "access_key": "d78c8ba7-9ec7-4fe0-bb29-1891016f6dc7",
-    "subject": "New Order Received - Zooqe",
+    "subject": f"New ZOOQE Order Received - {sample_order['orderId']}",
+    "from_name": "ZOOQE Store Alerts",
     "customer_name": sample_order["customer"]["name"],
     "phone": sample_order["customer"]["phone"],
     "address": sample_order["customer"]["address"],
+    "pincode": sample_order["customer"]["pincode"],
     "order_items": "Tellicherry Black Pepper (100g) × 2, Traditional Kerala Curry Masala (250g) × 1",
     "total_amount": "₹927",
     "payment_method": "COD",
@@ -127,10 +130,12 @@ print("\n[VERIFIED WEB3FORMS PAYLOAD]:")
 print(payload_json)
 
 assert simulated_payload["access_key"] == "d78c8ba7-9ec7-4fe0-bb29-1891016f6dc7"
-assert simulated_payload["subject"] == "New Order Received - Zooqe"
+assert simulated_payload["subject"] == f"New ZOOQE Order Received - {sample_order['orderId']}"
+assert simulated_payload["from_name"] == "ZOOQE Store Alerts"
 assert simulated_payload["customer_name"] == "Muhammed Aseem"
 assert simulated_payload["phone"] == "+91 9876543210"
 assert simulated_payload["address"] == "4B, Marine Promenade, Kochi, Kerala - 682001"
+assert simulated_payload["pincode"] == "682001"
 assert "Tellicherry Black Pepper" in simulated_payload["order_items"]
 assert simulated_payload["total_amount"] == "₹927"
 assert simulated_payload["payment_method"] == "COD"

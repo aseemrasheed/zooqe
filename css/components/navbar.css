@@ -664,3 +664,655 @@
     height: 36px;
   }
 }
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Header Right-Actions Overlap Fix:
+        - WhatsApp text hidden, only icon visible
+        - Flexbox with proper alignment and 8px spacing */
+  .header-actions,
+  .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  header .right-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .header-actions .whatsapp-btn,
+  .nav-actions .whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .nav-actions a[href*="whatsapp"],
+  header .whatsapp-btn,
+  header button[class*="whatsapp"],
+  header a[href*="whatsapp"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  .nav-actions button[class*="whatsapp"] span,
+  .nav-actions a[href*="whatsapp"] span,
+  header .whatsapp-btn span,
+  header button[class*="whatsapp"] span,
+  header a[href*="whatsapp"] span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Product Card Action Button Alignment (2-Column Mobile Grid):
+        - Action container stacks cleanly: flex-direction: column; gap: 6px; width: 100%;
+        - Add to Cart button: width: 100%, font-size: 0.72rem, font-weight: 700, padding: 6px 2px, text-align: center
+        - WhatsApp button fits cleanly beneath Add to Cart without clipping */
+  .card-cta-actions-row,
+  .card-actions,
+  .product-actions,
+  .product-card-actions,
+  .pickle-card-cta-wrap,
+  .spice-card-cta-wrap,
+  .snack-card-cta-wrap,
+  .dryfruit-card-cta-wrap,
+  div[class*="action"],
+  div[class*="btn-group"],
+  div[class*="card-cta"],
+  form[class*="cart"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart,
+  .card-actions button,
+  .card-cta-actions-row button:first-child,
+  button[class*="cart"],
+  button[class*="add"] {
+    width: 100% !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    min-height: 32px !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-archive-arrow {
+    display: none !important;
+  }
+
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .card-actions .whatsapp-btn,
+  .card-actions a[href*="whatsapp"],
+  .card-cta-actions-row .card-wa-btn,
+  .card-cta-actions-row button[class*="wa-btn"],
+  .product-card a[href*="whatsapp"],
+  .product-card button[class*="whatsapp"],
+  article a[href*="whatsapp"],
+  article button[class*="whatsapp"],
+  div[class*="card"] a[href*="whatsapp"],
+  div[class*="card"] button[class*="whatsapp"] {
+    width: 100% !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+
+
+/* Desktop & Default Styling for Buy Now Button */
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 36px;
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2. Product Card Action Buttons: Side-by-Side Row */
+  .card-cta-actions-row,
+  .product-card-actions,
+  .product-card .card-actions,
+  .pickle-card-cta-wrap .card-cta-actions-row,
+  .spice-card-cta-wrap .card-cta-actions-row,
+  .snack-card-cta-wrap .card-cta-actions-row,
+  .dryfruit-card-cta-wrap .card-cta-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Sleek & Compact ADD TO CART button */
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart {
+    flex: 1 !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline {
+    display: none !important;
+  }
+
+  /* Sleek & Compact BUY NOW button */
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn {
+    flex: 1 !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .btn-card-buy-now span,
+  .card-buy-btn span {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  /* WhatsApp Quick-Order Icon: cleanly integrated beside them without taking over the card */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .whatsapp-btn,
+  .card-cta-actions-row .card-wa-btn {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(37, 211, 102, 0.12) !important;
+    border: 1px solid rgba(37, 211, 102, 0.4) !important;
+    color: #25d366 !important;
+    box-sizing: border-box !important;
+  }
+
+  .card-wa-btn svg,
+  .pickle-card-wa-btn svg,
+  .spice-card-wa-btn svg,
+  .snack-card-wa-btn svg,
+  .dryfruit-card-wa-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: #25d366 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+}
+
+
+
+
+/* Desktop & Universal Action Buttons Structure */
+.card-btns-row {
+  display: flex;
+  width: 100%;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+  box-sizing: border-box;
+}
+
+.card-cta-actions-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.card-cta-actions-row .card-wa-btn {
+  width: 100%;
+  min-height: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-cta-actions-row .card-wa-btn:hover {
+  background: #25d366;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2. Product Card Actions: Two-Button Row + WhatsApp Row Below */
+  .card-cta-actions-row,
+  .product-card-actions,
+  .product-card .card-actions,
+  .pickle-card-cta-wrap .card-cta-actions-row,
+  .spice-card-cta-wrap .card-cta-actions-row,
+  .snack-card-cta-wrap .card-cta-actions-row,
+  .dryfruit-card-cta-wrap .card-cta-actions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1. Wrap "Add to Cart" and "Buy Now" in a two-button flex row */
+  .card-btns-row,
+  .product-btns-row {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    gap: 4px !important;
+    margin-bottom: 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Style both buttons equally */
+  .card-btns-row button,
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart,
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn {
+    flex: 1 !important;
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    padding: 7px 2px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+  }
+
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+  }
+
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn {
+    background: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .btn-archive-text,
+  .btn-card-buy-now span,
+  .card-buy-btn span {
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline {
+    display: none !important;
+  }
+
+  /* 3. Place the WhatsApp button on a separate row directly below them */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .card-wa-btn,
+  .card-cta-actions-row .card-wa-btn {
+    width: 100% !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    background: rgba(37, 211, 102, 0.12) !important;
+    border: 1px solid rgba(37, 211, 102, 0.4) !important;
+    color: #25d366 !important;
+  }
+
+  .card-wa-btn svg,
+  .pickle-card-wa-btn svg,
+  .spice-card-wa-btn svg,
+  .snack-card-wa-btn svg,
+  .dryfruit-card-wa-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+    color: #25d366 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+}
+

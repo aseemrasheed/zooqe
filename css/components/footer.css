@@ -354,13 +354,22 @@
     line-height: 1.5;
   }
   .floating-whatsapp-btn {
-    bottom: 1.5rem;
-    right: 1.25rem;
+    bottom: 15px;
+    right: 15px;
+    z-index: 99;
     width: 48px;
     height: 48px;
   }
   .floating-whatsapp-btn svg {
     width: 22px;
     height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-whatsapp-btn {
+    bottom: 15px;
+    right: 15px;
+    z-index: 99;
   }
 }

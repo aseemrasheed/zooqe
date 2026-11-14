@@ -341,7 +341,11 @@ class CheckoutManager {
       });
     });
 
+    let isSubmitting = false;
     const handlePlaceOrder = async (e) => {
+      if (e) e.preventDefault();
+      if (isSubmitting) return;
+      isSubmitting = true;
       if (e) e.preventDefault();
       
       const name = document.getElementById('co-name').value.trim();
@@ -356,6 +360,7 @@ class CheckoutManager {
 
       if (!name || !phone || !email || !house || !street || !city || !state || !pincode) {
         toast.show('Please fill in all required delivery fields.');
+        isSubmitting = false;
         return;
       }
 
@@ -398,6 +403,7 @@ class CheckoutManager {
         const notifyResult = await Web3Forms.sendOrderNotification(orderData);
 
         if (notifyResult && notifyResult.success === true) {
+          isSubmitting = false;
           // Persist successful dispatch in localStorage
           orderStorage.updateStatus(orderData.orderId, 'sent');
 
@@ -420,6 +426,7 @@ class CheckoutManager {
           }
           toast.show(`Order #${orderData.orderId} Confirmed! Direct notification dispatched to store owner.`);
         } else {
+          isSubmitting = false;
           // Do NOT mark the order as quietly completed if Web3Forms returns an error or status !== 200
           const errorMsg = notifyResult?.message || `Web3Forms returned status ${notifyResult?.status || 'failed'}`;
           console.warn('Web3Forms delivery failed:', errorMsg);
@@ -444,6 +451,7 @@ class CheckoutManager {
           toast.show(fallbackNotice);
         }
       } catch (err) {
+        isSubmitting = false;
         console.error('Checkout submission error:', err);
         const errorMsg = err.message || 'Network error occurred while submitting order.';
         orderStorage.updateStatus(orderData.orderId, 'failed', errorMsg);
@@ -466,11 +474,10 @@ class CheckoutManager {
       }
     };
 
-    if (placeOrderBtn) {
-      placeOrderBtn.addEventListener('click', handlePlaceOrder);
-    }
     if (form) {
       form.addEventListener('submit', handlePlaceOrder);
+    } else if (placeOrderBtn) {
+      placeOrderBtn.addEventListener('click', handlePlaceOrder);
     }
   }
 }

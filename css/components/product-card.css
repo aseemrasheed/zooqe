@@ -2,31 +2,44 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.15rem;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) and (min-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.15rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) and (min-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.85rem;
+    gap: 1.25rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 767px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
+    gap: 1.15rem;
+    max-width: 100%;
   }
 }
 
-/* Individual Product Card */
+/* Individual Product Card */ Individual Product Card */
 .product-card {
   position: relative;
   background: rgba(16, 16, 21, 0.85);
@@ -95,19 +108,24 @@
 }
 
 .product-card-img {
+  max-width: 100%;
+  height: auto;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: auto;
-  transition: transform 0.45s var(--ease-luxury);
-  will-change: transform;
+  object-fit: contain;
+  object-position: center;
+  transition: transform var(--transition-slow);
 }
 
 /* Subtle, Gentle Zoom on Hover */
 .product-card:hover .product-card-img {
-  transform: scale(1.03);
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  transition: transform var(--transition-slow);
 }
 
 /* Badges (New, Best Seller, Discount) */
@@ -353,4 +371,1110 @@
   .btn-card-buy-now {
     display: none; /* Keep Add to Cart prominent on mobile cards */
   }
+}
+
+
+/* ========================================================
+   Mobile 2-Column Product Grid Override (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  .product-grid,
+  .products-grid,
+  .grid-container,
+  [class*="product-grid"] {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .product-card,
+  [class*="product-card"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+
+  .product-card img,
+  .product-card-image img {
+    height: 140px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    margin-bottom: 6px !important;
+  }
+
+  .product-card h3,
+  .product-card .title,
+  .product-title {
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .product-card .price,
+  .product-price {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin: 2px 0 6px 0 !important;
+  }
+
+  .weight-selector,
+  .variant-selector,
+  .weight-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .weight-selector button,
+  .weight-pill,
+  .variant-pill {
+    padding: 2px 6px !important;
+    font-size: 0.65rem !important;
+    border-radius: 4px !important;
+    min-width: unset !important;
+    line-height: 1.2 !important;
+  }
+
+  .card-actions,
+  .product-card-actions {
+    display: flex !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .add-to-cart-btn,
+  .btn-cart {
+    flex: 1 !important;
+    padding: 6px 4px !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  .whatsapp-btn,
+  .btn-whatsapp {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Header Right-Actions Overlap Fix:
+        - WhatsApp text hidden, only icon visible
+        - Flexbox with proper alignment and 8px spacing */
+  .header-actions,
+  .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  header .right-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .header-actions .whatsapp-btn,
+  .nav-actions .whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .nav-actions a[href*="whatsapp"],
+  header .whatsapp-btn,
+  header button[class*="whatsapp"],
+  header a[href*="whatsapp"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  .nav-actions button[class*="whatsapp"] span,
+  .nav-actions a[href*="whatsapp"] span,
+  header .whatsapp-btn span,
+  header button[class*="whatsapp"] span,
+  header a[href*="whatsapp"] span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Product Card Action Button Alignment (2-Column Mobile Grid):
+        - Action container stacks cleanly: flex-direction: column; gap: 6px; width: 100%;
+        - Add to Cart button: width: 100%, font-size: 0.72rem, font-weight: 700, padding: 6px 2px, text-align: center
+        - WhatsApp button fits cleanly beneath Add to Cart without clipping */
+  .card-cta-actions-row,
+  .card-actions,
+  .product-actions,
+  .product-card-actions,
+  .pickle-card-cta-wrap,
+  .spice-card-cta-wrap,
+  .snack-card-cta-wrap,
+  .dryfruit-card-cta-wrap,
+  div[class*="action"],
+  div[class*="btn-group"],
+  div[class*="card-cta"],
+  form[class*="cart"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart,
+  .card-actions button,
+  .card-cta-actions-row button:first-child,
+  button[class*="cart"],
+  button[class*="add"] {
+    width: 100% !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+    min-height: 32px !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-archive-arrow {
+    display: none !important;
+  }
+
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .card-actions .whatsapp-btn,
+  .card-actions a[href*="whatsapp"],
+  .card-cta-actions-row .card-wa-btn,
+  .card-cta-actions-row button[class*="wa-btn"],
+  .product-card a[href*="whatsapp"],
+  .product-card button[class*="whatsapp"],
+  article a[href*="whatsapp"],
+  article button[class*="whatsapp"],
+  div[class*="card"] a[href*="whatsapp"],
+  div[class*="card"] button[class*="whatsapp"] {
+    width: 100% !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+
+
+/* Desktop & Default Styling for Buy Now Button */
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 36px;
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* 1. Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2. Product Card Action Buttons: Side-by-Side Row */
+  .card-cta-actions-row,
+  .product-card-actions,
+  .product-card .card-actions,
+  .pickle-card-cta-wrap .card-cta-actions-row,
+  .spice-card-cta-wrap .card-cta-actions-row,
+  .snack-card-cta-wrap .card-cta-actions-row,
+  .dryfruit-card-cta-wrap .card-cta-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Sleek & Compact ADD TO CART button */
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart {
+    flex: 1 !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline {
+    display: none !important;
+  }
+
+  /* Sleek & Compact BUY NOW button */
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn {
+    flex: 1 !important;
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    padding: 6px 2px !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .btn-card-buy-now span,
+  .card-buy-btn span {
+    font-size: 0.68rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+  }
+
+  /* WhatsApp Quick-Order Icon: cleanly integrated beside them without taking over the card */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .whatsapp-btn,
+  .card-cta-actions-row .card-wa-btn {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    flex-shrink: 0 !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(37, 211, 102, 0.12) !important;
+    border: 1px solid rgba(37, 211, 102, 0.4) !important;
+    color: #25d366 !important;
+    box-sizing: border-box !important;
+  }
+
+  .card-wa-btn svg,
+  .pickle-card-wa-btn svg,
+  .spice-card-wa-btn svg,
+  .snack-card-wa-btn svg,
+  .dryfruit-card-wa-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: #25d366 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+}
+
+
+
+
+/* Desktop & Universal Action Buttons Structure */
+.card-btns-row {
+  display: flex;
+  width: 100%;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+  box-sizing: border-box;
+}
+
+.card-cta-actions-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-buy-btn,
+.btn-card-buy-now {
+  flex: 1;
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  color: #000000;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.card-buy-btn:hover,
+.btn-card-buy-now:hover {
+  background: #e6be68;
+  border-color: #e6be68;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.card-cta-actions-row .card-wa-btn {
+  width: 100%;
+  min-height: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.card-cta-actions-row .card-wa-btn:hover {
+  background: #25d366;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+
+/* ========================================================
+   ZOOQE Mobile Responsive Overrides (< 768px)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+  /* Header Right-Side Icons: Single Horizontal Row */
+  .site-header .nav-actions,
+  .navbar-inner .nav-actions,
+  .nav-center-right .nav-actions,
+  .nav-actions,
+  .header-actions,
+  header .right-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* WhatsApp button in header: hide text, show only icon as a neat 36px circular button */
+  #nav-whatsapp-btn,
+  .nav-whatsapp-btn,
+  .nav-actions .nav-whatsapp-btn,
+  .nav-actions button[class*="whatsapp"],
+  .header-actions .whatsapp-btn,
+  header .whatsapp-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+
+  #nav-whatsapp-btn span,
+  .nav-whatsapp-btn span,
+  .header-actions .whatsapp-btn span,
+  .nav-actions .whatsapp-btn span,
+  header .whatsapp-btn span {
+    display: none !important;
+  }
+
+  #nav-whatsapp-btn svg,
+  .nav-whatsapp-btn svg,
+  .header-actions .whatsapp-btn svg,
+  header .whatsapp-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  #nav-search-btn,
+  #nav-cart-btn,
+  #nav-hamburger {
+    display: flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* ==============================================================================
+   * Mobile Collection Sections Reset (< 768px): Vertical Stack & 2-Col Grid
+   * ============================================================================== */
+
+  /* 1. Reset Section Grid/Flex Container: Stack vertically into a single column */
+  .pickles-collection,
+  .pickles-collection-section,
+  .spices-collection,
+  .spices-collection-section,
+  .snacks-collection,
+  .snacks-collection-section,
+  .dryfruits-collection,
+  .dryfruits-collection-section,
+  .category-section,
+  .collection-layout,
+  .collection-section,
+  .section-container,
+  #pickles > .section-container,
+  #spices > .section-container,
+  #dry-fruits > .section-container,
+  #snacks > .section-container,
+  section[id="pickles"] > div,
+  section[id="spices"] > div,
+  section[id="dry-fruits"] > div,
+  section[id="snacks"] > div,
+  section > .section-container,
+  .collection-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Header/Text Side: Full width, centered text, bottom margin */
+  .section-header,
+  .section-header-center,
+  .collection-intro,
+  .category-intro,
+  .category-header,
+  .collection-header,
+  .section-intro,
+  .collection-text-col,
+  .section-left-col,
+  .pickles-collection-section .section-header-center,
+  .spices-collection-section .section-header-center,
+  .snacks-collection-section .section-header-center,
+  .dryfruits-collection-section .section-header-center,
+  #pickles .section-header-center,
+  #spices .section-header-center,
+  #dry-fruits .section-header-center,
+  #snacks .section-header-center,
+  .category-page-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. Products Grid Container: Clean 2-column mobile grid */
+  .products-grid,
+  .product-grid,
+  .collection-grid,
+  .collections-products-grid,
+  .pickles-grid,
+  .pickle-grid,
+  .spices-grid,
+  .spice-grid,
+  .snacks-grid,
+  .snack-grid,
+  .dryfruits-grid,
+  .dryfruit-grid,
+  .collection-right-col,
+  .products-column,
+  #pickles .pickles-grid,
+  #spices .spices-grid,
+  #dry-fruits .dryfruits-grid,
+  #snacks .snacks-grid,
+  #pickles .products-grid,
+  #spices .products-grid,
+  #dry-fruits .products-grid,
+  #snacks .products-grid,
+  div[class*="products-grid"],
+  div[class*="collection-grid"],
+  section:not(#collections) > .products-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Product Card Container: Compact padding, no forced min-height, overflow hidden */
+  article,
+  .product-card,
+  .pickle-card,
+  .spice-card,
+  .snack-card,
+  .dryfruit-card,
+  div[class*="product-card"],
+  div[class*="pickle-card"],
+  div[class*="spice-card"],
+  div[class*="snack-card"],
+  div[class*="dryfruit-card"],
+  div[class*="product-item"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .product-card img,
+  .pickle-card-img,
+  .spice-card-img,
+  .snack-card-img,
+  .dryfruit-card-img,
+  .product-item img {
+    height: 135px !important;
+    max-height: 135px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    margin-bottom: 4px !important;
+  }
+
+  .product-card h3,
+  .pickle-card-title,
+  .spice-card-title,
+  .snack-card-title,
+  .product-title {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin: 4px 0 2px 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .price,
+  span[class*="price"],
+  div[class*="price"],
+  .pickle-card-pricing-row,
+  .spice-card-pricing-row,
+  .snack-card-pricing-row,
+  .product-card-pricing {
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .pickle-card-content,
+  .spice-card-content,
+  .snack-card-content,
+  .dryfruit-card-content,
+  .product-card-body {
+    padding: 4px 0 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    min-height: unset !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .pickle-card-bottom-block,
+  .spice-card-bottom-block,
+  .snack-card-bottom-block,
+  .dryfruit-card-bottom-block {
+    margin-top: auto !important;
+    padding: 0 !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide Weight Selectors: Completely hide grams / weight variant buttons in cards */
+  .pickle-weight-selector-wrap,
+  .spice-weight-selector-wrap,
+  .snack-weight-selector-wrap,
+  .dryfruit-weight-selector-wrap,
+  .pickle-weight-pills,
+  .spice-weight-pills,
+  .snack-weight-pills,
+  .dryfruit-weight-pills,
+  .pickle-weight-btn,
+  .spice-weight-btn,
+  .snack-weight-btn,
+  .weight-selector,
+  .variant-selector,
+  .weight-pills,
+  .product-card-sizes,
+  .product-card .product-card-sizes,
+  .size-tag,
+  div[class*="weight"],
+  div[class*="variant"],
+  div[class*="size-tag"],
+  [class*="weight-selector"],
+  [class*="weight-pills"],
+  [class*="variant-selector"],
+  .product-card [class*="sizes"],
+  .product-card [class*="weight"],
+  .product-card [class*="variant"],
+  .pickle-card .pickle-weight-selector-wrap,
+  .spice-card .spice-weight-selector-wrap,
+  .snack-card .snack-weight-selector-wrap,
+  .dryfruit-card .snack-weight-selector-wrap {
+    display: none !important;
+  }
+
+  /* Keep product detail modal options and BUY NOW fully visible and interactive */
+  .product-modal-container .variant-btn,
+  .product-modal-container .product-modal-variants,
+  .product-modal-container [class*="variant"],
+  .product-modal-container .btn-detail-buy,
+  #modal-buy-now-btn {
+    display: inline-flex !important;
+  }
+
+  /* Action Container on mobile */
+  .card-actions,
+  .product-actions,
+  .card-cta-actions-row,
+  .product-card-actions,
+  .pickle-card-cta-wrap,
+  .spice-card-cta-wrap,
+  .snack-card-cta-wrap,
+  .dryfruit-card-cta-wrap {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* "ADD TO CART" is the ONLY main button visible on mobile product grid cards */
+  .btn-archive-cta,
+  .pickle-card-add-btn,
+  .spice-card-add-btn,
+  .snack-card-add-btn,
+  .dryfruit-card-add-btn,
+  .btn-card-add-cart,
+  .add-to-cart-btn,
+  .btn-cart {
+    width: 100% !important;
+    display: block !important;
+    padding: 8px 4px !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 4px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+    line-height: 1.2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-text {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .btn-archive-arrow,
+  .btn-archive-underline,
+  .btn-card-add-cart svg {
+    display: none !important;
+  }
+
+  /* Hide "BUY NOW" button from card grid view (available inside product details page) */
+  .product-card .btn-card-buy-now,
+  .product-card .card-buy-btn,
+  .product-card .buy-now-btn,
+  .pickle-card .pickle-card-buy-btn,
+  .spice-card .spice-card-buy-btn,
+  .snack-card .snack-card-buy-btn,
+  .dryfruit-card .dryfruit-card-buy-btn,
+  .btn-card-buy-now,
+  .card-buy-btn,
+  .pickle-card-buy-btn,
+  .spice-card-buy-btn,
+  .snack-card-buy-btn,
+  .dryfruit-card-buy-btn,
+  .buy-now-btn,
+  .card-secondary-row,
+  .card-buy-wa-row,
+  .card-buy-row {
+    display: none !important;
+  }
+
+  /* Hide inline WhatsApp icon button from cards (floating widget is available) */
+  .card-wa-btn,
+  .pickle-card-wa-btn,
+  .spice-card-wa-btn,
+  .snack-card-wa-btn,
+  .dryfruit-card-wa-btn,
+  .archive-card-wa-btn,
+  .product-card .card-wa-btn,
+  .product-card-actions .card-wa-btn,
+  .card-cta-actions-row .card-wa-btn,
+  .pickle-card-cta-wrap .card-wa-btn,
+  .spice-card-cta-wrap .card-wa-btn,
+  .snack-card-cta-wrap .card-wa-btn,
+  .dryfruit-card-cta-wrap .card-wa-btn,
+  button[class*="card-wa-btn"],
+  a[class*="card-wa-btn"] {
+    display: none !important;
+  }
+
+  /* Floating WhatsApp widget remains visible and accessible */
+  .floating-whatsapp-btn {
+    display: flex !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    z-index: 99 !important;
+  }
+
+  /* ========================================================
+     Signature Categories Section Layout (< 768px)
+     ======================================================== */
+  #collections .section-container,
+  .collections-section .section-container {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .categories-showcase-grid,
+  .categories-grid,
+  .signature-categories-container,
+  .category-cards,
+  #collections .categories-showcase-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 16px !important;
+    margin-top: 1.5rem !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .category-showcase-card,
+  .category-card,
+  [class*="category-card"],
+  [class*="category-showcase-card"] {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    border-radius: var(--radius-lg, 12px) !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: hidden !important;
+    background: rgba(11, 11, 15, 0.95) !important;
+    border: 1px solid rgba(212, 175, 55, 0.22) !important;
+  }
+
+  .category-showcase-card .category-card-media,
+  .category-card .category-card-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 200px !important;
+    border-radius: var(--radius-md, 8px) !important;
+    overflow: hidden !important;
+    margin-bottom: 12px !important;
+  }
+
+  .category-showcase-card .category-card-img,
+  .category-card .category-card-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .category-card-body,
+  .category-showcase-card .category-card-body {
+    padding: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  .category-card-eyebrow,
+  .category-showcase-card .category-card-eyebrow {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    text-transform: uppercase !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  .category-card-title,
+  .category-showcase-card .category-card-title {
+    font-size: 1.35rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-subtitle,
+  .category-showcase-card .category-card-subtitle {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
+  .category-card-desc,
+  .category-showcase-card .category-card-desc {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    margin: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+
+  .category-card-footer,
+  .category-showcase-card .category-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .category-card-link,
+  .category-showcase-card .category-card-link {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #d4af37 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
 }

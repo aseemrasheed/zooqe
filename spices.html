@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Spices Collection — Single-Origin Malabar Spices | ZOOQE</title>
   <meta name="description" content="Discover ZOOQE's hand-harvested single-origin Malabar spices: Tellicherry Black Pepper, Idukki Cardamom, Cloves, Cinnamon, Star Anise, Nutmeg Mace, and Kashmiri Saffron." />
   <meta name="keywords" content="Kerala spices, Malabar spices, Tellicherry black pepper, Idukki cardamom, Cloves, Cinnamon bark, Kashmiri saffron, Star anise, ZOOQE spices" />
@@ -35,6 +35,35 @@
     <div class="loader-brand-title">ZOOQE</div>
     <div class="loader-bar"></div>
   </div>
+  <script>
+    (function() {
+      var dismissed = false;
+      function dismissPreloader() {
+        if (dismissed) return;
+        dismissed = true;
+        var loaders = document.querySelectorAll('#page-loader, #preloader, .page-loader, .loader');
+        loaders.forEach(function(l) {
+          if (!l) return;
+          l.classList.add('loaded');
+          l.style.opacity = '0';
+          l.style.pointerEvents = 'none';
+          setTimeout(function() {
+            l.style.display = 'none';
+          }, 400);
+        });
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissPreloader, 200);
+      } else {
+        window.addEventListener('load', function() { setTimeout(dismissPreloader, 300); });
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 500); });
+      }
+
+      // Safety fallback: strictly maximum 1.5s
+      setTimeout(dismissPreloader, 1500);
+    })();
+  </script>
 
   <!-- Global Backdrop for Drawers -->
   <div id="drawer-backdrop" class="drawer-backdrop"></div>
@@ -258,11 +287,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tellicherry Black Pepper on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="tellicherry-black-pepper">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Tellicherry Black Pepper on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -314,11 +348,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Idukki Green Cardamom on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="idukki-green-cardamom">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Idukki Green Cardamom on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -370,11 +409,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cloves on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="cloves-grambu">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cloves on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -426,11 +470,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cinnamon Bark on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="cinnamon-bark">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Cinnamon Bark on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -482,11 +531,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Royal Mixed Masala on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="royal-mixed-masala">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Royal Mixed Masala on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -538,11 +592,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kerala Curry Masala on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="kerala-curry-masala">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kerala Curry Masala on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -594,11 +653,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Star Anise on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="star-anise-thakkolam">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Star Anise on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -650,11 +714,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Nutmeg Mace on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="nutmeg-mace">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Nutmeg Mace on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -705,11 +774,16 @@
                       <span class="btn-archive-arrow">→</span>
                       <span class="btn-archive-underline"></span>
                     </button>
-                    <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kashmiri Saffron on WhatsApp">
+                    <div class="card-secondary-row">
+                      <button type="button" class="btn-card-buy-now card-buy-btn spice-card-buy-btn" data-product-id="kashmiri-saffron">
+                      <span>BUY NOW</span>
+                    </button>
+                      <button type="button" class="card-wa-btn spice-card-wa-btn" title="Order on WhatsApp" aria-label="Order Kashmiri Saffron on WhatsApp">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"></path>
                       </svg>
                     </button>
+                    </div>
                   </div>
                 </div>
               </div>

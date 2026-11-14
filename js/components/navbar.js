@@ -34,10 +34,12 @@ export function initNavbar({ onOpenCart, onOpenWishlist, onOpenSearch }) {
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    if (currentScroll > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    if (header) {
+      if (currentScroll > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
     lastScroll = currentScroll;
   }, { passive: true });

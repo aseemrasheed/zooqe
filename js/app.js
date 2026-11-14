@@ -137,6 +137,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 7c-2. Global Delegated Click Handler for all BUY NOW buttons
+  document.addEventListener('click', (e) => {
+    const buyBtn = e.target.closest('.btn-card-buy-now, .card-buy-btn, .pickle-card-buy-btn, .spice-card-buy-btn, .snack-card-buy-btn, .dryfruit-card-buy-btn, .buy-now-btn, [data-action="buy-now"]');
+    if (!buyBtn) return;
+    if (buyBtn.closest('#product-details-modal') || buyBtn.id === 'modal-buy-now-btn') return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    const card = buyBtn.closest('[data-product-id]') || buyBtn.closest('.product-card, .pickle-card, .spice-card, .snack-card, .dryfruit-card');
+    const prodId = card ? card.dataset.productId : buyBtn.dataset.productId;
+    const product = PRODUCTS.find(p => p.id === prodId || (p.id === 'tuna-pickle' && prodId === 'fish-pickle'));
+
+    if (product) {
+      const selectedSize = (card && card.dataset.selectedSize) || (product.sizes && product.sizes[0]?.size) || '100g';
+      checkout.open({
+        isDirectBuy: true,
+        directProduct: product,
+        directSize: selectedSize,
+        directQuantity: 1
+      }, handleOrderSuccess);
+    } else {
+      checkout.open({ isDirectBuy: false }, handleOrderSuccess);
+    }
+  });
+
   // 7d. Category Tabs Bar Handler (Smooth scroll & tab switching)
   const categoryTabs = document.querySelectorAll('.category-tab-btn');
   const catSections = {

@@ -143,10 +143,12 @@ Store: ${CONFIG.brandName || 'ZOOQE'}`;
     // Standard sanitized flat JSON string payload without invalid nested objects
     return {
       access_key: String(CONFIG.web3forms?.accessKey || 'd78c8ba7-9ec7-4fe0-bb29-1891016f6dc7').trim(),
-      subject: 'New Order Received - Zooqe',
+      subject: "New ZOOQE Order Received - " + orderNumber,
+      from_name: 'ZOOQE Store Alerts',
       customer_name: String(customer.name || '').trim(),
       phone: String(customer.phone || '').trim(),
       address: sanitizedAddress,
+      pincode: String(customer.pincode || '').trim(),
       order_items: String(orderItemsSummary || '').trim(),
       total_amount: String(grandTotal).trim(),
       payment_method: String(paymentMethodCode === 'COD' ? 'COD' : paymentMode).trim(),
